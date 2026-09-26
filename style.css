@@ -1,0 +1,116 @@
+body {
+    margin: 0;
+    padding: 0;
+
+    background-color: black;
+    color: white;
+
+    font-family: Arial, sans-serif;
+    text-align: center;
+}
+
+
+/* CABEÇALHO */
+
+header {
+    padding: 20px;
+}
+
+
+/* MENU */
+
+nav {
+    margin: 30px 0;
+}
+
+nav a {
+    color: white;
+
+    text-decoration: none;
+
+    margin: 0 35px;
+
+    font-size: 18px;
+}
+
+nav a:hover {
+    color: #d4af37;
+}
+
+
+/* IMAGEM PRINCIPAL */
+
+.imagem-principal {
+    width: 100%;
+    height: 100vh;
+
+    object-fit: cover;
+}
+
+
+/* TÍTULOS */
+
+h1 {
+    font-size: 40px;
+}
+
+h2 {
+    font-size: 36px;
+}
+
+h3 {
+    font-size: 25px;
+}
+
+
+/* TEXTOS */
+
+p {
+    max-width: 800px;
+
+    margin: 20px auto;
+
+    line-height: 1.8;
+
+    font-size: 18px;
+}
+
+
+/* SEÇÕES */
+
+section {
+    margin-bottom: 80px;
+}
+
+
+/* RODAPÉ */
+
+footer {
+    padding: 40px;
+}
+/* RODAPÉ */
+
+footer {
+    padding: 40px;
+}
+
+
+/* IMAGENS DOS MENUS DE DOCES E SALGADOS */
+
+.imagem-menu {
+    width: 450px;
+    max-width: 90%;
+
+    border-radius: 15px;
+
+    cursor: pointer;
+
+    transition: 0.3s;
+}
+
+
+/* EFEITO AO PASSAR O MOUSE */
+
+.imagem-menu:hover {
+    transform: scale(1.05);
+}
