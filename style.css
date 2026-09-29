@@ -1,691 +1,855 @@
-/* ==================================
-   CONFIGURAÇÃO GERAL
-================================== */
+/* =========================================================
+   ROSITA DOCES
+   STYLE.CSS LIMPO
+========================================================= */
+
+
+/* =========================================================
+   1. CONFIGURAÇÕES GERAIS
+========================================================= */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+
+html {
+    scroll-behavior: smooth;
+}
+
 
 body {
     margin: 0;
-    padding: 0;
 
     background-color: #fff8f5;
 
     color: #5b1f1f;
 
-    font-family: Arial, sans-serif;
+    font-family: Arial, Helvetica, sans-serif;
 
     text-align: center;
 }
 
 
-/* ==================================
-   CABEÇALHO
-================================== */
-
-header {
-    padding: 0;
+img {
+    display: block;
+    max-width: 100%;
 }
 
 
-/* ==================================
-   LOGO
-================================== */
-
-.topo {
-    background-color: #fbe4df;
-
-    text-align: center;
-
-    padding: 20px;
+a {
+    text-decoration: none;
 }
 
 
-.logo {
-    width: 250px;
+/* =========================================================
+   2. CABEÇALHO
+========================================================= */
 
-    max-width: 80%;
-
-    height: auto;
-}
-
-
-/* ==================================
-   MENU - FITA VERMELHA
-================================== */
-
-.menu {
-    position: relative;
-
-    display: flex;
-
-    align-items: center;
-
-    justify-content: center;
-
+.cabecalho {
     width: 100%;
 
-    min-height: 85px;
+    height: 100px;
 
-    padding: 0;
+    background-color: #8b0d18;
 
-    margin: 0;
+    border-bottom: 2px solid #d8a94b;
 
-    background: linear-gradient(
-        to bottom,
-        #e03b4b 0%,
-        #c31a2d 40%,
-        #990b1c 75%,
-        #bd172a 100%
-    );
+    position: relative;
 
-    border-top: 3px solid #d4af37;
-
-    border-bottom: 3px solid #d4af37;
-
-    box-shadow:
-        0 5px 10px rgba(70, 0, 0, 0.35),
-        inset 0 3px 5px rgba(255,255,255,0.25);
-
-    overflow: visible;
-
-    box-sizing: border-box;
+    z-index: 100;
 }
 
 
-/* ==================================
-   DOIS LADOS DO MENU
-================================== */
+.cabecalho-conteudo {
+    position: relative;
 
-.menu-esquerda,
-.menu-direita {
+    width: 100%;
+    max-width: 1500px;
+
+    height: 100px;
+
+    margin: 0 auto;
+
+    padding: 0 25px;
 
     display: flex;
 
     align-items: center;
-
-    gap: 25px;
-
-    width: 42%;
 }
 
 
-.menu-esquerda {
+/* =========================================================
+   3. LOGO CENTRAL
+========================================================= */
 
-    justify-content: flex-end;
-
-    padding-right: 110px;
-}
-
-
-.menu-direita {
-
-    justify-content: flex-start;
-
-    padding-left: 110px;
-}
-
-
-/* ==================================
-   LINKS DO MENU
-================================== */
-
-.menu a {
-
-    color: #fff8e7;
-
-    text-decoration: none;
-
-    font-size: 16px;
-
-    font-weight: bold;
-
-    white-space: nowrap;
-
-    text-shadow:
-        1px 1px 3px rgba(70,0,0,0.8);
-
-    transition: 0.3s;
-}
-
-
-.menu a:hover {
-
-    color: #f3d77b;
-
-    transform: translateY(-3px);
-}
-
-
-/* ==================================
-   LAÇO CENTRAL
-================================== */
-
-.laco {
-
+.marca {
     position: absolute;
 
     left: 50%;
-
     top: 50%;
 
     transform: translate(-50%, -50%);
 
-    width: 210px;
+    z-index: 30;
 
-    height: 210px;
-
-    z-index: 20;
-
-    pointer-events: none;
-}
-
-
-/* ==================================
-   LADO ESQUERDO DO LAÇO
-================================== */
-
-.laco-esquerdo {
-
-    position: absolute;
-
-    width: 90px;
-
-    height: 65px;
-
-    left: 12px;
-
-    top: 35px;
-
-    background: radial-gradient(
-        circle at 70% 40%,
-        #f25c68,
-        #cf2033 45%,
-        #850814 100%
-    );
-
-    border: 3px solid #d4af37;
-
-    border-radius:
-        70% 35% 55% 70%;
-
-    transform: rotate(12deg);
-
-    box-shadow:
-        inset 5px 5px 7px rgba(255,255,255,0.35),
-        inset -5px -5px 8px rgba(70,0,0,0.30),
-        3px 5px 8px rgba(70,0,0,0.40);
-}
-
-
-/* ==================================
-   LADO DIREITO DO LAÇO
-================================== */
-
-.laco-direito {
-
-    position: absolute;
-
-    width: 90px;
-
-    height: 65px;
-
-    right: 12px;
-
-    top: 35px;
-
-    background: radial-gradient(
-        circle at 30% 40%,
-        #f25c68,
-        #cf2033 45%,
-        #850814 100%
-    );
-
-    border: 3px solid #d4af37;
-
-    border-radius:
-        35% 70% 70% 55%;
-
-    transform: rotate(-12deg);
-
-    box-shadow:
-        inset -5px 5px 7px rgba(255,255,255,0.35),
-        inset 5px -5px 8px rgba(70,0,0,0.30),
-        3px 5px 8px rgba(70,0,0,0.40);
-}
-
-
-/* ==================================
-   NÓ DO LAÇO
-================================== */
-
-.laco-centro {
-
-    position: absolute;
-
-    width: 60px;
-
-    height: 60px;
-
-    left: 50%;
-
-    top: 39px;
-
-    transform: translateX(-50%);
-
-    background: radial-gradient(
-        circle at 35% 25%,
-        #ff7c85,
-        #d22235 50%,
-        #790713 100%
-    );
-
-    border: 3px solid #d4af37;
-
-    border-radius: 50%;
-
-    z-index: 5;
-
-    box-shadow:
-        inset 4px 4px 6px rgba(255,255,255,0.40),
-        inset -4px -4px 6px rgba(70,0,0,0.25),
-        0 5px 8px rgba(70,0,0,0.50);
-}
-
-
-/* ==================================
-   PONTAS DO LAÇO
-================================== */
-
-.fita-esquerda,
-.fita-direita {
-
-    position: absolute;
-
-    width: 45px;
-
-    height: 135px;
-
-    top: 85px;
-
-    background: linear-gradient(
-        to right,
-        #850713,
-        #e43a4b,
-        #920816
-    );
-
-    border-left: 3px solid #d4af37;
-
-    border-right: 3px solid #d4af37;
-
-    clip-path: polygon(
-        0 0,
-        100% 0,
-        88% 100%,
-        50% 78%,
-        12% 100%
-    );
-
-    z-index: 2;
-}
-
-
-.fita-esquerda {
-
-    left: 62px;
-
-    transform: rotate(12deg);
-}
-
-
-.fita-direita {
-
-    right: 62px;
-
-    transform: rotate(-12deg);
-}
-
-
-/* ==================================
-   APRESENTAÇÃO PRINCIPAL
-================================== */
-
-.principal {
+    width: 140px;
+    height: 90px;
 
     display: flex;
 
     align-items: center;
-
     justify-content: center;
 
-    min-height: 600px;
-
-    padding: 70px 40px 40px;
-
-    margin-bottom: 80px;
-
-    background-color: #fff0eb;
+    background-color: #8b0d18;
 }
 
 
-.apresentacao {
+.logo {
+    width: 82px;
+    height: 82px;
 
-    width: 45%;
-
-    text-align: center;
-
-    padding: 30px;
-}
-
-
-.apresentacao h1 {
-
-    font-size: 45px;
-
-    color: #5b1f1f;
-}
-
-
-.apresentacao h1 span {
+    object-fit: contain;
 
     display: block;
-
-    font-size: 70px;
-
-    color: #a62835;
 }
 
 
-.pequeno-titulo {
+/* =========================================================
+   4. MENU
+========================================================= */
 
-    color: #d86d76;
+.menu {
+    width: 100%;
+    height: 100px;
 
-    font-size: 22px;
+    display: grid;
+
+    /*
+       esquerda | logo | direita
+    */
+
+    grid-template-columns:
+        1fr
+        150px
+        1fr;
+
+    align-items: center;
 }
 
 
-/* ==================================
-   FOTO PRINCIPAL
-================================== */
+/* =========================================================
+   LADO ESQUERDO
+========================================================= */
 
-.foto-principal {
+.menu-esquerda {
+    height: 100%;
 
-    width: 55%;
+    display: flex;
+
+    align-items: center;
+    justify-content: space-evenly;
 }
 
 
-.foto-principal img {
+/* =========================================================
+   ESPAÇO CENTRAL DO LOGO
+========================================================= */
+
+.espaco-logo {
+    width: 150px;
+    height: 100%;
+}
+
+
+/* =========================================================
+   LADO DIREITO
+========================================================= */
+
+.menu-direita {
+    height: 100%;
+
+    display: flex;
+
+    align-items: center;
+    justify-content: space-evenly;
+}
+
+
+/* =========================================================
+   LINKS
+========================================================= */
+
+.menu-esquerda a,
+.menu-direita a {
+    display: flex;
+
+    align-items: center;
+    justify-content: center;
+
+    color: #e5bd62;
+
+    font-family: Georgia, "Times New Roman", serif;
+
+    font-size: 13px;
+    font-weight: bold;
+
+    text-transform: uppercase;
+
+    letter-spacing: 0.5px;
+
+    white-space: nowrap;
+
+    transition: 0.3s;
+}
+
+
+.menu-esquerda a:hover,
+.menu-direita a:hover {
+    color: #fff2b9;
+}
+
+
+/* =========================================================
+   ENCOMENDAS
+========================================================= */
+
+.menu-direita .menu-destaque {
+    padding: 13px 20px;
+
+    border: 2px solid #d8a94b;
+
+    border-radius: 5px;
+
+    color: #e5bd62;
+}
+
+
+.menu-direita .menu-destaque:hover {
+    background-color: #d8a94b;
+
+    color: #6d1018;
+}
+
+
+/* =========================================================
+   5. BOTÃO ENCOMENDAS
+========================================================= */
+
+.menu .menu-destaque {
+    justify-self: center;
+
+    width: auto;
+    height: auto;
+
+    padding: 13px 20px;
+
+    border: 2px solid #d8a94b;
+
+    border-radius: 5px;
+
+    color: #e5bd62;
+}
+
+
+.menu .menu-destaque:hover {
+    background-color: #d8a94b;
+
+    color: #6d1018;
+}
+
+
+/* =========================================================
+   6. HERO
+   FOTO GRANDE DO BOLO
+========================================================= */
+
+.hero {
+    position: relative;
 
     width: 100%;
 
-    height: 550px;
+    height: 78vh;
+    min-height: 620px;
+
+    margin: 0;
+    padding: 0;
+
+    overflow: hidden;
+}
+
+
+/* FOTO */
+
+.hero-imagem {
+    position: absolute;
+
+    top: 0;
+    left: 0;
+
+    width: 100%;
+    height: 100%;
 
     object-fit: cover;
 
-    border-radius: 25px;
+    object-position: center;
 }
 
 
-/* ==================================
-   TÍTULOS
-================================== */
+/* SOMBRA SOBRE A FOTO */
 
-h1 {
+.hero-sombra {
+    position: absolute;
 
-    font-size: 40px;
+    inset: 0;
+
+    background: linear-gradient(
+        90deg,
+        rgba(55, 10, 12, 0.78) 0%,
+        rgba(55, 10, 12, 0.48) 42%,
+        rgba(55, 10, 12, 0.08) 78%
+    );
 }
 
 
-h2 {
+/* =========================================================
+   7. CONTEÚDO DO HERO
+========================================================= */
 
-    font-size: 36px;
-}
+.hero-conteudo {
+    position: relative;
 
+    z-index: 2;
 
-h3 {
+    width: 100%;
+    max-width: 1400px;
 
-    font-size: 25px;
-}
+    height: 100%;
 
+    margin: 0 auto;
 
-/* ==================================
-   TEXTOS
-================================== */
+    padding: 0 70px;
 
-p {
+    display: flex;
 
-    max-width: 800px;
+    flex-direction: column;
 
-    margin: 20px auto;
-
-    line-height: 1.8;
-
-    font-size: 18px;
-}
-
-
-/* ==================================
-   SEÇÕES
-================================== */
-
-section {
-
-    margin-bottom: 80px;
-}
-
-
-/* ==================================
-   BOTÃO PRINCIPAL
-================================== */
-
-.botao {
-
-    display: inline-block;
-
-    background-color: #a62835;
+    justify-content: center;
+    align-items: flex-start;
 
     color: white;
 
-    text-decoration: none;
+    text-align: left;
+}
 
-    padding: 15px 30px;
 
-    margin-top: 20px;
+/* CONFEITARIA GOURMET */
 
-    border-radius: 30px;
+.hero-pequeno {
+    margin: 0 0 25px;
+
+    color: #f0cb77;
+
+    font-family: Georgia, "Times New Roman", serif;
+
+    font-size: 15px;
 
     font-weight: bold;
 
+    text-transform: uppercase;
+
+    letter-spacing: 4px;
+
+    text-align: left;
+}
+
+
+/* LINHAS E CORAÇÃO */
+
+.hero-pequeno::after {
+    content: "──────  ♥  ──────";
+
+    display: block;
+
+    margin-top: 17px;
+
+    color: #e5bd62;
+
+    font-size: 14px;
+
+    letter-spacing: 2px;
+}
+
+
+/* =========================================================
+   8. ROSITA DOCES
+========================================================= */
+
+.hero h1 {
+    margin: 0;
+
+    color: white;
+
+    font-family: Georgia, "Times New Roman", serif;
+
+    font-size: clamp(80px, 8vw, 135px);
+
+    font-weight: normal;
+
+    line-height: 0.80;
+
+    text-align: left;
+}
+
+
+.hero h1 span {
+    display: block;
+
+    margin-top: 8px;
+    margin-left: 5px;
+
+    color: white;
+
+    font-size: 0.58em;
+}
+
+
+/* =========================================================
+   9. FRASE DO HERO
+========================================================= */
+
+.hero-frase {
+    max-width: 520px;
+
+    margin: 35px 0 15px;
+
+    color: white;
+
+    font-family: Georgia, "Times New Roman", serif;
+
+    font-size: 22px;
+
+    line-height: 1.5;
+
+    text-align: left;
+}
+
+
+/* =========================================================
+   10. BOTÃO DO HERO
+========================================================= */
+
+.hero .botao {
+    display: inline-block;
+
+    margin-top: 20px;
+
+    padding: 16px 30px;
+
+    background-color: rgba(125, 15, 26, 0.75);
+
+    border: 2px solid #d8a94b;
+
+    border-radius: 5px;
+
+    color: #f0cb77;
+
+    font-size: 12px;
+
+    font-weight: bold;
+
+    text-transform: uppercase;
+
+    letter-spacing: 1.5px;
+
     transition: 0.3s;
 }
 
 
-.botao:hover {
+.hero .botao::after {
+    content: "  →";
 
-    background-color: #7e1e29;
-
-    transform: scale(1.05);
+    margin-left: 12px;
 }
 
 
-/* ==================================
-   IMAGENS DOS PRODUTOS
-================================== */
+.hero .botao:hover {
+    background-color: #d8a94b;
+
+    color: #6d1018;
+
+    transform: translateY(-2px);
+}
+
+
+/* =========================================================
+   11. SEÇÕES GERAIS
+========================================================= */
+
+main > section:not(.hero) {
+    padding: 80px 30px;
+
+    margin: 0;
+}
+
+
+main > section:not(.hero) h2 {
+    margin-bottom: 30px;
+
+    color: #681e27;
+
+    font-family: Georgia, "Times New Roman", serif;
+
+    font-size: 42px;
+
+    font-weight: normal;
+}
+
+
+main > section:not(.hero) h3 {
+    margin: 25px 0 15px;
+
+    color: #8b0d18;
+
+    font-family: Georgia, "Times New Roman", serif;
+
+    font-size: 27px;
+}
+
+
+main > section:not(.hero) p {
+    max-width: 800px;
+
+    margin: 15px auto;
+
+    color: #6d4a4a;
+
+    font-size: 18px;
+
+    line-height: 1.8;
+}
+
+
+/* =========================================================
+   12. IMAGENS DOS PRODUTOS
+========================================================= */
 
 .imagem-menu {
-
-    width: 450px;
-
+    width: 500px;
     max-width: 90%;
 
-    border-radius: 15px;
+    margin: 35px auto;
+
+    border-radius: 8px;
 
     cursor: pointer;
 
-    transition: 0.3s;
+    transition: 0.4s;
 }
 
 
 .imagem-menu:hover {
-
-    transform: scale(1.05);
+    transform: scale(1.03);
 }
 
 
-/* ==================================
-   PRÓLOGO DA HISTÓRIA
-================================== */
+/* =========================================================
+   13. NOSSA HISTÓRIA
+========================================================= */
 
 .prologo-historia {
-
-    background-color: #fbe4df;
-
-    padding: 70px 30px;
-
-    margin-bottom: 80px;
+    background-color: #f7e5de;
 }
 
 
-.prologo-historia h2 {
+.prologo-historia .pequeno-titulo {
+    color: #b06d62;
 
-    color: #7e1e29;
+    font-size: 14px;
 
-    max-width: 750px;
+    font-weight: bold;
 
-    margin: 15px auto 30px;
+    text-transform: uppercase;
+
+    letter-spacing: 3px;
 }
 
-
-.prologo-historia p {
-
-    color: #5b1f1f;
-
-    max-width: 750px;
-}
-
-
-/* ==================================
-   BOTÃO DA HISTÓRIA
-================================== */
 
 .botao-historia {
-
     display: inline-block;
 
-    background-color: #a62835;
+    margin-top: 25px;
+
+    padding: 15px 28px;
+
+    background-color: #8b0d18;
+
+    border: 2px solid #8b0d18;
+
+    border-radius: 5px;
 
     color: white;
 
-    text-decoration: none;
-
-    padding: 15px 30px;
-
-    margin-top: 20px;
-
-    border-radius: 30px;
+    font-size: 13px;
 
     font-weight: bold;
+
+    text-transform: uppercase;
+
+    letter-spacing: 1px;
 
     transition: 0.3s;
 }
 
 
 .botao-historia:hover {
+    background-color: transparent;
 
-    background-color: #7e1e29;
-
-    transform: scale(1.05);
+    color: #8b0d18;
 }
 
 
-/* ==================================
-   RODAPÉ
-================================== */
+/* =========================================================
+   14. RODAPÉ
+========================================================= */
 
 footer {
+    padding: 55px 30px;
 
-    padding: 40px;
+    background-color: #391719;
 
-    background-color: #fbe4df;
+    color: #f5e4dc;
+}
+
+
+footer h3 {
+    margin-bottom: 25px;
+
+    font-family: Georgia, "Times New Roman", serif;
+
+    font-size: 35px;
+
+    font-weight: normal;
 }
 
 
 .menu-rodape {
-
     margin: 25px 0;
+
+    display: flex;
+
+    justify-content: center;
+
+    flex-wrap: wrap;
+
+    gap: 25px;
 }
 
 
 .menu-rodape a {
+    color: #e5bd62;
 
-    color: #7e1e29;
-
-    text-decoration: none;
-
-    margin: 0 15px;
+    font-size: 13px;
 
     font-weight: bold;
+
+    text-transform: uppercase;
 }
 
 
 .menu-rodape a:hover {
-
-    color: #d4af37;
+    color: white;
 }
 
 
-/* ==================================
-   RESPONSIVIDADE
-================================== */
+footer p {
+    margin-top: 25px;
 
-@media (max-width: 1000px) {
+    color: #d8bbb3;
+
+    line-height: 1.7;
+}
+
+
+/* =========================================================
+   15. TABLET
+========================================================= */
+
+@media (max-width: 1100px) {
+
+    .cabecalho-conteudo {
+        padding: 0 15px;
+    }
+
 
     .menu {
-
-        padding: 20px 10px;
-    }
-
-
-    .menu-esquerda,
-    .menu-direita {
-
-        gap: 10px;
-
-        width: 43%;
-    }
-
-
-    .menu-esquerda {
-
-        padding-right: 80px;
-    }
-
-
-    .menu-direita {
-
-        padding-left: 80px;
+        grid-template-columns:
+            1fr
+            1fr
+            1fr
+            130px
+            1fr
+            1fr
+            1fr
+            1fr;
     }
 
 
     .menu a {
+        padding: 0 4px;
 
-        font-size: 13px;
+        font-size: 10px;
+
+        letter-spacing: 0;
     }
 
 
-    .principal {
+    .logo {
+        width: 95px;
+        height: 95px;
+    }
+
+
+    .hero-conteudo {
+        padding: 0 45px;
+    }
+}
+
+
+/* =========================================================
+   16. CELULAR
+========================================================= */
+
+@media (max-width: 800px) {
+
+    .cabecalho-conteudo {
+        min-height: auto;
+
+        padding: 15px 20px 20px;
 
         flex-direction: column;
     }
 
 
-    .apresentacao,
-    .foto-principal {
+    .marca {
+        position: relative;
 
-        width: 90%;
+        left: auto;
+        top: auto;
+
+        transform: none;
+
+        margin-bottom: 10px;
     }
 
 
-    .apresentacao h1 span {
+    .logo {
+        width: 100px;
+        height: 100px;
+    }
 
-        font-size: 50px;
+
+    .menu {
+        display: flex;
+
+        justify-content: center;
+
+        flex-wrap: wrap;
+
+        gap: 5px 18px;
+    }
+
+
+    .menu a {
+        min-height: auto;
+
+        padding: 8px 4px;
+
+        font-size: 11px;
+    }
+
+
+    .menu .menu-destaque {
+        padding: 10px 15px;
+    }
+
+
+    .hero {
+        height: 70vh;
+
+        min-height: 550px;
+    }
+
+
+    .hero-conteudo {
+        padding: 0 30px;
+    }
+
+
+    .hero h1 {
+        font-size: clamp(65px, 17vw, 95px);
+    }
+
+
+    .hero-frase {
+        font-size: 19px;
+    }
+
+
+    .hero-pequeno {
+        font-size: 12px;
+
+        letter-spacing: 3px;
+    }
+
+
+    main > section:not(.hero) {
+        padding: 65px 25px;
+    }
+
+
+    main > section:not(.hero) h2 {
+        font-size: 35px;
+    }
+}
+
+
+/* =========================================================
+   17. CELULAR PEQUENO
+========================================================= */
+
+@media (max-width: 480px) {
+
+    .hero-conteudo {
+        padding: 0 22px;
+    }
+
+
+    .hero h1 {
+        font-size: 60px;
+    }
+
+
+    .hero-frase {
+        font-size: 17px;
+    }
+
+
+    .hero .botao {
+        padding: 13px 18px;
+
+        font-size: 10px;
+    }
+
+
+    main > section:not(.hero) h2 {
+        font-size: 31px;
+    }
+
+
+    main > section:not(.hero) p {
+        font-size: 16px;
     }
 }

@@ -23,12 +23,13 @@
          CABEÇALHO
     =================================== -->
 
-    <header>
+    <header class="cabecalho">
 
+    <div class="cabecalho-conteudo">
 
         <!-- LOGO -->
 
-        <div class="topo">
+        <a href="index.html" class="marca">
 
             <img
                 src="imagens/Imagem do ChatGPT 29 de set. de 2026, 06_54_00.png"
@@ -36,81 +37,64 @@
                 class="logo"
             >
 
-        </div>
+        </a>
 
 
-        <!-- ==================================
-             MENU / FITA
-        =================================== -->
+        <!-- MENU PRINCIPAL -->
 
-        <nav class="menu">
+       <nav class="menu">
 
+    <!-- LADO ESQUERDO -->
 
-            <!-- LADO ESQUERDO -->
+    <div class="menu-esquerda">
 
-            <div class="menu-esquerda">
+        <a href="index.html">
+            Início
+        </a>
 
-                <a href="index.html">
-                    🏠 Início
-                </a>
+        <a href="sobre.html">
+            Nossa História
+        </a>
 
-                <a href="sobre.html">
-                    ♥ Nossa História
-                </a>
+        <a href="doces.html">
+            Doces
+        </a>
 
-                <a href="doces.html">
-                    🧁 Doces
-                </a>
-
-            </div>
+    </div>
 
 
-            <!-- ==================================
-                 LAÇO CENTRAL
-            =================================== -->
+    <!-- ESPAÇO EXCLUSIVO PARA O LOGO -->
 
-            <div class="laco">
-
-                <span class="laco-esquerdo"></span>
-
-                <span class="laco-direito"></span>
-
-                <span class="laco-centro"></span>
-
-                <span class="fita-esquerda"></span>
-
-                <span class="fita-direita"></span>
-
-            </div>
+    <div class="espaco-logo"></div>
 
 
-            <!-- LADO DIREITO -->
+    <!-- LADO DIREITO -->
 
-            <div class="menu-direita">
+    <div class="menu-direita">
 
-                <a href="salgados.html">
-                    🥐 Salgados
-                </a>
+        <a href="salgados.html">
+            Salgados
+        </a>
 
-                <a href="geladinhos.html">
-                    🍦 Geladinhos
-                </a>
+        <a href="geladinhos.html">
+            Geladinhos
+        </a>
 
-                <a href="localizacao.html">
-                    📍 Localização
-                </a>
+        <a href="localizacao.html">
+            Localização
+        </a>
 
-                <a href="contato.html">
-                    ☎ Contato
-                </a>
+        <a href="contato.html"
+           class="menu-destaque">
+            Encomendas
+        </a>
 
-            </div>
+    </div>
 
+</nav>
+    </div>
 
-        </nav>
-
-
-    </header>
+</header>
 
 
     <!-- ==================================
@@ -122,52 +106,56 @@
 
         <!-- APRESENTAÇÃO -->
 
-        <section class="principal">
+        <!-- PRIMEIRA TELA DO SITE -->
+
+<section class="hero">
+
+    <!-- FOTO GRANDE -->
+
+    <img
+        src="imagens/bolo de chocolate e morango.jpg"
+        alt="Bolo artesanal Rosita Doces"
+        class="hero-imagem"
+    >
 
 
-            <div class="apresentacao">
+    <!-- ESCURECIMENTO DA FOTO -->
 
-                <p class="pequeno-titulo">
-                    Doces momentos ♥
-                </p>
+    <div class="hero-sombra"></div>
 
 
-                <h1>
-                    Bem-vindo à
+    <!-- TEXTO SOBRE A FOTO -->
 
-                    <span>
-                        Rosita Doces
-                    </span>
-                </h1>
+    <div class="hero-conteudo">
 
-
-                <p>
-                    Mais do que fazer doces, criamos experiências
-                    saborosas e momentos especiais.
-                </p>
+        <p class="hero-pequeno">
+            Confeitaria Gourmet
+        </p>
 
 
-                <a href="doces.html"
-                   class="botao">
-
-                    🧁 Conheça nossos produtos
-
-                </a>
-
-            </div>
+        <h1>
+            Rosita
+            <span>Doces</span>
+        </h1>
 
 
-            <div class="foto-principal">
-
-                <img
-                    src="imagens/bolo de chocolate e morango.jpg"
-                    alt="Bolo artesanal Rosita Doces"
-                >
-
-            </div>
+        <p class="hero-frase">
+            Feita com carinho, dedicação
+            e paixão pela confeitaria.
+        </p>
 
 
-        </section>
+        <a href="doces.html"
+           class="botao botao-claro">
+
+            Conheça nossas delícias
+
+        </a>
+
+    </div>
+
+</section>
+
 
 
         <!-- ==================================
@@ -212,7 +200,7 @@
             <a href="doces.html">
 
                 <img
-                    src="imagens/doces.jpg"
+                    src="imagens/brigaderios doces.webp"
                     alt="Clique para conhecer nosso menu de doces"
                     class="imagem-menu"
                 >
@@ -253,7 +241,7 @@
             <a href="salgados.html">
 
                 <img
-                    src="imagens/salgados.jpg"
+                    src="imagens/salgados gourmet.jpg"
                     alt="Clique para conhecer nosso menu de salgados"
                     class="imagem-menu"
                 >
@@ -301,7 +289,7 @@
             <a href="geladinhos.html">
 
                 <img
-                    src="imagens/geladinho.jpg"
+                    src="imagens/geladinho gourmet.webp"
                     alt="Geladinhos Gourmet"
                     class="imagem-menu"
                 >
