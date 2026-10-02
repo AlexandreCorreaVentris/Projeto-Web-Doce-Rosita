@@ -1,418 +1,262 @@
 <!DOCTYPE html>
-
 <html lang="pt-br">
-
 <head>
-
     <meta charset="UTF-8">
-
-    <meta name="viewport"
-          content="width=device-width, initial-scale=1.0">
-
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Rosita Doces</title>
-
     <link rel="stylesheet" href="style.css">
-
 </head>
-
-
 <body>
-
-
     <!-- ==================================
          CABEÇALHO
     =================================== -->
-
     <header class="cabecalho">
-
-    <div class="cabecalho-conteudo">
-
-        <!-- LOGO -->
-
-        <a href="index.html" class="marca">
-
-            <img
-                src="imagens/Imagem do ChatGPT 29 de set. de 2026, 06_54_00.png"
-                alt="Logo Rosita Doces"
-                class="logo"
-            >
-
-        </a>
-
-
-        <!-- MENU PRINCIPAL -->
-
-       <nav class="menu">
-
-    <!-- LADO ESQUERDO -->
-
-    <div class="menu-esquerda">
-
-        <a href="index.html">
-            Início
-        </a>
-
-        <a href="sobre.html">
-            Nossa História
-        </a>
-
-        <a href="doces.html">
-            Doces
-        </a>
-
-    </div>
-
-
-    <!-- ESPAÇO EXCLUSIVO PARA O LOGO -->
-
-    <div class="espaco-logo"></div>
-
-
-    <!-- LADO DIREITO -->
-
-    <div class="menu-direita">
-
-        <a href="salgados.html">
-            Salgados
-        </a>
-
-        <a href="geladinhos.html">
-            Geladinhos
-        </a>
-
-        <a href="localizacao.html">
-            Localização
-        </a>
-
-        <a href="contato.html"
-           class="menu-destaque">
-            Encomendas
-        </a>
-
-    </div>
-
-</nav>
-    </div>
-
-</header>
-
+        <div class="cabecalho-conteudo">
+            <!-- LOGO -->
+            <a href="inicio.html" class="marca">
+                <img
+                    src="imagens/logo.png"
+                    alt="Logo Rosita Doces"
+                    class="logo"
+                >    
+            </a>
+            <!-- MENU PRINCIPAL -->
+            <nav class="menu">
+                <!-- LADO ESQUERDO -->
+                <div class="menu-esquerda">
+                    <a href="inicio.html">Início</a>
+                    <a href="sobre.html">Nossa História</a>
+                    <a href="doces.html">Doces</a>
+                </div>
+                <!-- ESPAÇO EXCLUSIVO PARA O LOGO -->
+                <div class="espaco-logo"></div>
+                <!-- LADO DIREITO -->
+                <div class="menu-direita">
+                    <a href="salgados.html">Salgados</a>
+                    <a href="geladinhos.html">Geladinhos</a>
+                    <a href="localizacao.html">Localização</a>
+                    <a href="contato.html" class="menu-destaque">Encomendas</a>
+                </div>
+            </nav>
+        </div>
+    </header>
 
     <!-- ==================================
          CONTEÚDO PRINCIPAL
     =================================== -->
-
     <main id="inicio">
+        <!-- APRESENTAÇÃO / HERO -->
+        <section class="hero">
+            <div class="slider">
+                <div class="slides">
+                    <div class="slide active">
+                        <img 
+                            src="imagens/bolo de chocolate e morango.png"
+                            alt="Bolo artesanal Rosita Doces"
+                            class="hero-imagem">
+                    </div>
+                    <div class="slide">
+                        <img class="hero-imagem"
+                            src="imagens/salgados gourmet.jpg" alt="Salgados gourmet Rosita Doces">
+                    </div>
+                    <div class="slide">
+                        <img class="hero-imagem"
+                            src="imagens/geladinho gourmet.webp" alt="Geladinhos gourmet Rosita Doces">
+                    </div>
+                </div>
 
+                <button class="antes" onclick="mudarSlide(-1)">❮</button>
+                <button class="proximo" onclick="mudarSlide(1)">❯</button>
 
-        <!-- APRESENTAÇÃO -->
+                <div class="pontos">
+                    <span onclick="irParaSlide(0)"></span>
+                    <span onclick="irParaSlide(1)"></span>
+                    <span onclick="irParaSlide(2)"></span>
+                </div>
+            </div>
 
-        <!-- PRIMEIRA TELA DO SITE -->
-
-<section class="hero">
-
-    <!-- FOTO GRANDE -->
-
-    <img
-        src="imagens/bolo de chocolate e morango.jpg"
-        alt="Bolo artesanal Rosita Doces"
-        class="hero-imagem"
-    >
-
-
-    <!-- ESCURECIMENTO DA FOTO -->
-
-    <div class="hero-sombra"></div>
-
-
-    <!-- TEXTO SOBRE A FOTO -->
-
-    <div class="hero-conteudo">
-
-        <p class="hero-pequeno">
-            Confeitaria Gourmet
-        </p>
-
-
-        <h1>
-            Rosita
-            <span>Doces</span>
-        </h1>
-
-
-        <p class="hero-frase">
-            Feita com carinho, dedicação
-            e paixão pela confeitaria.
-        </p>
-
-
-        <a href="doces.html"
-           class="botao botao-claro">
-
-            Conheça nossas delícias
-
-        </a>
-
-    </div>
-
-</section>
-
-
+            <!-- ESCURECIMENTO DA FOTO -->
+            <div class="hero-sombra"></div>
+            <!-- TEXTO SOBRE A FOTO -->
+            <div class="hero-conteudo">
+                <p class="hero-pequeno">
+                    Confeitaria Gourmet
+                </p>
+                <h1>
+                    Rosita
+                    <span>Doces</span>
+                </h1>
+                <p class="hero-frase">
+                    Feita com carinho, dedicação
+                    e paixão pela confeitaria.
+                </p>
+                <a href="doces.html" class="botao botao-claro">
+                    Conheça nossas delícias
+                </a>
+            </div>
+        </section>
 
         <!-- ==================================
              EXPERIÊNCIA
         =================================== -->
-
         <section>
-
             <h2>
                 Uma experiência em cada garfada
             </h2>
-
-
             <p>
                 Mais do que preparar doces e salgados, criamos experiências
                 capazes de despertar os sentidos. Cada receita é preparada
                 com cuidado, ingredientes selecionados e atenção aos detalhes.
             </p>
-
-
             <p>
                 Imagine a delicadeza de um bolo macio, o aroma envolvente
                 do chocolate e um recheio cremoso que se revela lentamente
                 a cada garfada. São sabores criados para transformar
                 pequenos momentos em grandes prazeres gastronômicos.
             </p>
-
         </section>
-
 
         <!-- ==================================
              DOCES
         =================================== -->
-
         <section>
-
             <h2>
                 Nossos Doces
             </h2>
-
-
             <a href="doces.html">
-
                 <img
                     src="imagens/brigaderios doces.webp"
                     alt="Clique para conhecer nosso menu de doces"
                     class="imagem-menu"
                 >
-
             </a>
-
-
             <h3>
                 Doces Especiais
             </h3>
-
-
             <p>
                 Pequenos no tamanho, enormes no sabor. Nossos doces unem
                 delicadeza, cremosidade e ingredientes selecionados para
                 criar uma experiência irresistível.
             </p>
-
-
             <p>
                 Clique na imagem e conheça nosso menu de doces.
             </p>
-
         </section>
-
 
         <!-- ==================================
              SALGADOS
         =================================== -->
-
         <section>
-
             <h2>
                 Nossos Salgados
             </h2>
-
-
             <a href="salgados.html">
-
                 <img
                     src="imagens/salgados gourmet.jpg"
                     alt="Clique para conhecer nosso menu de salgados"
                     class="imagem-menu"
                 >
-
             </a>
-
-
             <h3>
                 Salgados Gourmet
             </h3>
-
-
             <p>
                 Crocantes por fora, macios e generosamente recheados por
                 dentro. Cada receita busca o equilíbrio perfeito entre
                 textura, aroma e sabor.
             </p>
-
-
             <p>
                 Da primeira mordida ao último pedaço, queremos proporcionar
                 uma experiência que transforme o simples ato de saborear
                 em um verdadeiro momento de prazer.
             </p>
-
-
             <p>
                 Clique na imagem e conheça nosso menu de salgados.
             </p>
-
         </section>
-
 
         <!-- ==================================
              GELADINHOS
         =================================== -->
-
         <section>
-
             <h2>
                 Geladinhos Gourmet
             </h2>
-
-
             <a href="geladinhos.html">
-
                 <img
                     src="imagens/geladinho gourmet.webp"
                     alt="Geladinhos Gourmet"
                     class="imagem-menu"
                 >
-
             </a>
-
-
             <h3>
                 Uma Delícia Gelada
             </h3>
-
-
             <p>
                 Cremosos, refrescantes e irresistíveis. Nossos geladinhos
                 gourmet transformam sabores especiais em uma experiência
                 surpreendente.
             </p>
-
-
             <p>
                 Preparados com ingredientes selecionados e combinações que
                 conquistam desde o primeiro instante, são a escolha perfeita
                 para refrescar o dia com muito sabor.
             </p>
-
-
             <p>
                 A cada mordida, uma explosão de cremosidade e frescor que
                 derrete suavemente na boca.
             </p>
-
-
             <p>
                 Clique na imagem e conheça nossos sabores de Geladinhos Gourmet.
             </p>
-
         </section>
-
 
         <!-- ==================================
              PRÓLOGO DA HISTÓRIA
         =================================== -->
-
         <section class="prologo-historia">
-
-
             <p class="pequeno-titulo">
                 ♥ Nossa História
             </p>
-
-
             <h2>
                 Uma nova paixão que se transformou
                 em Rosita Doces
             </h2>
-
-
             <p>
                 A Rosita Doces nasceu quando Dona Rosemeire decidiu transformar
                 uma nova fase da vida em uma oportunidade para aprender,
                 criar e encantar pessoas.
             </p>
-
-
             <p>
                 Entre cursos, dedicação e muito carinho pela confeitaria,
                 surgiu uma história feita de doces, sabores e novos sonhos.
             </p>
-
-
-            <a href="sobre.html"
-               class="botao-historia">
-
+            <a href="sobre.html" class="botao-historia">
                 Conheça nossa história ♥
-
             </a>
-
-
         </section>
-
-
     </main>
-
 
     <!-- ==================================
          RODAPÉ
     =================================== -->
-
     <footer>
-
-
         <h3>
             Rosita Doces
         </h3>
-
-
         <nav class="menu-rodape">
-
-            <a href="index.html">Início</a>
-
+            <a href="inicio.html">Início</a>
             <a href="sobre.html">Nossa História</a>
-
             <a href="doces.html">Doces</a>
-
             <a href="salgados.html">Salgados</a>
-
             <a href="geladinhos.html">Geladinhos Gourmet</a>
-
             <a href="localizacao.html">Localização</a>
-
             <a href="contato.html">Contato</a>
-
         </nav>
-
-
         <p>
             Feita com carinho, dedicação e paixão pela confeitaria. ♥
         </p>
-
-
     </footer>
-
-
+    <script src="script.js"></script>
 </body>
-
 </html>
