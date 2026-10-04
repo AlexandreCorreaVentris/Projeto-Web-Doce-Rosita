@@ -1,37 +1,17 @@
-
 /* =====================================================
    ROSITA DOCES ARTESANAIS
    PÁGINA DO CARRINHO GERAL
-
-   Integração:
-   - Geladinhos
-   - Salgados
-   - Bolos (futuro)
-   - Doces (futuro)
-
-   Utiliza o sistema RositaCarrinho
-   definido em carrinho.js
 ===================================================== */
 
 document.addEventListener("DOMContentLoaded", function () {
     "use strict";
 
-    // ================================================
-    // 1. VERIFICAR SISTEMA COMPARTILHADO
-    // ================================================
-
     if (!window.RositaCarrinho) {
-        console.error(
-            "O sistema compartilhado carrinho.js não foi carregado."
-        );
+        console.error("O sistema compartilhado carrinho.js não foi carregado.");
         return;
     }
 
     const sistema = window.RositaCarrinho;
-
-    // ================================================
-    // 2. ELEMENTOS DA PÁGINA
-    // ================================================
 
     const lista = document.getElementById("lista-produtos");
     const avisoVazio = document.getElementById("carrinho-vazio");
@@ -39,13 +19,14 @@ document.addEventListener("DOMContentLoaded", function () {
     const quantidadeTotal = document.getElementById("quantidade-total");
     const valorTotal = document.getElementById("valor-total");
 
+    const inputData = document.getElementById("data-entrega");
+    const inputHorario = document.getElementById("horario-entrega");
+    const blocoAgendamento = document.getElementById("bloco-agendamento");
+
+    const botaoEnviar = document.getElementById("enviar-pedido");
     const botaoCopiar = document.getElementById("copiar-pedido");
     const botaoLimpar = document.getElementById("limpar-pedido");
     const mensagem = document.getElementById("mensagem");
-
-    // ================================================
-    // 3. FORMATAR VALORES
-    // ================================================
 
     function moeda(valor) {
         return sistema.formatarMoeda(valor);
@@ -55,57 +36,38 @@ document.addEventListener("DOMContentLoaded", function () {
         mensagem.textContent = texto;
     }
 
-    // ================================================
-    // 4. CRIAR BOTÕES
-    // ================================================
-
     function criarBotao(texto, classe, acao, id) {
         const botao = document.createElement("button");
-
         botao.type = "button";
         botao.textContent = texto;
         botao.className = classe;
         botao.dataset.acao = acao;
         botao.dataset.id = id;
-
         return botao;
     }
 
-    // ================================================
-    // 5. MOSTRAR TODOS OS PRODUTOS
-    // ================================================
-
     function atualizarPagina() {
-
         const produtos = sistema.carregar();
         const totais = sistema.calcularTotais();
 
-        // Limpa apenas a exibição anterior
         lista.replaceChildren();
 
-        // Atualiza quantidade e subtotal
-        totalItens.textContent =
-            totais.quantidade + " unidade(s)";
+        totalItens.textContent = totais.quantidade + " unidade(s)";
+        quantidadeTotal.textContent = totais.quantidade;
+        valorTotal.textContent = moeda(totais.total);
 
-        quantidadeTotal.textContent =
-            totais.quantidade;
+        const temProdutos = produtos.length > 0;
+        avisoVazio.hidden = temProdutos;
+        blocoAgendamento.style.display = temProdutos ? "block" : "none";
 
-        valorTotal.textContent =
-            moeda(totais.total);
+        botaoEnviar.disabled = !temProdutos;
+        botaoCopiar.disabled = !temProdutos;
+        botaoLimpar.disabled = !temProdutos;
 
-        // Exibe aviso somente quando estiver vazio
-        avisoVazio.hidden = produtos.length > 0;
-
-        botaoCopiar.disabled = produtos.length === 0;
-        botaoLimpar.disabled = produtos.length === 0;
-
-        // Cria uma linha para cada produto
         produtos.forEach(function (produto) {
-
             const linha = document.createElement("div");
             linha.className = "produto";
 
-            // Informações do produto
             const informacoes = document.createElement("div");
             informacoes.className = "produto-info";
 
@@ -117,89 +79,46 @@ document.addEventListener("DOMContentLoaded", function () {
             nome.textContent = produto.nome;
 
             const preco = document.createElement("small");
-            preco.textContent =
-                moeda(produto.preco) + " por unidade";
+            preco.textContent = moeda(produto.preco) + " por unidade";
 
             informacoes.append(categoria, nome, preco);
 
-            // Controles de quantidade
             const acoes = document.createElement("div");
             acoes.className = "produto-acoes";
 
             const quantidade = document.createElement("div");
             quantidade.className = "quantidade";
 
-            const diminuir = criarBotao(
-                "−",
-                "",
-                "diminuir",
-                produto.id
-            );
-
-            diminuir.setAttribute(
-                "aria-label",
-                "Diminuir " + produto.nome
-            );
+            const diminuir = criarBotao("−", "", "diminuir", produto.id);
+            diminuir.setAttribute("aria-label", "Diminuir " + produto.nome);
 
             const numero = document.createElement("strong");
             numero.textContent = produto.quantidade;
 
-            const aumentar = criarBotao(
-                "+",
-                "",
-                "aumentar",
-                produto.id
-            );
-
-            aumentar.setAttribute(
-                "aria-label",
-                "Aumentar " + produto.nome
-            );
+            const aumentar = criarBotao("+", "", "aumentar", produto.id);
+            aumentar.setAttribute("aria-label", "Aumentar " + produto.nome);
 
             quantidade.append(diminuir, numero, aumentar);
 
-            // Subtotal individual
             const subtotal = document.createElement("strong");
             subtotal.className = "subtotal";
+            subtotal.textContent = moeda(produto.preco * produto.quantidade);
 
-            subtotal.textContent = moeda(
-                produto.preco * produto.quantidade
-            );
-
-            // Botão remover
-            const remover = criarBotao(
-                "Remover",
-                "remover",
-                "remover",
-                produto.id
-            );
+            const remover = criarBotao("Remover", "remover", "remover", produto.id);
 
             acoes.append(quantidade, subtotal, remover);
-
             linha.append(informacoes, acoes);
-
             lista.appendChild(linha);
         });
     }
 
-    // ================================================
-    // 6. AUMENTAR, DIMINUIR E REMOVER
-    // ================================================
-
     lista.addEventListener("click", function (evento) {
-
         const botao = evento.target.closest("button[data-acao]");
-
-        if (!botao) {
-            return;
-        }
+        if (!botao) return;
 
         const id = botao.dataset.id;
         const acao = botao.dataset.acao;
-
-        const produto = sistema.carregar().find(function (item) {
-            return item.id === id;
-        });
+        const produto = sistema.carregar().find(item => item.id === id);
 
         if (!produto) {
             atualizarPagina();
@@ -208,26 +127,13 @@ document.addEventListener("DOMContentLoaded", function () {
 
         try {
             if (acao === "aumentar") {
-
-                sistema.alterarQuantidade(
-                    id,
-                    produto.quantidade + 1
-                );
-
+                sistema.alterarQuantidade(id, produto.quantidade + 1);
             } else if (acao === "diminuir") {
-
-                sistema.alterarQuantidade(
-                    id,
-                    produto.quantidade - 1
-                );
-
+                sistema.alterarQuantidade(id, produto.quantidade - 1);
             } else if (acao === "remover") {
-
                 sistema.remover(id);
             }
-
             mostrarMensagem("");
-
         } catch (erro) {
             mostrarMensagem(erro.message);
         }
@@ -235,78 +141,63 @@ document.addEventListener("DOMContentLoaded", function () {
         atualizarPagina();
     });
 
-    // ================================================
-    // 7. ESVAZIAR CARRINHO GERAL
-    // ================================================
-
     botaoLimpar.addEventListener("click", function () {
+        if (sistema.carregar().length === 0) return;
 
-        if (sistema.carregar().length === 0) {
-            return;
+        if (confirm("Deseja remover todos os produtos do carrinho?")) {
+            sistema.limpar();
+            atualizarPagina();
+            mostrarMensagem("Carrinho esvaziado com sucesso.");
         }
-
-        const confirmar = confirm(
-            "Deseja remover todos os produtos do carrinho?"
-        );
-
-        if (!confirmar) {
-            return;
-        }
-
-        sistema.limpar();
-
-        atualizarPagina();
-
-        mostrarMensagem("Carrinho esvaziado com sucesso.");
     });
 
-    // ================================================
-    // 8. COPIAR RESUMO DO PEDIDO
-    // ================================================
+    // Função para estruturar a mensagem com a data e horário solicitados
+    function gerarMensagemCompleta() {
+        const resumoItens = sistema.gerarResumo();
+        const dataVal = inputData.value;
+        const horaVal = inputHorario.value;
 
+        let complementoDataHora = "";
+        if (dataVal || horaVal) {
+            const dataFormatada = dataVal ? dataVal.split("-").reverse().join("/") : "a combinar";
+            const horaFormatada = horaVal ? horaVal + "h" : "a combinar";
+            complementoDataHora = `\n\n📅 Entrega solicitada para: ${dataFormatada} às ${horaFormatada}`;
+        }
+
+        return `Gostaria por gentileza de:\n\n${resumoItens}${complementoDataHora}`;
+    }
+
+    // Botão Enviar Pedido (WhatsApp)
+    botaoEnviar.addEventListener("click", function () {
+        if (sistema.carregar().length === 0) return;
+
+        const textoMensagem = gerarMensagemCompleta();
+        const numeroWhatsApp = "5515996094613"; // Substitua pelo número real da Rosita se necessário
+        const urlWhatsApp = `https://api.whatsapp.com/send?phone=${numeroWhatsApp}&text=${encodeURIComponent(textoMensagem)}`;
+
+        window.open(urlWhatsApp, "_blank");
+        mostrarMensagem("Redirecionando para o WhatsApp...");
+    });
+
+    // Botão Copiar Resumo
     botaoCopiar.addEventListener("click", async function () {
-
-        const resumo = sistema.gerarResumo();
+        const textoMensagem = gerarMensagemCompleta();
 
         try {
-            await navigator.clipboard.writeText(resumo);
-
-            mostrarMensagem(
-                "Resumo do pedido copiado com sucesso!"
-            );
-
+            await navigator.clipboard.writeText(textoMensagem);
+            mostrarMensagem("Resumo do pedido copiado com sucesso!");
         } catch (erro) {
             console.error("Erro ao copiar:", erro);
-
-            mostrarMensagem(
-                "Não foi possível copiar o resumo automaticamente."
-            );
+            mostrarMensagem("Não foi possível copiar o resumo automaticamente.");
         }
     });
-
-    // ================================================
-    // 9. ATUALIZAR ENTRE ABAS DO NAVEGADOR
-    // ================================================
 
     window.addEventListener("storage", function (evento) {
-
-        if (evento.key === "rosita_carrinho_v1") {
-            atualizarPagina();
-        }
+        if (evento.key === "rosita_carrinho_v1") atualizarPagina();
     });
 
-    window.addEventListener(
-        "rosita:carrinho-atualizado",
-        atualizarPagina
-    );
-
-    // Atualiza ao voltar para esta aba
+    window.addEventListener("rosita:carrinho-atualizado", atualizarPagina);
     window.addEventListener("pageshow", atualizarPagina);
 
-    // ================================================
-    // 10. INICIALIZAÇÃO
-    // ================================================
-
     atualizarPagina();
-
 });

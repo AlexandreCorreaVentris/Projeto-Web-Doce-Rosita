@@ -31,26 +31,46 @@
       <div class="ornamento" aria-hidden="true">✦ ───── ❦ ───── ✦</div>
     </section>
     <section class="conteudo" aria-labelledby="titulo-pedido">
-      <div class="titulo-linha"><h2 id="titulo-pedido">Sua encomenda</h2><span id="total-itens" aria-live="polite">0 unidades</span></div>
+      <div class="titulo-linha">
+        <h2 id="titulo-pedido">Sua encomenda</h2>
+        <span id="total-itens" aria-live="polite">0 unidades</span>
+      </div>
+      
       <p id="carrinho-vazio" class="vazio" hidden>Seu carrinho está vazio. Escolha seus primeiros sabores!</p>
       <div id="lista-produtos" class="lista" aria-live="polite"></div>
+
+      <!-- SEÇÃO DE DATA E HORÁRIO DE ENTREGA -->
+      <div class="agendamento-pedido" id="bloco-agendamento">
+        <h3>Dados de Entrega / Retirada</h3>
+        <div class="agendamento-campos">
+          <div class="campo-grupo">
+            <label for="data-entrega">Data desejada:</label>
+            <input type="date" id="data-entrega">
+          </div>
+          <div class="campo-grupo">
+            <label for="horario-entrega">Horário desejado:</label>
+            <input type="time" id="horario-entrega">
+          </div>
+        </div>
+      </div>
+
       <div class="resumo">
         <div class="resumo-linha"><span>Quantidade de produtos</span><strong id="quantidade-total">0</strong></div>
         <div class="resumo-linha total"><span>Subtotal estimado</span><strong id="valor-total">R$ 0,00</strong></div>
         <p>Frete não incluído. Valores ilustrativos, sujeitos a confirmação.</p>
       </div>
-      <div class="acoes">
-      
-      <a class="botao principal"
-      href="../inicio.html"
-      id="continuar-escolhendo">
-      ← Continuar escolhendo sabores
-      </a>
 
+      <div class="acoes">
+        <a class="botao principal" href="../inicio.html" id="continuar-escolhendo">
+          ← Continuar escolhendo sabores
+        </a>
+        <button class="botao principal" id="enviar-pedido" type="button">Enviar pedido (WhatsApp)</button>
         <button class="botao secundario" id="copiar-pedido" type="button">Copiar resumo do pedido</button>
         <button class="botao discreto" id="limpar-pedido" type="button">Esvaziar carrinho</button>
       </div>
+
       <p id="mensagem" class="mensagem" role="status" aria-live="polite"></p>
+      
       <h2 class="titulo-categorias">Conheça outras delícias</h2>
       <div class="categorias">
         <a href="../geladinho/geladinho.html">Geladinhos <span>→</span></a>
