@@ -1,0 +1,68 @@
+:root{--vinho:#570b16;--escuro:#35050e;--dourado:#d4af37;--creme:#fff7e9;--claro:#f3ca70}*{box-sizing:border-box}body{margin:0;background:var(--creme);color:var(--vinho);font-family:'Cormorant Garamond',Georgia,serif;font-size:20px}button,a{font:inherit}a{text-decoration:none}.cabecalho{background:linear-gradient(#650e1b,#400810);border-bottom:2px solid var(--dourado)}.navegacao{max-width:1100px;margin:auto;min-height:75px;display:flex;align-items:center;justify-content:center;gap:14px;flex-wrap:wrap;padding:12px}.navegacao a{color:#f3ca70;border:1px solid var(--dourado);padding:8px 15px;border-radius:5px;font-size:17px}.navegacao a:hover{background:#842234}.apresentacao{text-align:center;padding:36px 18px 42px;background:linear-gradient(115deg,#410810,#751524,#410810);color:#f3ca70}.logo{display:block;width:155px;max-width:45vw;height:auto;margin:0 auto 8px;filter:drop-shadow(0 5px 8px #0005)}.sobretitulo{font-size:19px;letter-spacing:1px}.apresentacao h1{font-family:'Great Vibes',cursive;font-size:clamp(56px,8vw,86px);font-weight:400;margin:10px 0}.apresentacao p{margin:12px auto;max-width:640px}.ornamento{color:var(--dourado);margin-top:20px}.conteudo{max-width:1000px;margin:auto;padding:35px 18px 65px}.titulo-linha{display:flex;justify-content:space-between;align-items:center;gap:10px;border-bottom:2px solid var(--dourado);margin-bottom:22px}.titulo-linha h2,.titulo-categorias{font-family:'Great Vibes',cursive;font-size:48px;font-weight:400;margin:12px 0}.titulo-linha span{font-size:18px}.vazio{text-align:center;padding:35px;background:#fffaf1;border:1px solid var(--dourado);border-radius:12px}.lista{display:grid;gap:12px}.produto{display:flex;align-items:center;justify-content:space-between;gap:18px;flex-wrap:wrap;background:#fffaf1;border:1px solid #ddc38d;border-radius:12px;padding:18px;box-shadow:0 5px 16px #35050e0d}.produto-info{flex:1;min-width:170px}.categoria{font-size:15px;color:#8e6c39;letter-spacing:1px;text-transform:uppercase}.produto h3{font-size:25px;margin:3px 0}.produto small{font-size:17px}.produto-acoes{display:flex;gap:12px;align-items:center;flex-wrap:wrap}.quantidade{display:flex;align-items:center;gap:12px}.quantidade button{width:34px;height:34px;border:1px solid var(--dourado);background:#f6e6ca;color:var(--vinho);border-radius:6px;cursor:pointer}.quantidade strong{min-width:24px;text-align:center}.subtotal{min-width:90px;text-align:right}.remover{border:0;background:transparent;color:#9c2635;text-decoration:underline;cursor:pointer}.resumo{margin-top:25px;background:#f4e4c8;border:1px solid var(--dourado);padding:20px 25px;border-radius:12px}.resumo-linha{display:flex;justify-content:space-between;gap:15px;padding:7px 0}.resumo-linha.total{border-top:1px solid #c5a46a;margin-top:10px;padding-top:15px;font-size:27px}.resumo p{font-size:16px;margin-bottom:0}.acoes{display:flex;flex-wrap:wrap;gap:12px;margin-top:25px}.botao{border-radius:7px;padding:12px 17px;border:1px solid var(--dourado);cursor:pointer;font-weight:700;text-align:center}.principal{background:#650e1b;color:#fff1d8}.secundario{background:#e7cb94;color:#4c0d18}.discreto{background:transparent;color:#76283b}.botao:hover{filter:brightness(1.1)}.botao:disabled{opacity:.45;cursor:not-allowed}.mensagem{min-height:24px;font-size:17px}.titulo-categorias{text-align:center;margin:35px 0 15px}.categorias{display:grid;grid-template-columns:repeat(4,1fr);gap:12px}.categorias a{display:flex;justify-content:space-between;align-items:center;gap:8px;background:#fffaf1;color:#650e1b;border:1px solid var(--dourado);padding:18px;border-radius:8px;font-weight:700}.categorias a:hover{background:#f1dfbf}footer{text-align:center;background:#400810;color:#f3ca70;padding:28px 15px}@media(max-width:700px){.categorias{grid-template-columns:repeat(2,1fr)}.produto-acoes{width:100%;justify-content:space-between}.acoes .botao{width:100%}}@media(max-width:420px){.categorias{grid-template-columns:1fr}.resumo-linha.total{font-size:23px}}
+
+
+/* =====================================================
+   ESTILOS PARA O AGENDAMENTO DE ENTREGA NO CARRINHO
+===================================================== */
+.agendamento-pedido {
+    margin-top: 25px;
+    background: #fffaf1;
+    border: 1px solid var(--dourado);
+    border-radius: 12px;
+    padding: 20px 25px;
+    box-init: 0 5px 16px #35050e0d;
+}
+
+.agendamento-pedido h3 {
+    font-family: 'Great Vibes', cursive;
+    font-size: 36px;
+    color: var(--vinho);
+    margin-top: 0;
+    margin-bottom: 15px;
+    text-align: center;
+}
+
+.agendamento-campos {
+    display: flex;
+    gap: 20px;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+.campo-grupo {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+    flex: 1;
+    min-width: 200px;
+}
+
+.campo-grupo label {
+    font-size: 16px;
+    font-weight: 600;
+    color: var(--vinho);
+}
+
+.campo-grupo input[type="date"],
+.campo-grupo input[type="time"] {
+    padding: 10px 14px;
+    border: 1px solid var(--dourado);
+    border-radius: 7px;
+    background: #fff;
+    color: var(--vinho);
+    font-family: 'Cormorant Garamond', Georgia, serif;
+    font-size: 18px;
+    outline: none;
+}
+
+.campo-grupo input[type="date"]:focus,
+.campo-grupo input[type="time"]:focus {
+    border-color: var(--vinho);
+    box-shadow: 0 0 5px rgba(87, 11, 22, 0.2);
+}
+
+@media (max-width: 700px) {
+    .agendamento-campos {
+        flex-direction: column;
+    }
+}

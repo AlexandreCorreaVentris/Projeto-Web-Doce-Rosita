@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Confira e organize sua encomenda na Rosita Doces Artesanais.">
+  <title>Meu Carrinho | Rosita Doces Artesanais</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Cormorant+Garamond:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="carrinho.css">
+  <script src="carrinho.js" defer></script>
+  <script src="carrinho-pagina.js" defer></script>
+</head>
+<body>
+  <header class="cabecalho">
+    <nav class="navegacao" aria-label="Navegação principal">
+      <a href="../inicio.html">Início</a>
+      <a href="../geladinho/geladinho.html">Geladinhos</a>
+      <a href="../Bolo/bolo.html">Bolos</a>
+      <a href="../doce/doce.html">Doces</a>
+      <a href="../salgado/salgado.html">Salgados</a>
+    </nav>
+  </header>
+  <main>
+    <section class="apresentacao">
+      <img class="logo" src="../imagens/Emblema Rosita Doces Artesanais copy.png" alt="Logotipo Rosita Doces Artesanais">
+      <p class="sobretitulo">Rosita Doces Artesanais</p>
+      <h1>Meu Carrinho</h1>
+      <p>Confira seus sabores favoritos e monte sua encomenda com carinho.</p>
+      <div class="ornamento" aria-hidden="true">✦ ───── ❦ ───── ✦</div>
+    </section>
+    <section class="conteudo" aria-labelledby="titulo-pedido">
+      <div class="titulo-linha">
+        <h2 id="titulo-pedido">Sua encomenda</h2>
+        <span id="total-itens" aria-live="polite">0 unidades</span>
+      </div>
+      
+      <p id="carrinho-vazio" class="vazio" hidden>Seu carrinho está vazio. Escolha seus primeiros sabores!</p>
+      <div id="lista-produtos" class="lista" aria-live="polite"></div>
+
+      <!-- SEÇÃO DE DATA E HORÁRIO DE ENTREGA -->
+      <div class="agendamento-pedido" id="bloco-agendamento">
+        <h3>Dados de Entrega / Retirada</h3>
+        <div class="agendamento-campos">
+          <div class="campo-grupo">
+            <label for="data-entrega">Data desejada:</label>
+            <input type="date" id="data-entrega">
+          </div>
+          <div class="campo-grupo">
+            <label for="horario-entrega">Horário desejado:</label>
+            <input type="time" id="horario-entrega">
+          </div>
+        </div>
+      </div>
+
+      <div class="resumo">
+        <div class="resumo-linha"><span>Quantidade de produtos</span><strong id="quantidade-total">0</strong></div>
+        <div class="resumo-linha total"><span>Subtotal estimado</span><strong id="valor-total">R$ 0,00</strong></div>
+        <p>Frete não incluído. Valores ilustrativos, sujeitos a confirmação.</p>
+      </div>
+
+      <div class="acoes">
+        <a class="botao principal" href="../inicio.html" id="continuar-escolhendo">
+          ← Continuar escolhendo sabores
+        </a>
+        <button class="botao principal" id="enviar-pedido" type="button">Enviar pedido (WhatsApp)</button>
+        <button class="botao secundario" id="copiar-pedido" type="button">Copiar resumo do pedido</button>
+        <button class="botao discreto" id="limpar-pedido" type="button">Esvaziar carrinho</button>
+      </div>
+
+      <p id="mensagem" class="mensagem" role="status" aria-live="polite"></p>
+      
+      <h2 class="titulo-categorias">Conheça outras delícias</h2>
+      <div class="categorias">
+        <a href="../geladinho/geladinho.html">Geladinhos <span>→</span></a>
+        <a href="../Bolo/bolo.html">Bolos <span>→</span></a>
+        <a href="../doce/doce.html">Doces <span>→</span></a>
+        <a href="../salgado/salgado.html">Salgados <span>→</span></a>
+      </div>
+    </section>
+  </main>
+  <footer>Rosita Doces Artesanais · Uma experiência em cada sabor</footer>
+</body>
+</html>

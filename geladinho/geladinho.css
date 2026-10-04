@@ -1,0 +1,1169 @@
+
+/* ==========================================
+   ROSITA DOCES ARTESANAIS
+   GELADINHOS GOURMET - 15 SABORES
+========================================== */
+
+:root {
+    --vinho: #570b16;
+    --vinho-escuro: #35050e;
+    --dourado: #d4af37;
+    --dourado-claro: #f3ca70;
+    --creme: #fff7e9;
+}
+
+* {
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body.pagina-geladinho {
+    margin: 0;
+    background: var(--creme);
+    color: var(--vinho);
+    font-family: "Cormorant Garamond", Georgia, serif;
+    font-size: 19px;
+}
+
+.pagina-geladinho [hidden] {
+    display: none !important;
+}
+
+button,
+input {
+    font: inherit;
+}
+
+button {
+    cursor: pointer;
+}
+
+a {
+    text-decoration: none;
+}
+
+/* ==========================================
+   CABEÇALHO FIXO
+========================================== */
+
+.pagina-geladinho .cabecalho {
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    height: 85px;
+    background: linear-gradient(
+        180deg,
+        #650e1b,
+        #400810
+    );
+    border-bottom: 2px solid var(--dourado);
+}
+
+.pagina-geladinho .navegacao {
+    display: grid;
+    grid-template-columns: 1fr 1fr 175px 1fr 1fr;
+    align-items: center;
+    justify-items: center;
+    gap: 15px;
+    max-width: 1100px;
+    height: 100%;
+    padding: 0 20px;
+    margin: 0 auto;
+}
+
+.pagina-geladinho .nav-botao {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 10px 17px;
+    background: transparent;
+    color: var(--dourado-claro);
+    border: 1px solid var(--dourado);
+    border-radius: 5px;
+    font-size: 15px;
+    font-weight: 700;
+    white-space: nowrap;
+}
+
+.pagina-geladinho .nav-botao:hover {
+    background: #832033;
+}
+
+.pagina-geladinho .marca {
+    position: relative;
+    width: 145px;
+    height: 85px;
+}
+
+/* Menus suspensos */
+
+.pagina-geladinho .dropdown {
+    position: relative;
+}
+
+.pagina-geladinho .dropdown-conteudo {
+    display: none;
+    position: absolute;
+    top: 100%;
+    left: 50%;
+    transform: translateX(-50%);
+    min-width: 180px;
+    padding: 8px;
+    background: #570b16;
+    border: 1px solid var(--dourado);
+    border-radius: 7px;
+    z-index: 1100;
+    box-shadow: 0 12px 25px #0005;
+}
+
+.pagina-geladinho .dropdown:hover .dropdown-conteudo,
+.pagina-geladinho .dropdown:focus-within .dropdown-conteudo,
+.pagina-geladinho .dropdown.aberto .dropdown-conteudo {
+    display: block;
+}
+
+.pagina-geladinho .dropdown-conteudo a {
+    display: block;
+    padding: 10px 12px;
+    color: #f5dca6;
+    border-radius: 4px;
+}
+
+.pagina-geladinho .dropdown-conteudo a:hover {
+    background: #842234;
+}
+
+/* ==========================================
+   BANNER
+========================================== */
+
+.pagina-geladinho .gel-abertura {
+    display: grid;
+    grid-template-columns: 1fr minmax(420px, 1.6fr) 1fr;
+    min-height: 490px;
+    background: linear-gradient(
+        110deg,
+        #410810,
+        #751524,
+        #410810
+    );
+    color: var(--dourado-claro);
+    overflow: hidden;
+}
+
+.pagina-geladinho .gel-hero-lado {
+    background: linear-gradient(
+        140deg,
+        #390610,
+        #79202e
+    );
+}
+
+.pagina-geladinho .gel-foto-pendente {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    height: 100%;
+    padding: 20px;
+    color: #e9c584;
+    text-align: center;
+    font-size: 15px;
+}
+
+.pagina-geladinho .gel-foto-pendente small {
+    font-size: 14px;
+}
+
+.pagina-geladinho .gel-abertura-interior {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 35px 25px 45px;
+    text-align: center;
+}
+
+/* ==========================================
+   ÚNICO EMBLEMA ANIMADO
+========================================== */
+
+/*
+   Este elemento reserva o espaço original
+   no banner, evitando saltos no layout.
+*/
+
+.pagina-geladinho .gel-marca-nome {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 205px;
+    margin: 0 auto 15px;
+}
+
+/*
+   O JavaScript posicionará esta imagem
+   na tela durante a rolagem.
+*/
+
+.pagina-geladinho .gel-logo-banner {
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 1200;
+    display: block;
+    width: 260px;
+    height: auto;
+    object-fit: contain;
+    pointer-events: none;
+    filter: drop-shadow(
+        0 5px 8px rgba(0, 0, 0, 0.3)
+    );
+    will-change: top, left, width;
+}
+
+/* ==========================================
+   TEXTOS DO BANNER
+========================================== */
+
+.pagina-geladinho .gel-ornamento {
+    margin: 14px auto;
+    text-align: center;
+    color: var(--dourado);
+    letter-spacing: 2px;
+}
+
+.pagina-geladinho .gel-abertura h1 {
+    margin: 18px 0;
+    font-family: "Great Vibes", cursive;
+    font-size: clamp(52px, 5vw, 76px);
+    font-weight: 400;
+    line-height: 1.2;
+    color: #f8d88b;
+}
+
+.pagina-geladinho .gel-frase {
+    margin: 10px 0;
+    font-size: 26px;
+    color: #fff0d7;
+}
+
+.pagina-geladinho .gel-orientacao {
+    max-width: 430px;
+    margin: 10px auto;
+    font-size: 17px;
+    line-height: 1.5;
+    color: #eed9b9;
+}
+
+/* ==========================================
+   CARDÁPIO
+========================================== */
+
+.pagina-geladinho .gel-cardapio {
+    padding: 65px 20px 75px;
+    background: linear-gradient(
+        #fff8ed,
+        #f5e5cc
+    );
+    overflow: visible;
+}
+
+.pagina-geladinho .gel-container {
+    max-width: 1050px;
+    margin: 0 auto;
+    overflow: visible;
+}
+
+.pagina-geladinho .gel-chamada {
+    margin: 0;
+    font-family: "Great Vibes", cursive;
+    font-size: 31px;
+    color: #a8752a;
+    text-align: center;
+}
+
+.pagina-geladinho .gel-cardapio h2,
+.pagina-geladinho .gel-carrinho h2 {
+    margin: 12px 0;
+    font-family: "Great Vibes", cursive;
+    font-size: 62px;
+    font-weight: 400;
+    color: #711020;
+    text-align: center;
+}
+
+/* ==========================================
+   LISTA E FOTOGRAFIA
+========================================== */
+
+.pagina-geladinho .gel-vitrine {
+    display: grid;
+    grid-template-columns:
+        minmax(0, 1.15fr)
+        minmax(0, 0.85fr);
+    align-items: start;
+    gap: 24px;
+    margin-top: 30px;
+    overflow: visible;
+}
+
+.pagina-geladinho .gel-lista {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.pagina-geladinho .gel-sabor {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    width: 100%;
+    min-height: 62px;
+    padding: 12px 17px;
+    background: #fffaf1;
+    color: #681324;
+    border: 1px solid var(--dourado);
+    border-radius: 8px;
+    text-align: left;
+    font-size: 21px;
+    font-weight: 600;
+    box-shadow: 0 5px 12px #460a1412;
+    transition:
+        background 0.2s,
+        transform 0.2s;
+}
+
+.pagina-geladinho .gel-sabor:hover,
+.pagina-geladinho .gel-sabor:focus-visible,
+.pagina-geladinho .gel-sabor.gel-selecionado {
+    background: #f1dfbf;
+    transform: translateX(3px);
+}
+
+.pagina-geladinho .gel-sabor > span:first-child {
+    color: #b88c36;
+}
+
+.pagina-geladinho .gel-seta {
+    margin-left: auto;
+    color: #b88c36;
+    font-size: 25px;
+}
+
+/* ==========================================
+   FOTOGRAFIA FIXA NA LISTA
+========================================== */
+
+.pagina-geladinho .gel-preview {
+    position: sticky;
+    top: 110px;
+    align-self: start;
+    border: 2px solid var(--dourado);
+    border-radius: 14px;
+    overflow: hidden;
+    background: #fff7e9;
+    box-shadow: 0 12px 30px #41081228;
+}
+
+.pagina-geladinho .gel-preview-foto {
+    position: relative;
+    height: 280px;
+    background: linear-gradient(
+        135deg,
+        #35050e,
+        #75202d,
+        #400812
+    );
+}
+
+.pagina-geladinho .gel-preview-foto img {
+    display: block;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.pagina-geladinho .gel-preview-vazio {
+    position: absolute;
+    inset: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 25px;
+    color: #f0cc82;
+    text-align: center;
+}
+
+.pagina-geladinho .gel-preview-vazio span {
+    font-size: 50px;
+}
+
+.pagina-geladinho .gel-preview-vazio p {
+    font-size: 21px;
+}
+
+.pagina-geladinho .gel-preview-texto {
+    padding: 28px 22px;
+    background: linear-gradient(
+        145deg,
+        #fffaf0,
+        #eed8b5
+    );
+    text-align: center;
+}
+
+.pagina-geladinho .gel-selo {
+    color: #800f25;
+    font-size: 17px;
+    font-weight: 700;
+    letter-spacing: 1px;
+}
+
+.pagina-geladinho #gel-preview-nome {
+    margin: 15px 0;
+    color: #800f25;
+    font-family: "Great Vibes", cursive;
+    font-size: 48px;
+    font-weight: 400;
+}
+
+.pagina-geladinho #gel-preview-preco {
+    font-size: 21px;
+    font-weight: 700;
+}
+
+.pagina-geladinho .gel-preview-ajuda {
+    font-size: 16px;
+    color: #76504b;
+}
+
+.pagina-geladinho .gel-observacao {
+    margin-top: 30px;
+    text-align: center;
+    font-size: 16px;
+}
+
+/* ==========================================
+   CARRINHO
+========================================== */
+
+.pagina-geladinho .gel-carrinho {
+    padding: 65px 20px;
+    background: #fff7e9;
+}
+
+.pagina-geladinho #gel-carrinho-vazio {
+    text-align: center;
+}
+
+.pagina-geladinho #gel-carrinho-itens {
+    max-width: 900px;
+    margin: 25px auto;
+}
+
+.pagina-geladinho .gel-carrinho-linha {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 15px;
+    padding: 14px;
+    margin-bottom: 10px;
+    background: #fffaf1;
+    border: 1px solid var(--dourado);
+    border-radius: 8px;
+}
+
+.pagina-geladinho .gel-carrinho-controles {
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 9px;
+}
+
+.pagina-geladinho .gel-carrinho-controles button {
+    padding: 6px 10px;
+    border: 1px solid var(--dourado);
+    border-radius: 5px;
+    background: #f6e6ca;
+    color: var(--vinho);
+}
+
+.pagina-geladinho .gel-carrinho-resumo {
+    display: flex;
+    justify-content: space-between;
+    gap: 15px;
+    max-width: 900px;
+    padding: 18px 10px;
+    margin: 20px auto;
+    border-top: 2px solid var(--dourado);
+    font-size: 24px;
+    font-weight: 700;
+}
+
+.pagina-geladinho .gel-carrinho-aviso {
+    text-align: center;
+}
+
+.pagina-geladinho .gel-carrinho-acoes {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 12px;
+}
+
+.pagina-geladinho .gel-carrinho-botao,
+.pagina-geladinho .gel-carrinho-limpar,
+.pagina-geladinho .gel-encomendar {
+    display: inline-block;
+    padding: 12px 18px;
+    background: #650e1b;
+    border: 1px solid var(--dourado);
+    border-radius: 6px;
+    color: #fff1d8;
+    text-align: center;
+    font-size: 17px;
+    font-weight: 700;
+    cursor: pointer;
+}
+
+.pagina-geladinho .gel-carrinho-botao:hover,
+.pagina-geladinho .gel-carrinho-limpar:hover,
+.pagina-geladinho .gel-encomendar:hover {
+    background: #872134;
+}
+
+.pagina-geladinho #gel-copiar-status {
+    text-align: center;
+}
+
+/* ==========================================
+   FINAL E RODAPÉ
+========================================== */
+
+.pagina-geladinho .gel-final {
+    padding: 65px 20px;
+    background: linear-gradient(
+        135deg,
+        #35050e,
+        #650e1b
+    );
+    color: #f3ca70;
+    text-align: center;
+}
+
+.pagina-geladinho .gel-final h2 {
+    font-family: "Great Vibes", cursive;
+    font-size: 52px;
+    font-weight: 400;
+}
+
+.pagina-geladinho .gel-rodape {
+    padding: 35px 20px;
+    background: #400810;
+    color: #f3ca70;
+    text-align: center;
+}
+
+.pagina-geladinho .gel-rodape h2 {
+    margin: 0;
+    font-family: "Great Vibes", cursive;
+    font-size: 38px;
+    font-weight: 400;
+}
+
+.pagina-geladinho .gel-rodape nav {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    flex-wrap: wrap;
+    margin: 20px 0;
+}
+
+.pagina-geladinho .gel-rodape a {
+    color: #f3ca70;
+}
+
+/* ==========================================
+   JANELA DE QUANTIDADE
+========================================== */
+
+.pagina-geladinho .gel-modal {
+    width: min(780px, 94vw);
+    max-height: 90vh;
+    padding: 0;
+    border: 2px solid var(--dourado);
+    border-radius: 14px;
+    background: #fff7e9;
+    color: #650e1b;
+}
+
+.pagina-geladinho .gel-modal::backdrop {
+    background: #140005bf;
+}
+
+.pagina-geladinho .gel-modal-corpo {
+    position: relative;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+}
+
+.pagina-geladinho .gel-fechar {
+    position: absolute;
+    top: 10px;
+    right: 12px;
+    z-index: 5;
+    border: none;
+    background: transparent;
+    color: #650e1b;
+    font-size: 35px;
+}
+
+.pagina-geladinho .gel-foto {
+    min-height: 380px;
+    background: linear-gradient(
+        135deg,
+        #35050e,
+        #751d2c
+    );
+}
+
+.pagina-geladinho .gel-foto img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.pagina-geladinho .gel-sem-foto {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100%;
+    min-height: 380px;
+    color: #f3ca70;
+    text-align: center;
+}
+
+.pagina-geladinho .gel-sem-foto span {
+    font-size: 60px;
+}
+
+.pagina-geladinho .gel-modal-info {
+    padding: 45px 25px 25px;
+    text-align: center;
+}
+
+.pagina-geladinho .gel-modal-info h2 {
+    margin: 10px 0;
+    font-family: "Great Vibes", cursive;
+    font-size: 47px;
+    font-weight: 400;
+}
+
+.pagina-geladinho .gel-quant-label {
+    display: block;
+    margin-top: 20px;
+}
+
+.pagina-geladinho .gel-quant-controles {
+    display: flex;
+    justify-content: center;
+    gap: 8px;
+    margin: 15px 0;
+}
+
+.pagina-geladinho .gel-quant-controles button {
+    width: 45px;
+    border: 1px solid var(--dourado);
+    border-radius: 5px;
+    background: #f1dfc3;
+}
+
+.pagina-geladinho #gel-quantidade {
+    width: 75px;
+    padding: 10px;
+    border: 1px solid var(--dourado);
+    border-radius: 5px;
+    text-align: center;
+}
+
+.pagina-geladinho .gel-total {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+    margin: 18px 0;
+    font-size: 22px;
+}
+
+.pagina-geladinho .gel-nota {
+    font-size: 14px;
+}
+
+.pagina-geladinho .gel-modal-info .gel-encomendar,
+.pagina-geladinho .gel-voltar-sabores {
+    display: block;
+    width: 100%;
+    margin-top: 10px;
+    padding: 12px;
+    border-radius: 6px;
+    cursor: pointer;
+}
+
+.pagina-geladinho .gel-voltar-sabores {
+    border: 1px solid var(--dourado);
+    background: transparent;
+    color: var(--vinho);
+}
+
+/* ==========================================
+   AJUSTES PARA CELULAR
+========================================== */
+
+@media (max-width: 800px) {
+
+    .pagina-geladinho .cabecalho {
+        height: auto;
+        min-height: 85px;
+    }
+
+    .pagina-geladinho .navegacao {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 10px;
+        padding: 12px;
+    }
+
+    .pagina-geladinho .marca {
+        grid-column: 1 / -1;
+        grid-row: 1;
+        width: 120px;
+        height: 70px;
+    }
+
+    .pagina-geladinho .nav-botao {
+        font-size: 13px;
+        padding: 9px;
+    }
+
+    .pagina-geladinho .gel-abertura {
+        grid-template-columns: 1fr;
+    }
+
+    .pagina-geladinho .gel-hero-lado {
+        display: none;
+    }
+
+    .pagina-geladinho .gel-marca-nome {
+        height: 190px;
+    }
+
+    .pagina-geladinho .gel-vitrine {
+        grid-template-columns: 1fr;
+    }
+
+    .pagina-geladinho .gel-preview {
+        position: static;
+    }
+
+    .pagina-geladinho .gel-modal-corpo {
+        grid-template-columns: 1fr;
+    }
+
+    .pagina-geladinho .gel-foto,
+    .pagina-geladinho .gel-sem-foto {
+        min-height: 190px;
+    }
+
+    .pagina-geladinho .gel-carrinho-linha {
+        flex-direction: column;
+        align-items: stretch;
+    }
+
+}
+
+@media (prefers-reduced-motion: reduce) {
+
+    html {
+        scroll-behavior: auto;
+    }
+
+    .pagina-geladinho .gel-sabor {
+        transition: none;
+    }
+
+}
+/* ==========================================
+   NOVO BANNER ROSITA - GELADINHOS GOURMET
+========================================== */
+
+.pagina-geladinho .gel-abertura {
+
+    display: flex;
+
+    align-items: center;
+    justify-content: center;
+
+    width: 100%;
+    min-height: 620px;
+
+    background-color: #35030c;
+
+   background-image:
+    url("../imagens/Geladinho sem escrito Painel Luxuoso de Sobremesas Gourmet.png");
+
+    background-position: center center;
+
+    background-size: cover;
+
+    background-repeat: no-repeat;
+
+    position: relative;
+
+    overflow: hidden;
+}
+
+
+/* ==========================================
+   ÁREA CENTRAL
+========================================== */
+
+.pagina-geladinho .gel-abertura-interior {
+
+    position: relative;
+
+    z-index: 2;
+
+    display: flex;
+
+    flex-direction: column;
+
+    align-items: center;
+
+    justify-content: center;
+
+    width: 40%;
+    max-width: 620px;
+
+    min-height: 620px;
+
+    padding: 20px 12px 30px;
+
+    background: transparent;
+
+    text-align: center;
+}
+
+
+/* ==========================================
+   ESPAÇO DO LOGOTIPO
+========================================== */
+
+.pagina-geladinho .gel-marca-nome {
+
+    width: 100%;
+
+    height: 245px;
+
+    margin: 0 auto 10px;
+
+}
+
+
+/* ==========================================
+   TÍTULO GELADINHOS GOURMET
+========================================== */
+
+.pagina-geladinho .gel-abertura .gel-titulo {
+
+    display: flex;
+
+    flex-direction: column;
+
+    align-items: center;
+
+    margin: 0;
+
+    line-height: 1;
+
+    text-align: center;
+
+}
+
+
+/* Geladinhos: referência à escrita Rosita */
+
+.pagina-geladinho .gel-titulo span {
+
+    font-family: "Great Vibes", cursive;
+
+    font-size: clamp(58px, 6vw, 105px);
+
+    font-weight: 400;
+
+    color: #f5cf77;
+
+    text-shadow:
+        2px 3px 2px #51000c,
+        0 4px 8px rgba(0, 0, 0, 0.55);
+
+}
+
+
+/* Gourmet: estilo clássico */
+
+.pagina-geladinho .gel-titulo strong {
+
+    font-family: "Cormorant Garamond", serif;
+
+    font-size: clamp(36px, 3.8vw, 65px);
+
+    font-weight: 600;
+
+    color: #ffe5a6;
+
+    text-shadow:
+        0 3px 6px rgba(0, 0, 0, 0.5);
+
+}
+
+
+/* ==========================================
+   ORNAMENTO DOURADO
+========================================== */
+
+.pagina-geladinho .gel-abertura .gel-ornamento {
+
+    margin: 15px auto 8px;
+
+    color: #d4af37;
+
+    font-size: 17px;
+
+}
+
+
+/* ==========================================
+   FRASE PRINCIPAL
+========================================== */
+
+.pagina-geladinho .gel-abertura .gel-frase {
+
+    max-width: 530px;
+
+    margin: 8px auto;
+
+    font-family: "Cormorant Garamond", serif;
+
+    font-size: clamp(18px, 1.65vw, 25px);
+
+    line-height: 1.25;
+
+    color: #fff4e8;
+
+    text-shadow:
+        0 2px 5px rgba(0, 0, 0, 0.6);
+
+}
+
+
+/* ==========================================
+   ORIENTAÇÃO - TEXTO DISCRETO
+========================================== */
+
+.pagina-geladinho .gel-abertura .gel-orientacao {
+
+    max-width: 490px;
+
+    margin: 10px auto 0;
+
+    font-size: clamp(14px, 1.1vw, 17px);
+
+    line-height: 1.4;
+
+    color: #f4e9df;
+
+    text-shadow:
+        0 1px 4px rgba(0, 0, 0, 0.5);
+
+}
+
+
+/* ==========================================
+   RESPONSIVIDADE
+========================================== */
+
+@media (max-width: 800px) {
+
+    .pagina-geladinho .gel-abertura {
+
+        min-height: 570px;
+
+        background-position: center;
+
+    }
+
+    .pagina-geladinho .gel-abertura-interior {
+
+        width: 75%;
+
+        min-height: 570px;
+
+        padding: 20px 10px;
+
+    }
+
+    .pagina-geladinho .gel-marca-nome {
+
+        height: 195px;
+
+    }
+
+    .pagina-geladinho .gel-titulo span {
+
+        font-size: clamp(48px, 9vw, 72px);
+
+    }
+
+    .pagina-geladinho .gel-titulo strong {
+
+        font-size: clamp(30px, 6vw, 45px);
+
+    }
+
+}
+
+@media (max-width: 480px) {
+
+    .pagina-geladinho .gel-abertura-interior {
+
+        width: 94%;
+
+    }
+
+}
+/* ======================================
+   CORREÇÃO DO LOGOTIPO ANIMADO
+====================================== */
+
+.pagina-geladinho .cabecalho {
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+}
+
+.pagina-geladinho .gel-abertura {
+    overflow: visible;
+}
+
+.pagina-geladinho .gel-logo-banner {
+    position: fixed;
+    z-index: 2000;
+    pointer-events: none;
+}
+/* LOGOTIPO ROSITA FIXO NO MENU */
+
+.pagina-geladinho .gel-logo-banner {
+    position: fixed !important;
+    z-index: 9999 !important;
+    display: block !important;
+    visibility: visible !important;
+    pointer-events: none;
+}
+
+.pagina-geladinho .marca {
+    position: relative;
+    width: 145px;
+    height: 85px;
+}
+/* ========================================
+   LOGOTIPO ROSITA - CORREÇÃO DO MENU
+======================================== */
+
+.pagina-geladinho .cabecalho {
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+}
+
+.pagina-geladinho .gel-abertura {
+    overflow: visible;
+}
+
+.pagina-geladinho .gel-logo-banner {
+    position: fixed !important;
+    z-index: 9999 !important;
+    pointer-events: none;
+}
+/* ==========================================
+   CARRINHO FLUTUANTE - ROSITA
+========================================== */
+
+.carrinho-flutuante {
+    position: fixed;
+    right: 25px;
+    bottom: 25px;
+
+    width: 65px;
+    height: 65px;
+
+    background: #76283b;
+    color: #f2cf86;
+
+    border: 2px solid #d4af37;
+    border-radius: 50%;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    text-decoration: none;
+
+    box-shadow: 0 5px 18px rgba(0, 0, 0, 0.35);
+
+    z-index: 10000;
+
+    transition: transform 0.3s ease,
+                background 0.3s ease;
+}
+
+.carrinho-flutuante:hover {
+    transform: scale(1.1);
+    background: #581c2d;
+}
+
+.carrinho-contador {
+    position: absolute;
+    top: -7px;
+    right: -7px;
+
+    min-width: 24px;
+    height: 24px;
+    padding: 0 5px;
+
+    background: #d4af37;
+    color: #4b1726;
+
+    border-radius: 50%;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    font-size: 12px;
+    font-weight: bold;
+}
+
+@media (max-width: 600px) {
+    .carrinho-flutuante {
+        width: 55px;
+        height: 55px;
+        right: 15px;
+        bottom: 15px;
+    }
+}

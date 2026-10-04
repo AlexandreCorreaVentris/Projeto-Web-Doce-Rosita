@@ -1,0 +1,716 @@
+
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0">
+
+    <meta name="description"
+          content="Conheça os Geladinhos Gourmet da Rosita Doces Artesanais.">
+
+    <title>Geladinhos Gourmet | Rosita Doces Artesanais</title>
+
+    <!-- Fontes -->
+    <link rel="preconnect"
+          href="https://fonts.googleapis.com">
+
+    <link rel="preconnect"
+          href="https://fonts.gstatic.com"
+          crossorigin>
+
+    <link
+        href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Cormorant+Garamond:wght@400;500;600;700&display=swap"
+        rel="stylesheet">
+
+    <!-- CSS da página -->
+    <link rel="stylesheet" href="geladinho.css">
+
+    <!-- Sistema de carrinho compartilhado -->
+    <script src="../carrinho/carrinho.js" defer></script>
+
+    <!-- Funcionalidades dos geladinhos -->
+    <script src="geladinho.js" defer></script>
+
+</head>
+
+<body class="pagina-geladinho">
+
+    <!-- =====================================
+         CABEÇALHO FIXO
+    ====================================== -->
+
+    <header class="cabecalho">
+
+        <nav class="navegacao"
+             aria-label="Navegação principal">
+
+            <a href="../inicio.html"
+               class="nav-botao">
+                INÍCIO
+            </a>
+
+            <div class="dropdown">
+
+                <button type="button"
+                        class="nav-botao dropdown-botao"
+                        aria-expanded="false">
+                    MENU ▾
+                </button>
+
+                <div class="dropdown-conteudo">
+
+                    <a href="../Bolo/bolo.html">
+                        Bolos
+                    </a>
+
+                    <a href="geladinho.html">
+                        Geladinhos
+                    </a>
+
+                    <a href="../doce/doce.html">
+                        Doces
+                    </a>
+
+                    <a href="../salgado/salgado.html">
+                        Salgados
+                    </a>
+
+                </div>
+
+            </div>
+
+            <!-- Espaço do emblema animado -->
+            <div class="marca"
+                 id="espaco-logo"
+                 aria-hidden="true">
+            </div>
+
+            <div class="dropdown">
+
+                <button type="button"
+                        class="nav-botao dropdown-botao"
+                        aria-expanded="false">
+                    ENCOMENDAS ▾
+                </button>
+
+                <div class="dropdown-conteudo">
+
+                    <a href="#gel-carrinho">
+                        Meu Pedido
+                    </a>
+
+                    <!-- Link provisório -->
+                    <a href="../inicio.html">
+                        WhatsApp / Contato
+                    </a>
+
+                </div>
+
+            </div>
+
+            <div class="dropdown">
+
+                <button type="button"
+                        class="nav-botao dropdown-botao"
+                        aria-expanded="false">
+                    QUEM SOMOS ▾
+                </button>
+
+                <div class="dropdown-conteudo">
+
+                    <a href="../inicio.html">
+                        Nossa História
+                    </a>
+
+                    <!-- Link provisório -->
+                    <a href="../inicio.html">
+                        Contato
+                    </a>
+
+                </div>
+
+            </div>
+
+        </nav>
+
+    </header>
+
+
+    <main class="gel-pagina">
+
+        <!-- =====================================
+             BANNER PRINCIPAL
+        ====================================== -->
+<!-- =====================================
+     BANNER PRINCIPAL - ROSITA
+====================================== -->
+
+<section class="gel-abertura">
+
+    <div class="gel-abertura-interior">
+
+        <!-- Logotipo que se move para o menu -->
+        <div class="gel-marca-nome"
+             id="origem-logo">
+
+            <img
+                src="../imagens/Emblema Rosita Doces Artesanais copy.png"
+                alt="Rosita Doces Artesanais"
+                class="gel-logo-banner"
+                id="logo-animada">
+
+        </div>
+
+        <!-- Título -->
+        <h1 class="gel-titulo">
+            <span>Geladinhos</span>
+            <strong>Gourmet</strong>
+        </h1>
+
+        <!-- Ornamento -->
+        <div class="gel-ornamento">
+            ✦ ───── ❦ ───── ✦
+        </div>
+
+        <!-- Frase principal -->
+        <p class="gel-frase">
+            O companheiro perfeito para os dias mais quentes.
+        </p>
+
+        <!-- Orientação discreta -->
+        <p class="gel-orientacao">
+            Passe o mouse para visualizar a fotografia;
+            clique ou toque para escolher a quantidade
+            e simular o valor.
+        </p>
+
+    </div>
+
+</section>
+
+        <!-- =====================================
+             CARDÁPIO DE GELADINHOS
+             NOVE SABORES
+        ====================================== -->
+
+        <section class="gel-cardapio"
+                 aria-labelledby="gel-sabores">
+
+            <div class="gel-container">
+
+                <p class="gel-chamada">
+                    Preparados com carinho
+                </p>
+
+                <h2 id="gel-sabores">
+                    Nossos Sabores
+                </h2>
+
+                <div class="gel-ornamento">
+                    ✦ ───── ❦ ───── ✦
+                </div>
+
+
+                <div class="gel-vitrine">
+
+                    <div class="gel-lista">
+
+                        <!-- 1 - ABACAXI -->
+                        <button
+                            type="button"
+                            class="gel-sabor"
+                            data-nome="Abacaxi"
+                            data-preco="8.00"
+                            data-foto="../imagens/Geladinhos de Abacaxi na Tábua Rústica.png">
+
+                            <span>✦</span>
+                            Abacaxi
+                            <span class="gel-seta">›</span>
+
+                        </button>
+
+
+                        <!-- 2 - KIT KAT -->
+                        <button
+                            type="button"
+                            class="gel-sabor"
+                            data-nome="Kit Kat"
+                            data-preco="8.00"
+                            data-foto="../imagens/Geladinho Cremosos de Chocolate e Wafer.png">
+
+                            <span>✦</span>
+                            Kit Kat
+                            <span class="gel-seta">›</span>
+
+                        </button>
+
+
+                        <!-- 3 - ROMEU E JULIETA -->
+                        <button
+                            type="button"
+                            class="gel-sabor"
+                            data-nome="Romeu e Julieta"
+                            data-preco="8.00"
+                            data-foto="../imagens/Geladinhos Cremosos de Goiaba com Queijo.png">
+
+                            <span>✦</span>
+                            Romeu e Julieta
+                            <span class="gel-seta">›</span>
+
+                        </button>
+
+
+                        <!-- 4 - PUDIM -->
+                        <button
+                            type="button"
+                            class="gel-sabor"
+                            data-nome="Pudim"
+                            data-preco="8.00"
+                            data-foto="../imagens/Geladinho  Pudim Dourado.png">
+
+                            <span>✦</span>
+                            Pudim
+                            <span class="gel-seta">›</span>
+
+                        </button>
+
+
+                        <!-- 5 - MOUSSE DE LIMÃO -->
+                        <button
+                            type="button"
+                            class="gel-sabor"
+                            data-nome="Mousse de limão"
+                            data-preco="8.00"
+                            data-foto="../imagens/Geladinhos Cremosos de Limão com Limas frescas.png">
+
+                            <span>✦</span>
+                            Mousse de limão
+                            <span class="gel-seta">›</span>
+
+                        </button>
+
+
+                        <!-- 6 - MOUSSE DE LIMÃO COM CHOCOLATE -->
+                        <button
+                            type="button"
+                            class="gel-sabor"
+                            data-nome="Mousse de limão com chocolate"
+                            data-preco="8.00"
+                            data-foto="../imagens/Geladinho de Limão com Chocolate.png">
+
+                            <span>✦</span>
+                            Mousse de limão com chocolate
+                            <span class="gel-seta">›</span>
+
+                        </button>
+
+
+                        <!-- 7 - MORANGO -->
+                        <button
+                            type="button"
+                            class="gel-sabor"
+                            data-nome="Morango"
+                            data-preco="8.00"
+                            data-foto="../imagens/Geladinho de Morango no Tábua Rústica.png">
+
+                            <span>✦</span>
+                            Morango
+                            <span class="gel-seta">›</span>
+
+                        </button>
+
+
+                        <!-- 8 - CHOCOLATE -->
+                        <button
+                            type="button"
+                            class="gel-sabor"
+                            data-nome="Chocolate"
+                            data-preco="8.00"
+                            data-foto="../imagens/Geladinhos de Chocolate Artesanais.png">
+
+                            <span>✦</span>
+                            Chocolate
+                            <span class="gel-seta">›</span>
+
+                        </button>
+
+
+                        <!-- 9 - MARACUJÁ -->
+                        <button
+                            type="button"
+                            class="gel-sabor"
+                            data-nome="Maracujá"
+                            data-preco="8.00"
+                            data-foto="../imagens/Geladinhos de Maracujá Rústicos.png">
+
+                            <span>✦</span>
+                            Maracujá
+                            <span class="gel-seta">›</span>
+
+                        </button>
+
+                    </div>
+
+
+                    <!-- =====================================
+                         PRÉVIA DA FOTOGRAFIA
+                    ====================================== -->
+
+                    <aside class="gel-preview"
+                           aria-label="Prévia do sabor">
+
+                        <div class="gel-preview-foto">
+
+                            <img
+                                id="gel-preview-img"
+                                alt=""
+                                hidden>
+
+                            <div
+                                class="gel-preview-vazio"
+                                id="gel-preview-vazio">
+
+                                <span>❦</span>
+
+                                <p>
+                                    FOTO DO SABOR EM BREVE
+                                </p>
+
+                                <small>
+                                    Reserve este espaço
+                                    para a fotografia
+                                </small>
+
+                            </div>
+
+                        </div>
+
+                        <div class="gel-preview-texto">
+
+                            <p class="gel-selo">
+                                UM SABOR ESPECIAL
+                            </p>
+
+                            <h3 id="gel-preview-nome">
+                                Escolha um sabor
+                            </h3>
+
+                            <p id="gel-preview-preco">
+                                Preço ilustrativo
+                            </p>
+
+                            <p class="gel-preview-ajuda">
+                                Clique no sabor para escolher
+                                a quantidade.
+                            </p>
+
+                        </div>
+
+                    </aside>
+
+                </div>
+
+                <p class="gel-observacao">
+                    Valores ilustrativos de R$ 8,00
+                    por unidade. Frete não incluído.
+                </p>
+
+            </div>
+
+        </section>
+
+
+        <!-- =====================================
+             CARRINHO DE PEDIDOS
+        ====================================== -->
+
+        <section
+            class="gel-carrinho"
+            id="gel-carrinho">
+
+            <div class="gel-container">
+
+                <h2>Meu Pedido</h2>
+
+                <p id="gel-carrinho-vazio">
+                    Seu pedido está vazio.
+                    Escolha um sabor para começar.
+                </p>
+
+                <div
+                    id="gel-carrinho-itens"
+                    aria-live="polite">
+                </div>
+
+                <div class="gel-carrinho-resumo">
+
+                    <span id="gel-carrinho-qtd">
+                        0 unidades
+                    </span>
+
+                    <strong id="gel-carrinho-total">
+                        R$ 0,00
+                    </strong>
+
+                </div>
+
+                <p class="gel-carrinho-aviso">
+                    Simulação ilustrativa, sem frete.
+                </p>
+
+                <div class="gel-carrinho-acoes">
+
+                    <a
+                        href="#gel-sabores"
+                        class="gel-carrinho-botao">
+                        + Escolher mais sabores
+                    </a>
+
+                    <button
+                        type="button"
+                        id="gel-limpar"
+                        class="gel-carrinho-limpar">
+                        Limpar pedido
+                    </button>
+
+                    <button
+                        type="button"
+                        id="gel-copiar"
+                        class="gel-carrinho-botao">
+                        Copiar resumo
+                    </button>
+
+                </div>
+
+                <p
+                    id="gel-copiar-status"
+                    role="status">
+                </p>
+
+            </div>
+
+        </section>
+
+
+        <!-- =====================================
+             ENCERRAMENTO
+        ====================================== -->
+
+        <section class="gel-final">
+
+            <p>
+                Uma experiência em cada sabor
+            </p>
+
+            <h2>
+                Feitos para adoçar seus momentos
+            </h2>
+
+            <!-- Link provisório -->
+            <a
+                href="../inicio.html"
+                class="gel-encomendar">
+                Faça sua encomenda
+            </a>
+
+        </section>
+
+    </main>
+
+
+    <!-- =====================================
+         RODAPÉ
+    ====================================== -->
+
+    <footer class="gel-rodape">
+
+        <h2>Rosita Doces Artesanais</h2>
+
+        <p>
+            Uma experiência em cada garfada.
+        </p>
+
+        <nav aria-label="Links do rodapé">
+
+            <a href="../inicio.html">
+                Início
+            </a>
+
+            <a href="geladinho.html">
+                Geladinhos
+            </a>
+
+            <a href="#gel-carrinho">
+                Meu Pedido
+            </a>
+
+        </nav>
+
+        <small>
+            © 2026 Rosita Doces Artesanais.
+        </small>
+
+    </footer>
+
+
+    <!-- =====================================
+         JANELA DE ESCOLHA DE QUANTIDADE
+    ====================================== -->
+
+    <dialog
+        class="gel-modal"
+        id="gel-modal">
+
+        <div class="gel-modal-corpo">
+
+            <!-- Botão fechar -->
+            <button
+                type="button"
+                class="gel-fechar"
+                aria-label="Fechar">
+                ×
+            </button>
+
+
+            <!-- Fotografia do sabor -->
+            <div class="gel-foto">
+
+                <img
+                    id="gel-modal-foto"
+                    alt=""
+                    hidden>
+
+                <div
+                    class="gel-sem-foto"
+                    id="gel-sem-foto">
+
+                    <span>❦</span>
+
+                    <p>
+                        FOTO DO SABOR EM BREVE
+                    </p>
+
+                </div>
+
+            </div>
+
+
+            <!-- Informações e quantidade -->
+            <div class="gel-modal-info">
+
+                <p class="gel-selo">
+                    ROSITA DOCES ARTESANAIS
+                </p>
+
+                <h2 id="gel-modal-titulo">
+                    Sabor selecionado
+                </h2>
+
+                <div class="gel-ornamento">
+                    ✦ ─── ❦ ─── ✦
+                </div>
+
+                <p class="gel-preco">
+                    Preço unitário:
+
+                    <strong id="gel-unitario">
+                        R$ 8,00
+                    </strong>
+                </p>
+
+                <label
+                    class="gel-quant-label"
+                    for="gel-quantidade">
+                    Quantidade de geladinhos
+                </label>
+
+                <div class="gel-quant-controles">
+
+                    <button
+                        type="button"
+                        id="gel-menos">
+                        −
+                    </button>
+
+                    <input
+                        type="number"
+                        id="gel-quantidade"
+                        min="1"
+                        max="999"
+                        value="1">
+
+                    <button
+                        type="button"
+                        id="gel-mais">
+                        +
+                    </button>
+
+                </div>
+
+                <div class="gel-total">
+
+                    <span>
+                        Subtotal estimado
+                    </span>
+
+                    <strong id="gel-subtotal">
+                        R$ 8,00
+                    </strong>
+
+                </div>
+
+                <p class="gel-nota">
+                    Simulação ilustrativa,
+                    sem frete.
+                </p>
+
+                <button
+                    type="button"
+                    id="gel-adicionar"
+                    class="gel-encomendar">
+                    + Adicionar ao pedido
+                </button>
+
+                <button
+                    type="button"
+                    id="gel-outro-sabor"
+                    class="gel-voltar-sabores">
+                    ← Escolher outro sabor
+                </button>
+
+            </div>
+
+        </div>
+
+    </dialog>
+    <!-- CARRINHO FLUTUANTE -->
+<a href="../carrinho/carrinho.html"
+   class="carrinho-flutuante"
+   aria-label="Abrir meu carrinho"
+   title="Meu Carrinho">
+
+    <svg xmlns="http://www.w3.org/2000/svg"
+         width="29"
+         height="29"
+         viewBox="0 0 24 24"
+         fill="none"
+         stroke="currentColor"
+         stroke-width="2"
+         stroke-linecap="round"
+         stroke-linejoin="round"
+         aria-hidden="true">
+        <circle cx="8" cy="21" r="1"></circle>
+        <circle cx="19" cy="21" r="1"></circle>
+        <path d="M2 2h2l2.4 12.4a2 2 0 0 0 2 1.6h9.8a2 2 0 0 0 2-1.6L22 6H5"></path>
+    </svg>
+
+    <span class="carrinho-contador" id="carrinho-contador">0</span>
+</a>
+
+<script src="../carrinho/carrinho-compartilhado.js"></script>
+<script src="./geladinho.js"></script>
+
+</body>
+</html>
