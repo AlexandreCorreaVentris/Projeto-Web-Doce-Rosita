@@ -1,42 +1,409 @@
-let slideIndex = 0;
-const slides = document.querySelectorAll('.slide');
-const pontos = document.querySelectorAll('.pontos span');
 
-function mostrarSlide(index) {
-    // Garante que o índice fique dentro dos limites (loop infinito)
-    if (index >= slides.length) {
-        slideIndex = 0;
-    } else if (index < 0) {
-        slideIndex = slides.length - 1;
-    } else {
-        slideIndex = index;
+/* ==========================================================
+   ROSITA DOCES ARTESANAIS
+   SCRIPT.JS — VERSÃO CORRIGIDA
+========================================================== */
+
+document.addEventListener("DOMContentLoaded", function () {
+
+    /* ======================================================
+       1. INICIALIZAR ÍCONES
+    ====================================================== */
+
+    if (window.lucide) {
+        lucide.createIcons();
     }
 
-    // Remove a classe 'active' de todos os slides e pontos
-    slides.forEach(slide => slide.classList.remove('active'));
-    pontos.forEach(ponto => ponto.classList.remove('active'));
 
-    // Adiciona a classe 'active' apenas no slide e ponto atuais
-    slides[slideIndex].classList.add('active');
-    if (pontos[slideIndex]) {
-        pontos[slideIndex].classList.add('active');
+    /* ======================================================
+       2. CARROSSEL PRINCIPAL
+    ====================================================== */
+
+    const slider = document.querySelector(".slider");
+
+    if (slider) {
+
+        const slides = slider.querySelectorAll(".slide");
+
+        const pontos = slider.querySelectorAll(".pontos button");
+
+        const botaoAnterior = slider.querySelector(".antes");
+
+        const botaoProximo = slider.querySelector(".proximo");
+
+        let slideIndex = 0;
+
+        let intervaloAutomatico = null;
+
+
+        /* --------------------------------------------------
+           MOSTRAR SLIDE
+        -------------------------------------------------- */
+
+        function mostrarSlide(index) {
+
+            if (slides.length === 0) {
+                return;
+            }
+
+            // Faz o carrossel circular continuamente.
+            slideIndex = (
+                index % slides.length + slides.length
+            ) % slides.length;
+
+            // Remove a classe active dos slides.
+            slides.forEach(function (slide) {
+                slide.classList.remove("active");
+            });
+
+            // Remove a classe active dos indicadores.
+            pontos.forEach(function (ponto) {
+                ponto.classList.remove("active");
+            });
+
+            // Ativa o slide atual.
+            slides[slideIndex].classList.add("active");
+
+            // Ativa o indicador correspondente.
+            if (pontos[slideIndex]) {
+                pontos[slideIndex].classList.add("active");
+            }
+        }
+
+
+        /* --------------------------------------------------
+           PRÓXIMO SLIDE
+        -------------------------------------------------- */
+
+        function proximoSlide() {
+            mostrarSlide(slideIndex + 1);
+        }
+
+
+        /* --------------------------------------------------
+           SLIDE ANTERIOR
+        -------------------------------------------------- */
+
+        function slideAnterior() {
+            mostrarSlide(slideIndex - 1);
+        }
+
+
+        /* --------------------------------------------------
+           PARAR TROCA AUTOMÁTICA
+        -------------------------------------------------- */
+
+        function pararAutomatico() {
+
+            if (intervaloAutomatico !== null) {
+
+                clearInterval(intervaloAutomatico);
+
+                intervaloAutomatico = null;
+            }
+        }
+
+
+        /* --------------------------------------------------
+           INICIAR TROCA AUTOMÁTICA
+        -------------------------------------------------- */
+
+        function iniciarAutomatico() {
+
+            pararAutomatico();
+
+            if (slides.length <= 1 || document.hidden) {
+                return;
+            }
+
+            // Avança automaticamente a cada 5 segundos.
+            intervaloAutomatico = setInterval(function () {
+
+                proximoSlide();
+
+            }, 5000);
+        }
+
+
+        /* --------------------------------------------------
+           BOTÃO ANTERIOR
+        -------------------------------------------------- */
+
+        if (botaoAnterior) {
+
+            botaoAnterior.addEventListener("click", function () {
+
+                slideAnterior();
+
+                iniciarAutomatico();
+            });
+        }
+
+
+        /* --------------------------------------------------
+           BOTÃO PRÓXIMO
+        -------------------------------------------------- */
+
+        if (botaoProximo) {
+
+            botaoProximo.addEventListener("click", function () {
+
+                proximoSlide();
+
+                iniciarAutomatico();
+            });
+        }
+
+
+        /* --------------------------------------------------
+           INDICADORES DO CARROSSEL
+        -------------------------------------------------- */
+
+        pontos.forEach(function (ponto, index) {
+
+            ponto.addEventListener("click", function () {
+
+                mostrarSlide(index);
+
+                iniciarAutomatico();
+            });
+        });
+
+
+        /* --------------------------------------------------
+           ABA DO NAVEGADOR
+           Pausa somente quando a aba está oculta.
+           O mouse NÃO interrompe mais o carrossel.
+        -------------------------------------------------- */
+
+        document.addEventListener("visibilitychange", function () {
+
+            if (document.hidden) {
+
+                pararAutomatico();
+
+            } else {
+
+                iniciarAutomatico();
+            }
+        });
+
+
+        /* --------------------------------------------------
+           INICIALIZAR CARROSSEL
+        -------------------------------------------------- */
+
+        mostrarSlide(0);
+
+        iniciarAutomatico();
     }
-}
 
-// Função para os botões "Anterior" (mudarSlide(-1)) e "Próximo" (mudarSlide(1))
-function mudarSlide(direcao) {
-    mostrarSlide(slideIndex + direcao);
-}
 
-// Função para quando clicar diretamente nos pontos
-function irParaSlide(index) {
-    mostrarSlide(index);
-}
+    /* ======================================================
+       3. MENUS SUSPENSOS
+    ====================================================== */
 
-// Troca de slide automática a cada 5 segundos
-setInterval(() => {
-    mudarSlide(1);
-}, 2500);
+    const menus = document.querySelectorAll(".dropdown");
 
-// Inicializa o primeiro slide
-mostrarSlide(slideIndex);
+
+    /* --------------------------------------------------
+       FECHAR TODOS OS MENUS
+    -------------------------------------------------- */
+
+    function fecharMenus() {
+
+        menus.forEach(function (menu) {
+
+            menu.classList.remove("aberto");
+
+            const botao = menu.querySelector(".dropdown-botao");
+
+            if (botao) {
+                botao.setAttribute("aria-expanded", "false");
+            }
+        });
+    }
+
+
+    /* --------------------------------------------------
+       ABRIR MENU AO CLICAR
+    -------------------------------------------------- */
+
+    menus.forEach(function (menu) {
+
+        const botao = menu.querySelector(".dropdown-botao");
+
+        if (!botao) {
+            return;
+        }
+
+        botao.setAttribute("aria-expanded", "false");
+
+        botao.addEventListener("click", function () {
+
+            const estavaAberto = menu.classList.contains("aberto");
+
+            fecharMenus();
+
+            if (!estavaAberto) {
+
+                menu.classList.add("aberto");
+
+                botao.setAttribute("aria-expanded", "true");
+            }
+        });
+    });
+
+
+    /* --------------------------------------------------
+       FECHAR AO CLICAR FORA
+    -------------------------------------------------- */
+
+    document.addEventListener("click", function (evento) {
+
+        if (!evento.target.closest(".dropdown")) {
+            fecharMenus();
+        }
+    });
+
+
+    /* --------------------------------------------------
+       FECHAR COM ESC
+    -------------------------------------------------- */
+
+    document.addEventListener("keydown", function (evento) {
+
+        if (evento.key === "Escape") {
+            fecharMenus();
+        }
+    });
+
+
+    /* ======================================================
+       4. IMAGENS AUTOMÁTICAS DAS MINIATURAS
+    ====================================================== */
+
+    const slidesRosita = document.querySelectorAll(
+        ".slider .slide"
+    );
+
+    const miniaturasRosita = document.querySelectorAll(
+        ".miniaturas-carrossel .miniatura"
+    );
+
+    miniaturasRosita.forEach(function (miniatura, indice) {
+
+        const slide = slidesRosita[indice];
+
+        if (!slide) {
+            return;
+        }
+
+        const imagem = slide.querySelector(".hero-imagem");
+
+        if (!imagem) {
+            return;
+        }
+
+        // Utiliza a mesma imagem do slide.
+        miniatura.style.setProperty(
+            "background-image",
+            'url("' + imagem.src + '")',
+            "important"
+        );
+
+        miniatura.style.setProperty(
+            "background-size",
+            "cover",
+            "important"
+        );
+
+        miniatura.style.setProperty(
+            "background-position",
+            "center",
+            "important"
+        );
+
+        miniatura.style.setProperty(
+            "background-repeat",
+            "no-repeat",
+            "important"
+        );
+    });
+
+
+    /* ======================================================
+       5. MINIATURAS — NAVEGAR ATÉ OS PRODUTOS
+    ====================================================== */
+
+    const destinos = [
+
+        "inicio",             // 1. Abertura
+        "secao-bolos",       // 2. Bolos
+        "secao-geladinhos",  // 3. Geladinhos
+        "secao-doces",       // 4. Doces
+        "secao-salgados",    // 5. Salgados
+        "secao-historia",    // 6. Nossa História
+        "secao-encomendas"   // 7. Encomendas
+    ];
+
+    miniaturasRosita.forEach(function (miniatura, indice) {
+
+        miniatura.addEventListener("click", function (evento) {
+
+            // Impede que outro evento de clique
+            // interfira na navegação da miniatura.
+            evento.stopImmediatePropagation();
+
+            // A última miniatura abre a página de contato.
+            if (indice === 6) {
+
+                window.location.href = "contato.html";
+
+                return;
+            }
+
+            const destino = document.getElementById(
+                destinos[indice]
+            );
+
+            if (destino) {
+
+                destino.scrollIntoView({
+
+                    behavior: "smooth",
+                    block: "start"
+
+                });
+            }
+        }, true);
+    });
+
+
+    /* ======================================================
+       6. CABEÇALHO E LOGO ACOMPANHAM A ROLAGEM
+    ====================================================== */
+
+    const cabecalho = document.querySelector(".cabecalho");
+
+    if (cabecalho) {
+
+        function atualizarCabecalho() {
+
+            // Após 80 pixels, ativa o menu compacto.
+            cabecalho.classList.toggle(
+                "rolando",
+                window.scrollY > 80
+            );
+        }
+
+        window.addEventListener(
+            "scroll",
+            atualizarCabecalho,
+            { passive: true }
+        );
+
+        atualizarCabecalho();
+    }
+
+});

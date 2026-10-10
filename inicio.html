@@ -1,262 +1,1470 @@
+
+
 <!DOCTYPE html>
+
 <html lang="pt-br">
+
 <head>
+
     <meta charset="UTF-8">
+
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Rosita Doces</title>
+
+    <meta name="description"
+
+          content="Rosita Doces Artesanais: bolos, doces, salgados e geladinhos gourmet preparados com amor.">
+
+    <title>Rosita Doces | Desde 2024</title>
+
+    <!-- Fontes -->
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+    <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Italianno&family=Cormorant+Garamond:wght@400;500;600;700&display=swap"
+
+          rel="stylesheet">
+
     <link rel="stylesheet" href="style.css">
+
 </head>
+
 <body>
-    <!-- ==================================
+
+    <!-- =====================================
+
          CABEÇALHO
-    =================================== -->
+
+    ====================================== -->
+
     <header class="cabecalho">
-        <div class="cabecalho-conteudo">
-            <!-- LOGO -->
-            <a href="inicio.html" class="marca">
-                <img
-                    src="imagens/logo.png"
-                    alt="Logo Rosita Doces"
-                    class="logo"
-                >    
+
+        <nav class="navegacao" aria-label="Menu principal">
+
+            <a href="inicio.html" class="nav-botao">
+
+                <i data-lucide="house"></i>
+
+                <span>INÍCIO</span>
+
             </a>
-            <!-- MENU PRINCIPAL -->
-            <nav class="menu">
-                <!-- LADO ESQUERDO -->
-                <div class="menu-esquerda">
-                    <a href="inicio.html">Início</a>
-                    <a href="sobre.html">Nossa História</a>
-                    <a href="doces.html">Doces</a>
-                </div>
-                <!-- ESPAÇO EXCLUSIVO PARA O LOGO -->
-                <div class="espaco-logo"></div>
-                <!-- LADO DIREITO -->
-                <div class="menu-direita">
-                    <a href="salgados.html">Salgados</a>
+
+            <div class="dropdown">
+
+                <button class="nav-botao dropdown-botao"
+
+                        type="button">
+
+                    <i data-lucide="cake-slice"></i>
+
+                    <span>MENU</span>
+
+                    <i data-lucide="chevron-down" class="setinha"></i>
+
+                </button>
+
+                <div class="dropdown-conteudo">
+
+                    <a href="bolos.html">Bolos</a>
+
                     <a href="geladinhos.html">Geladinhos</a>
-                    <a href="localizacao.html">Localização</a>
-                    <a href="contato.html" class="menu-destaque">Encomendas</a>
+
+                    <a href="doces.html">Doces</a>
+
+                    <a href="salgados.html">Salgados</a>
+
                 </div>
-            </nav>
-        </div>
+
+            </div>
+
+            <!-- LOGOTIPO -->
+
+            <a href="inicio.html" class="marca">
+
+                <img
+
+                    src="imagens/Emblema Rosita Doces Artesanais copy.png"
+
+                    alt="Rosita Doces Artesanais"
+
+                    class="logo">
+
+            </a>
+
+            <div class="dropdown">
+
+                <button class="nav-botao dropdown-botao"
+
+                        type="button">
+
+                    <i data-lucide="shopping-cart"></i>
+
+                    <span>ENCOMENDAS</span>
+
+                    <i data-lucide="chevron-down" class="setinha"></i>
+
+                </button>
+
+                <div class="dropdown-conteudo">
+
+                    <a href="contato.html">WhatsApp / Contato</a>
+
+                    <a href="contato.html">Telefone</a>
+
+                    <a href="localizacao.html">Localização</a>
+
+                </div>
+
+            </div>
+
+            <div class="dropdown dropdown-direita">
+
+                <button class="nav-botao dropdown-botao"
+
+                        type="button">
+
+                    <i data-lucide="users"></i>
+
+                    <span>QUEM SOMOS</span>
+
+                    <i data-lucide="chevron-down" class="setinha"></i>
+
+                </button>
+
+                <div class="dropdown-conteudo">
+
+                    <a href="sobre.html">Nossa História</a>
+
+                    <a href="contato.html">Instagram</a>
+
+                    <a href="contato.html">Facebook</a>
+
+                </div>
+
+            </div>
+
+        </nav>
+
     </header>
 
-    <!-- ==================================
-         CONTEÚDO PRINCIPAL
-    =================================== -->
     <main id="inicio">
-        <!-- APRESENTAÇÃO / HERO -->
-        <section class="hero">
+
+        <!-- =====================================
+
+             CARROSSEL
+
+        ====================================== -->
+
+        <section class="hero"
+
+                 aria-label="Apresentação Rosita Doces">
+
+            <!-- SVG reutilizável:
+
+                 os sete slides usam o mesmo arabesco -->
+
+            <svg class="svg-definicoes"
+
+                 xmlns="http://www.w3.org/2000/svg"
+
+                 aria-hidden="true">
+
+                <defs>
+
+                    <linearGradient id="ouroRosita"
+
+                                    x1="0" y1="0"
+
+                                    x2="0.2" y2="1">
+
+                        <stop offset="0%"
+
+                              stop-color="#fff6cc"/>
+
+                        <stop offset="28%"
+
+                              stop-color="#f8d477"/>
+
+                        <stop offset="55%"
+
+                              stop-color="#ae711d"/>
+
+                        <stop offset="78%"
+
+                              stop-color="#ffdf85"/>
+
+                        <stop offset="100%"
+
+                              stop-color="#c88c31"/>
+
+                    </linearGradient>
+
+                    <symbol id="arabesco-rosita"
+
+                            viewBox="0 0 600 120">
+
+                        <g fill="none"
+
+                           stroke="url(#ouroRosita)"
+
+                           stroke-width="3.2"
+
+                           stroke-linecap="round"
+
+                           stroke-linejoin="round">
+
+                            <!-- Coração central -->
+
+                            <path d="
+
+                                M300 84
+
+                                C282 64 263 53 274 36
+
+                                C286 20 300 36 300 42
+
+                                C300 36 314 20 326 36
+
+                                C337 53 318 64 300 84Z"
+
+                                stroke-width="5"/>
+
+                            <!-- Curva esquerda -->
+
+                            <path d="
+
+                                M270 55
+
+                                C214 6 175 108 113 56
+
+                                C76 25 45 52 65 72
+
+                                C83 88 106 63 88 51"/>
+
+                            <!-- Curva direita -->
+
+                            <path d="
+
+                                M330 55
+
+                                C386 6 425 108 487 56
+
+                                C524 25 555 52 535 72
+
+                                C517 88 494 63 512 51"/>
+
+                            <!-- Curvas inferiores -->
+
+                            <path d="
+
+                                M265 71
+
+                                C211 107 171 36 129 87
+
+                                C109 110 71 97 69 77"/>
+
+                            <path d="
+
+                                M335 71
+
+                                C389 107 429 36 471 87
+
+                                C491 110 529 97 531 77"/>
+
+                            <!-- Curvas superiores -->
+
+                            <path d="
+
+                                M258 42
+
+                                C213 7 162 15 146 46"/>
+
+                            <path d="
+
+                                M342 42
+
+                                C387 7 438 15 454 46"/>
+
+                            <!-- Detalhes internos -->
+
+                            <path d="
+
+                                M260 64
+
+                                C230 36 204 45 190 68"/>
+
+                            <path d="
+
+                                M340 64
+
+                                C370 36 396 45 410 68"/>
+
+                        </g>
+
+                        <!-- Pontos de luz -->
+
+                        <g fill="#ffe5a1">
+
+                            <circle cx="39" cy="64" r="4"/>
+
+                            <circle cx="561" cy="64" r="4"/>
+
+                            <circle cx="300" cy="17" r="3"/>
+
+                            <path d="
+
+                                M39 52 L42 61 L51 64
+
+                                L42 67 L39 76 L36 67
+
+                                L27 64 L36 61Z"/>
+
+                            <path d="
+
+                                M561 52 L564 61 L573 64
+
+                                L564 67 L561 76 L558 67
+
+                                L549 64 L558 61Z"/>
+
+                        </g>
+
+                    </symbol>
+
+                </defs>
+
+            </svg>
+
             <div class="slider">
+
                 <div class="slides">
-                    <div class="slide active">
-                        <img 
-                            src="imagens/bolo de chocolate e morango.png"
-                            alt="Bolo artesanal Rosita Doces"
+
+                    <!-- =========================
+
+                         SLIDE 1 — ABERTURA
+
+                    ========================== -->
+
+                    <article class="slide active">
+
+                        <img
+
+                            src="imagens/Mesa Festiva de Doces e Salgadinhos.png"
+
+                            alt="Mesa festiva com doces e salgados"
+
                             class="hero-imagem">
-                    </div>
-                    <div class="slide">
-                        <img class="hero-imagem"
-                            src="imagens/salgados gourmet.jpg" alt="Salgados gourmet Rosita Doces">
-                    </div>
-                    <div class="slide">
-                        <img class="hero-imagem"
-                            src="imagens/geladinho gourmet.webp" alt="Geladinhos gourmet Rosita Doces">
-                    </div>
+
+                        <div class="hero-sombra"></div>
+
+                        <div class="hero-conteudo hero-luxo">
+
+                            <p class="hero-pequeno">
+
+                                CONFEITARIA GOURMET
+
+                            </p>
+
+                            <div class="ornamento-superior"
+
+                                 aria-hidden="true">
+
+                                <span>✦</span>
+
+                                <span>♥</span>
+
+                                <span>✦</span>
+
+                            </div>
+
+                            <div class="ornamento-marca">
+
+                                <h1 class="titulo-marca">
+
+                                    <span class="nome-rosita">
+
+                                        Rosita
+
+                                    </span>
+
+                                    <span class="subtitulo-marca">
+
+                                        Doces Artesanais
+
+                                    </span>
+
+                                </h1>
+
+                            </div>
+
+                            <div class="arabesco-svg"
+
+                                 aria-hidden="true">
+
+                                <svg viewBox="0 0 600 120">
+
+                                    <use href="#arabesco-rosita"></use>
+
+                                </svg>
+
+                            </div>
+
+                            <p class="hero-frase">
+
+                                Feita com carinho, dedicação<br>
+
+                                e paixão pela confeitaria.
+
+                            </p>
+
+                            <div class="linha-coracao"
+
+                                 aria-hidden="true">
+
+                                <span>♡</span>
+
+                            </div>
+
+                            <a href="#produtos"
+
+                               class="botao-hero botao-luxo">
+
+                                CONHEÇA NOSSAS DELÍCIAS
+
+                                <span>→</span>
+
+                            </a>
+
+                        </div>
+
+                    </article>
+
+                    <!-- =========================
+
+                         SLIDE 2 — BOLOS
+
+                    ========================== -->
+
+                    <article class="slide">
+
+                        <img
+
+                            src="imagens/Bolo de Chocolate com Morangos e Ganache.png"
+
+                            alt="Bolo de chocolate com morangos"
+
+                            class="hero-imagem">
+
+                        <div class="hero-sombra"></div>
+
+                        <div class="hero-conteudo hero-luxo">
+
+                            <p class="hero-pequeno">
+
+                                BOLOS ARTESANAIS
+
+                            </p>
+
+                            <div class="ornamento-superior"
+
+                                 aria-hidden="true">
+
+                                <span>✦</span>
+
+                                <span>♥</span>
+
+                                <span>✦</span>
+
+                            </div>
+
+                            <h2 class="titulo-slide">
+
+                                Bolos
+
+                            </h2>
+
+                            <p class="hero-frase">
+
+                                Momentos que ficam<br>
+
+                                ainda mais doces.
+
+                            </p>
+
+                            <div class="arabesco-svg"
+
+                                 aria-hidden="true">
+
+                                <svg viewBox="0 0 600 120">
+
+                                    <use href="#arabesco-rosita"></use>
+
+                                </svg>
+
+                            </div>
+
+                            <a href="bolos.html"
+
+                               class="botao-hero botao-luxo">
+
+                                CONHEÇA NOSSOS BOLOS
+
+                                <span>→</span>
+
+                            </a>
+
+                        </div>
+
+                    </article>
+
+                    <!-- =========================
+
+                         SLIDE 3 — GELADINHOS
+
+                    ========================== -->
+
+                    <article class="slide">
+
+                        <img
+
+                            src="imagens/geladinho gourmet.webp"
+
+                            alt="Geladinhos gourmet"
+
+                            class="hero-imagem">
+
+                        <div class="hero-sombra"></div>
+
+                        <div class="hero-conteudo hero-luxo">
+
+                            <p class="hero-pequeno">
+
+                                SABORES REFRESCANTES
+
+                            </p>
+
+                            <div class="ornamento-superior"
+
+                                 aria-hidden="true">
+
+                                <span>✦</span>
+
+                                <span>♥</span>
+
+                                <span>✦</span>
+
+                            </div>
+
+                            <h2 class="titulo-slide titulo-longo">
+
+                                Geladinhos
+
+                            </h2>
+
+                            <p class="hero-frase">
+
+                                Uma delícia gelada,<br>
+
+                                feita para encantar.
+
+                            </p>
+
+                            <div class="arabesco-svg"
+
+                                 aria-hidden="true">
+
+                                <svg viewBox="0 0 600 120">
+
+                                    <use href="#arabesco-rosita"></use>
+
+                                </svg>
+
+                            </div>
+
+                            <a href="geladinhos.html"
+
+                               class="botao-hero botao-luxo">
+
+                                DESCUBRA NOSSOS SABORES
+
+                                <span>→</span>
+
+                            </a>
+
+                        </div>
+
+                    </article>
+
+                    <!-- =========================
+
+                         SLIDE 4 — DOCES
+
+                    ========================== -->
+
+                    <article class="slide">
+
+                        <img
+
+                            src="imagens/brigadeiro.png"
+
+                            alt="Doces gourmet"
+
+                            class="hero-imagem">
+
+                        <div class="hero-sombra"></div>
+
+                        <div class="hero-conteudo hero-luxo">
+
+                            <p class="hero-pequeno">
+
+                                DOCES ESPECIAIS
+
+                            </p>
+
+                            <div class="ornamento-superior"
+
+                                 aria-hidden="true">
+
+                                <span>✦</span>
+
+                                <span>♥</span>
+
+                                <span>✦</span>
+
+                            </div>
+
+                            <h2 class="titulo-slide">
+
+                                Doces
+
+                            </h2>
+
+                            <p class="hero-frase">
+
+                                Pequenos prazeres,<br>
+
+                                grandes emoções.
+
+                            </p>
+
+                            <div class="arabesco-svg"
+
+                                 aria-hidden="true">
+
+                                <svg viewBox="0 0 600 120">
+
+                                    <use href="#arabesco-rosita"></use>
+
+                                </svg>
+
+                            </div>
+
+                            <a href="doces.html"
+
+                               class="botao-hero botao-luxo">
+
+                                CONHEÇA NOSSOS DOCES
+
+                                <span>→</span>
+
+                            </a>
+
+                        </div>
+
+                    </article>
+
+                    <!-- =========================
+
+                         SLIDE 5 — SALGADOS
+
+                    ========================== -->
+
+                    <article class="slide">
+
+                        <img
+
+                            src="imagens/salgados gourmet.jpg"
+
+                            alt="Salgados gourmet"
+
+                            class="hero-imagem">
+
+                        <div class="hero-sombra"></div>
+
+                        <div class="hero-conteudo hero-luxo">
+
+                            <p class="hero-pequeno">
+
+                                SABORES IRRESISTÍVEIS
+
+                            </p>
+
+                            <div class="ornamento-superior"
+
+                                 aria-hidden="true">
+
+                                <span>✦</span>
+
+                                <span>♥</span>
+
+                                <span>✦</span>
+
+                            </div>
+
+                            <h2 class="titulo-slide titulo-longo">
+
+                                Salgados
+
+                            </h2>
+
+                            <p class="hero-frase">
+
+                                Tradição e sabor<br>
+
+                                em cada detalhe.
+
+                            </p>
+
+                            <div class="arabesco-svg"
+
+                                 aria-hidden="true">
+
+                                <svg viewBox="0 0 600 120">
+
+                                    <use href="#arabesco-rosita"></use>
+
+                                </svg>
+
+                            </div>
+
+                            <a href="salgados.html"
+
+                               class="botao-hero botao-luxo">
+
+                                CONHEÇA NOSSOS SALGADOS
+
+                                <span>→</span>
+
+                            </a>
+
+                        </div>
+
+                    </article>
+
+                    <!-- =========================
+
+                         SLIDE 6 — NOSSA HISTÓRIA
+
+                    ========================== -->
+
+                    <article class="slide">
+
+                        <img
+
+                            src="imagens/Receitas Que Transformam Momentos.png"
+
+                            alt="História da Rosita Doces"
+
+                            class="hero-imagem">
+
+                        <div class="hero-sombra"></div>
+
+                        <div class="hero-conteudo hero-luxo">
+
+                            <p class="hero-pequeno">
+
+                                NOSSA TRAJETÓRIA
+
+                            </p>
+
+                            <div class="ornamento-superior"
+
+                                 aria-hidden="true">
+
+                                <span>✦</span>
+
+                                <span>♥</span>
+
+                                <span>✦</span>
+
+                            </div>
+
+                            <h2 class="titulo-slide titulo-historia">
+
+                                Nossa História
+
+                            </h2>
+
+                            <p class="hero-frase">
+
+                                Uma história de sonhos,<br>
+
+                                carinho e dedicação.
+
+                            </p>
+
+                            <div class="arabesco-svg"
+
+                                 aria-hidden="true">
+
+                                <svg viewBox="0 0 600 120">
+
+                                    <use href="#arabesco-rosita"></use>
+
+                                </svg>
+
+                            </div>
+
+                            <a href="sobre.html"
+
+                               class="botao-hero botao-luxo">
+
+                                CONHEÇA NOSSA HISTÓRIA
+
+                                <span>→</span>
+
+                            </a>
+
+                        </div>
+
+                    </article>
+
+                    <!-- =========================
+
+                         SLIDE 7 — ENCOMENDAS
+
+                    ========================== -->
+
+                    <article class="slide">
+
+                        <img
+
+                            src="imagens/Presente Romântico de Chocolates e Flores.png"
+
+                            alt="Presente romântico de chocolates e flores"
+
+                            class="hero-imagem">
+
+                        <div class="hero-sombra"></div>
+
+                        <div class="hero-conteudo hero-luxo">
+
+                            <p class="hero-pequeno">
+
+                                MOMENTOS ESPECIAIS
+
+                            </p>
+
+                            <div class="ornamento-superior"
+
+                                 aria-hidden="true">
+
+                                <span>✦</span>
+
+                                <span>♥</span>
+
+                                <span>✦</span>
+
+                            </div>
+
+                            <h2 class="titulo-slide titulo-encomendas">
+
+                                Encomendas
+
+                            </h2>
+
+                            <p class="hero-frase">
+
+                                Presentes feitos com amor,<br>
+
+                                para momentos inesquecíveis.
+
+                            </p>
+
+                            <div class="arabesco-svg"
+
+                                 aria-hidden="true">
+
+                                <svg viewBox="0 0 600 120">
+
+                                    <use href="#arabesco-rosita"></use>
+
+                                </svg>
+
+                            </div>
+
+                            <a href="contato.html"
+
+                               class="botao-hero botao-luxo">
+
+                                FAÇA SUA ENCOMENDA
+
+                                <span>→</span>
+
+                            </a>
+
+                        </div>
+
+                    </article>
+
                 </div>
 
-                <button class="antes" onclick="mudarSlide(-1)">❮</button>
-                <button class="proximo" onclick="mudarSlide(1)">❯</button>
+                <!-- SETAS DO CARROSSEL -->
+
+                <button type="button"
+
+                        class="antes"
+
+                        aria-label="Slide anterior">
+
+                    &#10094;
+
+                </button>
+
+                <button type="button"
+
+                        class="proximo"
+
+                        aria-label="Próximo slide">
+
+                    &#10095;
+
+                </button>
+
+                <!-- INDICADORES -->
 
                 <div class="pontos">
-                    <span onclick="irParaSlide(0)"></span>
-                    <span onclick="irParaSlide(1)"></span>
-                    <span onclick="irParaSlide(2)"></span>
+
+                    <button type="button" class="active"
+
+                            aria-label="Abertura"></button>
+
+                    <button type="button"
+
+                            aria-label="Bolos"></button>
+
+                    <button type="button"
+
+                            aria-label="Geladinhos"></button>
+
+                    <button type="button"
+
+                            aria-label="Doces"></button>
+
+                    <button type="button"
+
+                            aria-label="Salgados"></button>
+
+                    <button type="button"
+
+                            aria-label="Nossa História"></button>
+
+                    <button type="button"
+
+                            aria-label="Encomendas"></button>
+
                 </div>
+
             </div>
 
-            <!-- ESCURECIMENTO DA FOTO -->
-            <div class="hero-sombra"></div>
-            <!-- TEXTO SOBRE A FOTO -->
-            <div class="hero-conteudo">
-                <p class="hero-pequeno">
-                    Confeitaria Gourmet
-                </p>
-                <h1>
-                    Rosita
-                    <span>Doces</span>
-                </h1>
-                <p class="hero-frase">
-                    Feita com carinho, dedicação
-                    e paixão pela confeitaria.
-                </p>
-                <a href="doces.html" class="botao botao-claro">
-                    Conheça nossas delícias
-                </a>
+            <!-- =====================================
+
+                 MINIATURAS
+
+            ====================================== -->
+
+            <div class="miniaturas-carrossel">
+
+                <button type="button"
+
+                        class="miniatura active"
+
+                        data-slide="0">
+
+                    <span>
+
+                        1. Abertura
+
+                        <small>
+
+                            Mais do que doces, criamos momentos especiais.
+
+                        </small>
+
+                    </span>
+
+                </button>
+
+                <button type="button"
+
+                        class="miniatura"
+
+                        data-slide="1">
+
+                    <span>
+
+                        2. Bolos
+
+                        <small>
+
+                            Momentos que ficam ainda mais doces.
+
+                        </small>
+
+                    </span>
+
+                </button>
+
+                <button type="button"
+
+                        class="miniatura"
+
+                        data-slide="2">
+
+                    <span>
+
+                        3. Geladinhos
+
+                        <small>
+
+                            Refrescância e sabor em cada gole.
+
+                        </small>
+
+                    </span>
+
+                </button>
+
+                <button type="button"
+
+                        class="miniatura"
+
+                        data-slide="3">
+
+                    <span>
+
+                        4. Doces
+
+                        <small>
+
+                            Pequenos prazeres, grandes emoções.
+
+                        </small>
+
+                    </span>
+
+                </button>
+
+                <button type="button"
+
+                        class="miniatura"
+
+                        data-slide="4">
+
+                    <span>
+
+                        5. Salgados
+
+                        <small>
+
+                            Sabor e qualidade para todas as ocasiões.
+
+                        </small>
+
+                    </span>
+
+                </button>
+
+                <button type="button"
+
+                        class="miniatura"
+
+                        data-slide="5">
+
+                    <span>
+
+                        6. Nossa História
+
+                        <small>
+
+                            Uma trajetória de amor e dedicação.
+
+                        </small>
+
+                    </span>
+
+                </button>
+
+                <button type="button"
+
+                        class="miniatura"
+
+                        data-slide="6">
+
+                    <span>
+
+                        7. Encomendas
+
+                        <small>
+
+                            Deixe seu evento ainda mais especial.
+
+                        </small>
+
+                    </span>
+
+                </button>
+
             </div>
+
         </section>
 
-        <!-- ==================================
-             EXPERIÊNCIA
-        =================================== -->
-        <section>
-            <h2>
-                Uma experiência em cada garfada
-            </h2>
+        <!-- =====================================
+
+             APRESENTAÇÃO
+
+        ====================================== -->
+
+        <!-- =====================================
+
+             NOSSOS PRODUTOS
+
+        ====================================== -->
+
+       <section id="produtos" class="secao-produtos cozinha-editorial">
+
+    <!-- Cenário único: acompanha a rolagem sem alterar os produtos -->
+
+    <div class="cozinha-cenario" aria-hidden="true"></div>
+
+<section class="experiencia">
+
+            <h2>Uma experiência em cada garfada</h2>
+
             <p>
-                Mais do que preparar doces e salgados, criamos experiências
-                capazes de despertar os sentidos. Cada receita é preparada
-                com cuidado, ingredientes selecionados e atenção aos detalhes.
+
+                Mais do que preparar doces e salgados,
+
+                criamos experiências capazes de despertar
+
+                os sentidos e transformar momentos
+
+                em lembranças especiais.
+
             </p>
+
             <p>
-                Imagine a delicadeza de um bolo macio, o aroma envolvente
-                do chocolate e um recheio cremoso que se revela lentamente
-                a cada garfada. São sabores criados para transformar
-                pequenos momentos em grandes prazeres gastronômicos.
+
+                Cada receita é preparada com carinho,
+
+                dedicação e atenção aos detalhes.
+
             </p>
+
         </section>
 
-        <!-- ==================================
-             DOCES
-        =================================== -->
-        <section>
+    <div class="cabecalho-produtos">
+
+    <h2>Nossas Especialidades</h2>
+
+    <p class="introducao-produtos">
+
+        Descubra os sabores preparados especialmente para você.
+
+    </p>
+
+    </div>
+
+  <!-- 1. BOLOS: fotografia à esquerda -->
+
+  <div class="produto" id="secao-bolos">
+
+    <div class="produto-imagem"><img src="imagens/bolo de chocolate e morango.png" alt="Bolo artesanal de chocolate e morango" loading="lazy"></div>
+
+    <div class="produto-texto">
+
+      <p class="produto-categoria">BOLOS ARTESANAIS</p>
+
+      <h3>Bolos Especiais</h3>
+
+      <p>
+
+    Bolos preparados com ingredientes selecionados,
+
+    recheios especiais e muito carinho para deixar
+
+    qualquer comemoração inesquecível.
+
+</p>
+
+<div class="ornamento-metalico" aria-hidden="true">
+
+    ❦
+
+</div>
+
+<a href="bolos.html" class="botao-produto">
+
+    CONHEÇA NOSSOS BOLOS
+
+</a>
+
+    </div>
+
+  </div>
+
+  <!-- 2. GELADINHOS: fotografia à direita -->
+
+  <div class="produto produto-invertido" id="secao-geladinhos">
+
+    <div class="produto-imagem"><img src="imagens/04 Geladinho Gourmet.png" alt="Geladinhos gourmet" loading="lazy"></div>
+
+    <div class="produto-texto">
+
+      <p class="produto-categoria">UMA DELÍCIA GELADA</p>
+
+      <h3>Geladinhos Gourmet</h3>
+
+      <p>Cremosos, refrescantes e preparados com combinações especiais de sabores.</p>
+
+      <a href="geladinhos.html" class="botao-produto">CONHEÇA NOSSOS GELADINHOS</a>
+
+    </div>
+
+  </div>
+
+  <!-- 3. DOCES: fotografia à esquerda -->
+
+  <div class="produto" id="secao-doces">
+
+    <div class="produto-imagem"><img src="imagens/03 Brigadeiro Gourmet .png" alt="Doces artesanais" loading="lazy"></div>
+
+    <div class="produto-texto">
+
+      <p class="produto-categoria">DOCES ESPECIAIS</p>
+
+      <h3>Doces Gourmet</h3>
+
+      <p>Pequenas delícias preparadas artesanalmente para proporcionar momentos de prazer e alegria.</p>
+
+      <a href="doces.html" class="botao-produto">CONHEÇA NOSSOS DOCES</a>
+
+    </div>
+
+  </div>
+
+  <!-- 4. SALGADOS: fotografia à direita -->
+
+  <div class="produto produto-invertido" id="secao-salgados">
+
+    <div class="produto-imagem"><img src="imagens/salgaados carocel.png" alt="Salgados gourmet" loading="lazy"></div>
+
+    <div class="produto-texto">
+
+      <p class="produto-categoria">SALGADOS GOURMET</p>
+
+      <h3>Salgados Especiais</h3>
+
+      <p>Sabor, qualidade e cuidado em cada preparo, para acompanhar suas festas e ocasiões especiais.</p>
+
+      <a href="salgados.html" class="botao-produto">CONHEÇA NOSSOS SALGADOS</a>
+
+    </div>
+
+  </div>
+
+</section>
+
+<!-- ==========================================
+
+     ENCERRAMENTO — ROSITA DOCES ARTESANAIS
+
+========================================== -->
+
+<section id="secao-historia" class="encerramento-rosita">
+
+    <!-- ÁREA DA HISTÓRIA -->
+
+    <div class="historia-conteudo">
+
+        <div class="historia-espaco-foto"
+
+             aria-hidden="true">
+
+        </div>
+
+        <div class="historia-texto">
+
+            <span class="historia-etiqueta">
+
+                CONHEÇA NOSSA HISTÓRIA
+
+            </span>
+
             <h2>
-                Nossos Doces
+
+                Uma história feita de sonhos,
+
+                dedicação e amor pela confeitaria
+
             </h2>
-            <a href="doces.html">
-                <img
-                    src="imagens/brigaderios doces.webp"
-                    alt="Clique para conhecer nosso menu de doces"
-                    class="imagem-menu"
-                >
+
+            <p>
+
+                A Rosita Doces Artesanais nasceu do desejo
+
+                de transformar receitas em experiências
+
+                especiais. Após se aposentar, Dona Rosemeire
+
+                encontrou na confeitaria uma nova
+
+                oportunidade de aprender, criar e
+
+                compartilhar sabores.
+
+            </p>
+
+            <a href="nossa-historia.html"
+
+               class="botao-historia">
+
+                DESCUBRA NOSSA HISTÓRIA
+
             </a>
-            <h3>
-                Doces Especiais
-            </h3>
-            <p>
-                Pequenos no tamanho, enormes no sabor. Nossos doces unem
-                delicadeza, cremosidade e ingredientes selecionados para
-                criar uma experiência irresistível.
-            </p>
-            <p>
-                Clique na imagem e conheça nosso menu de doces.
-            </p>
-        </section>
 
-        <!-- ==================================
-             SALGADOS
-        =================================== -->
-        <section>
-            <h2>
-                Nossos Salgados
-            </h2>
-            <a href="salgados.html">
-                <img
-                    src="imagens/salgados gourmet.jpg"
-                    alt="Clique para conhecer nosso menu de salgados"
-                    class="imagem-menu"
-                >
-            </a>
-            <h3>
-                Salgados Gourmet
-            </h3>
-            <p>
-                Crocantes por fora, macios e generosamente recheados por
-                dentro. Cada receita busca o equilíbrio perfeito entre
-                textura, aroma e sabor.
-            </p>
-            <p>
-                Da primeira mordida ao último pedaço, queremos proporcionar
-                uma experiência que transforme o simples ato de saborear
-                em um verdadeiro momento de prazer.
-            </p>
-            <p>
-                Clique na imagem e conheça nosso menu de salgados.
-            </p>
-        </section>
+        </div>
 
-        <!-- ==================================
-             GELADINHOS
-        =================================== -->
-        <section>
-            <h2>
-                Geladinhos Gourmet
-            </h2>
-            <a href="geladinhos.html">
-                <img
-                    src="imagens/geladinho gourmet.webp"
-                    alt="Geladinhos Gourmet"
-                    class="imagem-menu"
-                >
-            </a>
-            <h3>
-                Uma Delícia Gelada
-            </h3>
-            <p>
-                Cremosos, refrescantes e irresistíveis. Nossos geladinhos
-                gourmet transformam sabores especiais em uma experiência
-                surpreendente.
-            </p>
-            <p>
-                Preparados com ingredientes selecionados e combinações que
-                conquistam desde o primeiro instante, são a escolha perfeita
-                para refrescar o dia com muito sabor.
-            </p>
-            <p>
-                A cada mordida, uma explosão de cremosidade e frescor que
-                derrete suavemente na boca.
-            </p>
-            <p>
-                Clique na imagem e conheça nossos sabores de Geladinhos Gourmet.
-            </p>
-        </section>
+    </div>
 
-        <!-- ==================================
-             PRÓLOGO DA HISTÓRIA
-        =================================== -->
-        <section class="prologo-historia">
-            <p class="pequeno-titulo">
-                ♥ Nossa História
-            </p>
-            <h2>
-                Uma nova paixão que se transformou
-                em Rosita Doces
-            </h2>
-            <p>
-                A Rosita Doces nasceu quando Dona Rosemeire decidiu transformar
-                uma nova fase da vida em uma oportunidade para aprender,
-                criar e encantar pessoas.
-            </p>
-            <p>
-                Entre cursos, dedicação e muito carinho pela confeitaria,
-                surgiu uma história feita de doces, sabores e novos sonhos.
-            </p>
-            <a href="sobre.html" class="botao-historia">
-                Conheça nossa história ♥
-            </a>
-        </section>
+    <!-- RODAPÉ -->
+
+    <footer class="rodape-rosita">
+
+        <h2>Rosita Doces Artesanais</h2>
+
+        <p>Uma experiência em cada garfada.</p>
+
+        <nav aria-label="Navegação do rodapé">
+
+            <a href="inicio.html">Início</a>
+
+            <a href="doces.html">Doces</a>
+
+            <a href="bolos.html">Bolos</a>
+
+            <a href="salgados.html">Salgados</a>
+
+            <a href="geladinhos.html">Geladinhos</a>
+
+            <a href="nossa-historia.html">Nossa História</a>
+
+            <a href="encomendas.html">Encomendas</a>
+
+        </nav>
+
+        <p class="direitos-rosita">
+
+            © 2024–2026 Rosita Doces Artesanais.
+
+            Todos os direitos reservados.
+
+        </p>
+
+    </footer>
+
+</section>
+
+        
     </main>
 
-    <!-- ==================================
-         RODAPÉ
-    =================================== -->
-    <footer>
-        <h3>
-            Rosita Doces
-        </h3>
-        <nav class="menu-rodape">
-            <a href="inicio.html">Início</a>
-            <a href="sobre.html">Nossa História</a>
-            <a href="doces.html">Doces</a>
-            <a href="salgados.html">Salgados</a>
-            <a href="geladinhos.html">Geladinhos Gourmet</a>
-            <a href="localizacao.html">Localização</a>
-            <a href="contato.html">Contato</a>
-        </nav>
-        <p>
-            Feita com carinho, dedicação e paixão pela confeitaria. ♥
-        </p>
-    </footer>
+    <!-- ÍCONES -->
+
+    <script src="https://unpkg.com/lucide@0.468.0/dist/umd/lucide.min.js"></script>
+
+    <!-- SCRIPT ORIGINAL -->
+
     <script src="script.js"></script>
+
+    <!-- Panorâmica vertical: da primeira à última parte da foto -->
+
+    <script>
+
+    (() => {
+
+      const secao = document.querySelector('#produtos.cozinha-editorial');
+
+      const cenario = secao?.querySelector('.cozinha-cenario');
+
+      if (!secao || !cenario) return;
+
+      const imagem = new Image();
+
+      imagem.src = 'imagens/Cozinha rústica ao pôr do sol.png';
+
+      let agendado = false;
+
+      function atualizar() {
+
+        agendado = false;
+
+        const largura = window.innerWidth;
+
+        const altura = window.innerHeight;
+
+        if (imagem.naturalWidth && imagem.naturalHeight) {
+
+          // Preenche toda a largura; só amplia se faltar altura.
+
+          // Não usa zoom fixo de 165%, que cortava a fotografia.
+
+          const escala = Math.max(largura / imagem.naturalWidth,
+
+                                  altura / imagem.naturalHeight);
+
+          cenario.style.setProperty('--cozinha-largura',
+
+                                    (imagem.naturalWidth * escala) + 'px');
+
+          cenario.style.setProperty('--cozinha-altura',
+
+                                    (imagem.naturalHeight * escala) + 'px');
+
+        }
+
+        const ret = secao.getBoundingClientRect();
+
+        const percurso = Math.max(1, ret.height - altura);
+
+        const progresso = Math.min(1, Math.max(0, -ret.top / percurso));
+
+        cenario.style.setProperty('--cozinha-posicao', (progresso * 100) + '%');
+
+      }
+
+      function agendar() {
+
+        if (agendado) return;
+
+        agendado = true;
+
+        requestAnimationFrame(atualizar);
+
+      }
+
+      imagem.addEventListener('load', agendar);
+
+      window.addEventListener('scroll', agendar, {passive: true});
+
+      window.addEventListener('resize', agendar);
+
+      atualizar();
+
+    })();
+
+    </script>
+
 </body>
+
 </html>
