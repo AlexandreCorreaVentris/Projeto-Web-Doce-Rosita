@@ -3828,3 +3828,579 @@ body #produtos.cozinha-editorial
         transition: none;
     }
 }   
+
+/* =========================================
+   ROSITA DOCES ARTESANAIS
+   PADRONIZAÇÃO DAS LETRAS DA MARCA
+   ========================================= */
+
+/* Nome Rosita: dourado quente */
+.hero .titulo-marca .nome-rosita {
+    color: #f2c76e;
+
+    -webkit-text-fill-color: #f2c76e;
+    background: none;
+    -webkit-background-clip: border-box;
+    background-clip: border-box;
+
+    text-shadow:
+        1px 2px 1px #57220c,
+        0 0 5px rgba(255, 211, 125, 0.45),
+        0 0 12px rgba(204, 137, 40, 0.25);
+}
+
+/* Doces Artesanais: creme dourado suave */
+.hero .titulo-marca .subtitulo-marca {
+    color: #f7e3b5;
+
+    -webkit-text-fill-color: #f7e3b5;
+    background: none;
+    -webkit-background-clip: border-box;
+    background-clip: border-box;
+
+    text-shadow:
+        1px 2px 2px #57220c,
+        0 0 5px rgba(255, 225, 165, 0.40),
+        0 0 10px rgba(204, 137, 40, 0.20);
+}
+
+/* ================================================
+   ROSITA DOCES ARTESANAIS
+   PELÍCULA VINHO NA COZINHA RÚSTICA
+   ================================================ */
+
+/* Película sobre o cenário da cozinha */
+.cozinha-cenario::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+
+    background: linear-gradient(
+        90deg,
+        rgba(42, 7, 12, 0.30) 0%,
+        rgba(28, 6, 10, 0.25) 50%,
+        rgba(15, 4, 7, 0.20) 100%
+    );
+
+    pointer-events: none;
+    z-index: 1;
+}
+
+/* Mantém o cenário como referência */
+.cozinha-cenario {
+    isolation: isolate;
+}
+
+/* Mantém o conteúdo acima da película */
+.cozinha-cenario > * {
+    position: relative;
+    z-index: 2;
+}
+
+/* ============================================================
+   ROSITA DOCES ARTESANAIS — RESPONSIVIDADE REVISADA
+   Adicionado ao final para preservar o design de desktop.
+   ============================================================ */
+@media (max-width: 900px) {
+  .navegacao { width: min(100% - 24px, 760px); gap: 8px; }
+  .nav-botao { min-height: 44px; }
+  #produtos.cozinha-editorial .produto,
+  #produtos.cozinha-editorial .produto.produto-invertido {
+    display: flex;
+    flex-direction: column;
+    align-items: stretch;
+    gap: 20px;
+    min-height: 0;
+    margin-bottom: 110px;
+  }
+  #produtos.cozinha-editorial .produto .produto-imagem,
+  #produtos.cozinha-editorial .produto.produto-invertido .produto-imagem {
+    order: 0;
+    width: 100%;
+    min-width: 0;
+  }
+  #produtos.cozinha-editorial .produto .produto-texto,
+  #produtos.cozinha-editorial .produto.produto-invertido .produto-texto {
+    order: 1;
+    width: 100%;
+    min-width: 0;
+    padding: 12px 4px;
+  }
+  #produtos.cozinha-editorial .produto .produto-imagem img {
+    width: 100%;
+    height: clamp(240px, 52vw, 430px);
+    object-fit: cover;
+  }
+  .historia-conteudo { grid-template-columns: minmax(0, 1fr); }
+}
+
+@media (max-width: 700px) {
+  html { scroll-padding-top: 150px; }
+  body { min-width: 0; }
+  .cabecalho, .cabecalho.rolando {
+    height: auto;
+    min-height: 0;
+  }
+  .navegacao {
+    display: grid;
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    align-items: center;
+    gap: 7px;
+    width: 100%;
+    padding: 8px 10px 10px;
+  }
+  .navegacao > .marca {
+    grid-column: 1 / -1;
+    grid-row: 1;
+    order: initial;
+    width: 100%;
+    height: 78px;
+  }
+  .cabecalho .logo {
+    width: 125px;
+    height: 125px;
+    transform: translateY(5px);
+  }
+  .cabecalho.rolando .marca { height: 62px; }
+  .cabecalho.rolando .logo {
+    width: 100px;
+    height: 100px;
+    transform: translateY(3px);
+  }
+  .navegacao > .nav-botao,
+  .navegacao > .dropdown { width: 100%; min-width: 0; }
+  .navegacao .nav-botao {
+    width: 100%;
+    min-width: 0;
+    min-height: 43px;
+    padding: 6px 3px;
+    gap: 3px;
+    font-size: clamp(8px, 2.5vw, 11px);
+    white-space: nowrap;
+  }
+  .navegacao .nav-botao svg { width: 13px; height: 13px; flex-shrink: 0; }
+  .navegacao .setinha { width: 10px !important; height: 10px !important; }
+  .dropdown-conteudo {
+    left: 0;
+    right: auto;
+    min-width: min(220px, 85vw);
+    padding-top: 4px;
+  }
+  .navegacao > .dropdown:last-child .dropdown-conteudo,
+  .dropdown-direita .dropdown-conteudo { left: auto; right: 0; }
+  .dropdown-conteudo a { min-height: 44px; padding: 13px 12px; }
+
+  .hero { height: clamp(580px, 85svh, 780px); min-height: 580px; }
+  .slider { bottom: 106px; }
+  .hero-imagem { object-position: 57% center; }
+  .hero .hero-conteudo.hero-luxo {
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    width: min(84%, 430px);
+    max-width: none;
+    max-height: calc(100% - 30px);
+  }
+  .hero .hero-luxo .hero-pequeno { font-size: 12px; letter-spacing: 2px; }
+  .hero .hero-luxo .nome-rosita,
+  .hero .hero-luxo .titulo-slide { font-size: clamp(66px, 17vw, 110px); }
+  .hero .hero-luxo .titulo-longo,
+  .hero .hero-luxo .titulo-historia,
+  .hero .hero-luxo .titulo-encomendas { font-size: clamp(49px, 12vw, 80px); }
+  .hero .hero-luxo .subtitulo-marca { font-size: clamp(36px, 9vw, 60px); }
+  .hero .hero-luxo .hero-frase { font-size: clamp(34px, 9vw, 56px); line-height: 1.05; }
+  .hero .hero-luxo .botao-hero.botao-luxo {
+    width: min(100%, 360px);
+    min-height: 48px;
+    padding: 10px 28px;
+    font-size: clamp(13px, 3.6vw, 17px);
+  }
+  .arabesco-svg { max-width: 280px; margin-bottom: 6px; }
+  .ornamento-superior { margin: 3px auto 4px; }
+  .hero .hero-luxo .hero-frase { margin: 4px auto 8px; }
+  .antes, .proximo { width: 35px; height: 35px; font-size: 18px; }
+  .antes { left: 4px; } .proximo { right: 4px; }
+  .pontos { bottom: 8px; gap: 8px; }
+  .pontos button { width: 9px; height: 9px; }
+  .miniaturas-carrossel {
+    display: flex;
+    flex-wrap: nowrap;
+    overflow-x: auto;
+    overflow-y: hidden;
+    overscroll-behavior-x: contain;
+    -webkit-overflow-scrolling: touch;
+    scroll-snap-type: x proximity;
+    height: 106px;
+    gap: 5px;
+    padding: 5px;
+  }
+  .miniaturas-carrossel .miniatura {
+    flex: 0 0 150px;
+    scroll-snap-align: start;
+    padding: 8px;
+  }
+  .miniaturas-carrossel .miniatura span { font-size: 17px; }
+  .miniaturas-carrossel .miniatura small { font-size: 10px; }
+
+  #produtos.cozinha-editorial { padding: 0 16px 75px; }
+  #produtos.cozinha-editorial .experiencia { padding: 75px 6px 70px; }
+  body #produtos.cozinha-editorial .experiencia h2 { font-size: clamp(45px, 10vw, 68px) !important; line-height: 1.25; }
+  body #produtos.cozinha-editorial .cabecalho-produtos h2 { font-size: clamp(48px, 11vw, 72px) !important; line-height: 1.2; }
+  #produtos.cozinha-editorial .experiencia p,
+  #produtos.cozinha-editorial .introducao-produtos { font-size: 16px; line-height: 1.7; }
+  #produtos.cozinha-editorial .produto,
+  #produtos.cozinha-editorial .produto.produto-invertido { margin-bottom: 95px; }
+  #produtos.cozinha-editorial .produto .produto-imagem img { height: clamp(230px, 72vw, 340px); }
+  body #produtos.cozinha-editorial .produto-texto h3 { font-size: clamp(52px, 11vw, 74px) !important; }
+  #produtos.cozinha-editorial .produto-texto > p:not(.produto-categoria) { font-size: 17px; line-height: 1.65; }
+  #produtos.cozinha-editorial .botao-produto { max-width: 100%; min-height: 52px; padding: 12px 18px; font-size: 14px; }
+  .historia-texto { padding: 40px 20px; }
+  .rodape-rosita { padding: 40px 18px 28px; }
+  .rodape-rosita h2 { font-size: clamp(38px, 10vw, 52px); }
+  .rodape-rosita nav { gap: 12px 18px; }
+  .rodape-rosita nav a { font-size: 15px; }
+}
+
+@media (max-width: 380px) {
+  .navegacao { padding-left: 5px; padding-right: 5px; gap: 4px; }
+  .navegacao .nav-botao { font-size: 8px; gap: 2px; }
+  .navegacao .nav-botao svg { width: 11px; height: 11px; }
+  .hero .hero-conteudo.hero-luxo { width: 82%; }
+  .hero .hero-luxo .nome-rosita,
+  .hero .hero-luxo .titulo-slide { font-size: 65px; }
+  .hero .hero-luxo .titulo-longo,
+  .hero .hero-luxo .titulo-historia,
+  .hero .hero-luxo .titulo-encomendas { font-size: 45px; }
+  .hero .hero-luxo .subtitulo-marca { font-size: 34px; }
+  .hero .hero-luxo .hero-frase { font-size: 32px; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .miniaturas-carrossel { scroll-behavior: auto; }
+}
+
+/* ================================================
+   ROSITA DOCES ARTESANAIS
+   CORREÇÃO DOS PRODUTOS NO CELULAR
+   ================================================ */
+
+@media screen and (max-width: 700px) {
+
+    /* Organização geral dos produtos */
+    body #produtos.cozinha-editorial .produto,
+    body #produtos.cozinha-editorial .produto.produto-invertido {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+
+        width: 100%;
+        min-height: 0;
+        height: auto;
+
+        gap: 24px;
+        margin: 0 auto 90px;
+        padding: 0;
+    }
+
+    /* A fotografia aparece primeiro */
+    body #produtos.cozinha-editorial .produto .produto-imagem,
+    body #produtos.cozinha-editorial .produto.produto-invertido .produto-imagem {
+        position: relative;
+
+        display: block;
+        order: 0;
+
+        width: 100%;
+        max-width: 100%;
+        height: auto;
+
+        grid-column: auto;
+        grid-row: auto;
+    }
+
+    /* Fotografia proporcional ao celular */
+    body #produtos.cozinha-editorial .produto .produto-imagem img {
+        display: block;
+
+        width: 100%;
+        height: 250px;
+
+        object-fit: cover;
+        object-position: center;
+
+        border-radius: 10px;
+    }
+
+    /* Descrição aparece abaixo da fotografia */
+    body #produtos.cozinha-editorial .produto .produto-texto,
+    body #produtos.cozinha-editorial .produto.produto-invertido .produto-texto {
+        position: relative;
+
+        display: block;
+        order: 1;
+
+        width: 100%;
+        max-width: 100%;
+        height: auto;
+
+        grid-column: auto;
+        grid-row: auto;
+
+        padding: 10px 5px;
+        text-align: center;
+    }
+
+    /* Títulos dos produtos */
+    body #produtos.cozinha-editorial .produto-texto h3 {
+        font-size: clamp(46px, 12vw, 65px);
+        line-height: 1.2;
+    }
+
+    /* Descrições */
+    body #produtos.cozinha-editorial
+    .produto-texto > p:not(.produto-categoria) {
+        font-size: 17px;
+        line-height: 1.6;
+    }
+
+    /* Botões de cada produto */
+    body #produtos.cozinha-editorial .botao-produto {
+        max-width: 100%;
+        min-height: 52px;
+
+        margin-top: 18px;
+        padding: 12px 20px;
+
+        font-size: 13px;
+    }
+}
+
+/* =========================================
+   ROSITA — CORREÇÃO DO CENÁRIO NO CELULAR
+   ========================================= */
+
+@media screen and (max-width: 700px) {
+
+    /* Desativa somente no celular o efeito
+       panorâmico que pode sobrepor o conteúdo */
+    body #produtos.cozinha-editorial > .cozinha-cenario {
+        position: absolute;
+        top: 0;
+        left: 0;
+
+        width: 100%;
+        height: 100%;
+
+        margin: 0;
+
+        background-size: cover;
+        background-position: center;
+        z-index: 0;
+    }
+
+    /* Garante que as seções fiquem acima
+       da fotografia de fundo */
+    body #produtos.cozinha-editorial > :not(.cozinha-cenario) {
+        position: relative;
+        z-index: 2;
+    }
+
+    /* Remove o espaço exagerado entre produtos */
+    body #produtos.cozinha-editorial .produto {
+        margin-bottom: 70px;
+    }
+}
+
+
+/* =========================================================
+   ROSITA — CORREÇÃO DEFINITIVA DAS ESPECIALIDADES NO CELULAR
+   Cenário estático, sem sobreposição, fotos e textos visíveis.
+   Apenas até 700px. O desktop permanece inalterado.
+   ========================================================= */
+@media screen and (max-width: 700px) {
+  body #produtos.cozinha-editorial {
+    position: relative;
+    display: flow-root;
+    overflow: visible;
+    height: auto;
+    min-height: 0;
+    padding: 35px 16px 65px;
+    background-color: #301710 !important;
+    background-image:
+      linear-gradient(rgba(25, 8, 10, .67), rgba(25, 8, 10, .70)),
+      url("imagens/Cozinha rústica ao pôr do sol.png") !important;
+    background-size: cover !important;
+    background-position: center !important;
+    background-repeat: no-repeat !important;
+  }
+
+  /* No celular, o cenário é o próprio fundo da seção. */
+  body #produtos.cozinha-editorial > .cozinha-cenario {
+    display: none !important;
+  }
+
+  body #produtos.cozinha-editorial > :not(.cozinha-cenario) {
+    position: relative;
+    z-index: 1;
+  }
+
+  body #produtos.cozinha-editorial .produto,
+  body #produtos.cozinha-editorial .produto.produto-invertido {
+    display: flex !important;
+    flex-direction: column !important;
+    align-items: stretch !important;
+    justify-content: flex-start !important;
+    width: 100% !important;
+    max-width: 540px !important;
+    height: auto !important;
+    min-height: 0 !important;
+    gap: 20px !important;
+    margin: 0 auto 65px !important;
+    padding: 0 !important;
+    overflow: visible !important;
+    opacity: 1 !important;
+    visibility: visible !important;
+    transform: none !important;
+  }
+
+  body #produtos.cozinha-editorial .produto:last-of-type {
+    margin-bottom: 0 !important;
+  }
+
+  body #produtos.cozinha-editorial .produto .produto-imagem,
+  body #produtos.cozinha-editorial .produto.produto-invertido .produto-imagem {
+    display: block !important;
+    position: relative !important;
+    order: 0 !important;
+    width: 100% !important;
+    height: auto !important;
+    min-height: 0 !important;
+    margin: 0 !important;
+    padding: 0 !important;
+    opacity: 1 !important;
+    visibility: visible !important;
+    transform: none !important;
+    overflow: visible !important;
+  }
+
+  body #produtos.cozinha-editorial .produto .produto-imagem img {
+    display: block !important;
+    position: static !important;
+    width: 100% !important;
+    max-width: 100% !important;
+    height: auto !important;
+    aspect-ratio: 4 / 3;
+    object-fit: cover;
+    object-position: center;
+    opacity: 1 !important;
+    visibility: visible !important;
+    transform: none !important;
+    border: 1px solid #d4af37;
+    border-radius: 10px;
+  }
+
+  body #produtos.cozinha-editorial .produto .produto-texto,
+  body #produtos.cozinha-editorial .produto.produto-invertido .produto-texto {
+    display: block !important;
+    position: relative !important;
+    order: 1 !important;
+    width: 100% !important;
+    height: auto !important;
+    min-height: 0 !important;
+    padding: 12px 4px !important;
+    margin: 0 !important;
+    opacity: 1 !important;
+    visibility: visible !important;
+    transform: none !important;
+    text-align: center;
+  }
+}
+
+/* =========================================================
+   AJUSTE PONTUAL — FINAL DAS ESPECIALIDADES NO CELULAR
+   Mantém todo o CSS original e não altera o computador.
+   ========================================================= */
+@media screen and (max-width: 700px) {
+    body #produtos.cozinha-editorial {
+        padding-bottom: 15px !important;
+    }
+
+    body #produtos.cozinha-editorial .produto:last-of-type {
+        margin-bottom: 0 !important;
+    }
+}
+
+/* TESTE — HISTÓRIA NO CELULAR */
+@media screen and (max-width: 700px) {
+
+    /* Remove a imagem desfocada da seção */
+    .encerramento-rosita {
+        background-image: none;
+        background-color: #fff1dc;
+    }
+
+    /* Elimina o espaço reservado à fotografia */
+    .encerramento-rosita .historia-espaco-foto {
+        display: none;
+    }
+
+    /* Mantém a história em uma coluna */
+    .encerramento-rosita .historia-conteudo {
+        display: block;
+        min-height: 0;
+    }
+
+}
+
+/* ==========================================
+   ROSITA DOCES — RODAPÉ NO CELULAR
+   Mantém o visual original do computador
+   ========================================== */
+
+@media screen and (max-width: 700px) {
+
+    /* Fundo vinho do rodapé */
+    body .rodape-rosita {
+        position: relative;
+        background: linear-gradient(
+            180deg,
+            #570b16 0%,
+            #400810 55%,
+            #29050a 100%
+        ) !important;
+
+        color: #f5d58c !important;
+
+        padding: 65px 22px 35px;
+        text-align: center;
+    }
+
+    /* Nome da confeitaria */
+    body .rodape-rosita h2 {
+        color: #f3ca70 !important;
+        -webkit-text-fill-color: #f3ca70;
+
+        text-shadow:
+            0 2px 3px rgba(0, 0, 0, 0.5),
+            0 0 12px rgba(212, 175, 55, 0.35);
+    }
+
+    /* Frase e direitos autorais */
+    body .rodape-rosita p,
+    body .rodape-rosita .direitos-rosita {
+        color: #f5dfae !important;
+        -webkit-text-fill-color: #f5dfae;
+    }
+
+    /* Links do rodapé */
+    body .rodape-rosita nav a {
+        color: #f1c66b !important;
+        -webkit-text-fill-color: #f1c66b;
+        text-decoration: none;
+    }
+
+    /* Destaque ao tocar nos links */
+    body .rodape-rosita nav a:hover {
+        color: #fff2cc !important;
+    }
+}

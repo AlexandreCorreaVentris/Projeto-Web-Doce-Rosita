@@ -166,7 +166,7 @@
 
             <svg class="svg-definicoes"
 
-                 xmlns="http://www.w3.org/2000/svg"
+                 xmlns="http://www\.w3.org/2000/svg"
 
                  aria-hidden="true">
 
@@ -1126,6 +1126,8 @@
 
         ====================================== -->
 
+        
+
         <!-- =====================================
 
              NOSSOS PRODUTOS
@@ -1133,9 +1135,7 @@
         ====================================== -->
 
        <section id="produtos" class="secao-produtos cozinha-editorial">
-
     <!-- Cenário único: acompanha a rolagem sem alterar os produtos -->
-
     <div class="cozinha-cenario" aria-hidden="true"></div>
 
 <section class="experiencia">
@@ -1164,16 +1164,13 @@
 
         </section>
 
-    <div class="cabecalho-produtos">
 
+    <div class="cabecalho-produtos">
     <h2>Nossas Especialidades</h2>
 
     <p class="introducao-produtos">
-
         Descubra os sabores preparados especialmente para você.
-
     </p>
-
     </div>
 
   <!-- 1. BOLOS: fotografia à esquerda -->
@@ -1189,26 +1186,20 @@
       <h3>Bolos Especiais</h3>
 
       <p>
-
     Bolos preparados com ingredientes selecionados,
-
     recheios especiais e muito carinho para deixar
-
     qualquer comemoração inesquecível.
-
 </p>
 
 <div class="ornamento-metalico" aria-hidden="true">
-
     ❦
-
 </div>
 
 <a href="bolos.html" class="botao-produto">
-
     CONHEÇA NOSSOS BOLOS
-
 </a>
+
+      <a href="bolos.html" class="botao-produto">CONHEÇA NOSSOS BOLOS</a>
 
     </div>
 
@@ -1276,62 +1267,43 @@
 
 </section>
 
+        
 <!-- ==========================================
-
      ENCERRAMENTO — ROSITA DOCES ARTESANAIS
-
 ========================================== -->
 
 <section id="secao-historia" class="encerramento-rosita">
 
     <!-- ÁREA DA HISTÓRIA -->
-
     <div class="historia-conteudo">
 
         <div class="historia-espaco-foto"
-
              aria-hidden="true">
-
         </div>
 
         <div class="historia-texto">
 
             <span class="historia-etiqueta">
-
                 CONHEÇA NOSSA HISTÓRIA
-
             </span>
 
             <h2>
-
                 Uma história feita de sonhos,
-
                 dedicação e amor pela confeitaria
-
             </h2>
 
             <p>
-
                 A Rosita Doces Artesanais nasceu do desejo
-
                 de transformar receitas em experiências
-
                 especiais. Após se aposentar, Dona Rosemeire
-
                 encontrou na confeitaria uma nova
-
                 oportunidade de aprender, criar e
-
                 compartilhar sabores.
-
             </p>
 
             <a href="nossa-historia.html"
-
                class="botao-historia">
-
                 DESCUBRA NOSSA HISTÓRIA
-
             </a>
 
         </div>
@@ -1339,7 +1311,6 @@
     </div>
 
     <!-- RODAPÉ -->
-
     <footer class="rodape-rosita">
 
         <h2>Rosita Doces Artesanais</h2>
@@ -1349,35 +1320,28 @@
         <nav aria-label="Navegação do rodapé">
 
             <a href="inicio.html">Início</a>
-
             <a href="doces.html">Doces</a>
-
             <a href="bolos.html">Bolos</a>
-
             <a href="salgados.html">Salgados</a>
-
             <a href="geladinhos.html">Geladinhos</a>
-
             <a href="nossa-historia.html">Nossa História</a>
-
             <a href="encomendas.html">Encomendas</a>
 
         </nav>
 
         <p class="direitos-rosita">
-
             © 2024–2026 Rosita Doces Artesanais.
-
             Todos os direitos reservados.
-
         </p>
 
     </footer>
 
 </section>
 
-        
-    </main>
+
+        </p>
+
+    </footer>
 
     <!-- ÍCONES -->
 
@@ -1387,82 +1351,46 @@
 
     <script src="script.js"></script>
 
+
     <!-- Panorâmica vertical: da primeira à última parte da foto -->
-
     <script>
-
     (() => {
-
       const secao = document.querySelector('#produtos.cozinha-editorial');
-
       const cenario = secao?.querySelector('.cozinha-cenario');
-
       if (!secao || !cenario) return;
-
       const imagem = new Image();
-
       imagem.src = 'imagens/Cozinha rústica ao pôr do sol.png';
-
       let agendado = false;
 
       function atualizar() {
-
         agendado = false;
-
         const largura = window.innerWidth;
-
         const altura = window.innerHeight;
-
         if (imagem.naturalWidth && imagem.naturalHeight) {
-
           // Preenche toda a largura; só amplia se faltar altura.
-
           // Não usa zoom fixo de 165%, que cortava a fotografia.
-
           const escala = Math.max(largura / imagem.naturalWidth,
-
                                   altura / imagem.naturalHeight);
-
           cenario.style.setProperty('--cozinha-largura',
-
                                     (imagem.naturalWidth * escala) + 'px');
-
           cenario.style.setProperty('--cozinha-altura',
-
                                     (imagem.naturalHeight * escala) + 'px');
-
         }
-
         const ret = secao.getBoundingClientRect();
-
         const percurso = Math.max(1, ret.height - altura);
-
         const progresso = Math.min(1, Math.max(0, -ret.top / percurso));
-
         cenario.style.setProperty('--cozinha-posicao', (progresso * 100) + '%');
-
       }
-
       function agendar() {
-
         if (agendado) return;
-
         agendado = true;
-
         requestAnimationFrame(atualizar);
-
       }
-
       imagem.addEventListener('load', agendar);
-
       window.addEventListener('scroll', agendar, {passive: true});
-
       window.addEventListener('resize', agendar);
-
       atualizar();
-
     })();
-
     </script>
 
 </body>
