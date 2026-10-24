@@ -1,0 +1,1359 @@
+/* ==========================================
+
+   ROSITA DOCES ARTESANAIS
+
+   SALGADOS ARTESANAIS
+
+========================================== */
+
+:root {
+
+    --vinho: #570b16;
+
+    --vinho-escuro: #35050e;
+
+    --dourado: #d4af37;
+
+    --dourado-claro: #f3ca70;
+
+    --creme: #fff7e9;
+
+}
+
+* {
+
+    box-sizing: border-box;
+
+}
+
+html {
+
+    scroll-behavior: smooth;
+
+}
+
+body.pagina-salgados {
+
+    margin: 0;
+
+    background: var(--creme);
+
+    color: var(--vinho);
+
+    font-family: "Cormorant Garamond", Georgia, serif;
+
+    font-size: 19px;
+
+}
+
+.pagina-salgados [hidden] {
+
+    display: none !important;
+
+}
+
+button,
+
+input {
+
+    font: inherit;
+
+}
+
+button {
+
+    cursor: pointer;
+
+}
+
+a {
+
+    text-decoration: none;
+
+}
+
+/* ==========================================
+
+   CABEÇALHO FIXO
+
+========================================== */
+
+.pagina-salgados .cabecalho {
+
+    position: sticky;
+
+    top: 0;
+
+    z-index: 1000;
+
+    height: 85px;
+
+    background: linear-gradient(
+
+        180deg,
+
+        #650e1b,
+
+        #400810
+
+    );
+
+    border-bottom: 2px solid var(--dourado);
+
+}
+
+.pagina-salgados .navegacao {
+
+    display: grid;
+
+    grid-template-columns: 1fr 1fr 175px 1fr 1fr;
+
+    align-items: center;
+
+    justify-items: center;
+
+    gap: 15px;
+
+    max-width: 1100px;
+
+    height: 100%;
+
+    padding: 0 20px;
+
+    margin: 0 auto;
+
+}
+
+.pagina-salgados .nav-botao {
+
+    display: inline-flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    padding: 10px 17px;
+
+    background: transparent;
+
+    color: var(--dourado-claro);
+
+    border: 1px solid var(--dourado);
+
+    border-radius: 5px;
+
+    font-size: 15px;
+
+    font-weight: 700;
+
+    white-space: nowrap;
+
+}
+
+.pagina-salgados .nav-botao:hover {
+
+    background: #832033;
+
+}
+
+.pagina-salgados .marca {
+
+    position: relative;
+
+    width: 145px;
+
+    height: 85px;
+
+}
+
+/* Menus suspensos */
+
+.pagina-salgados .dropdown {
+
+    position: relative;
+
+}
+
+.pagina-salgados .dropdown-conteudo {
+
+    display: none;
+
+    position: absolute;
+
+    top: 100%;
+
+    left: 50%;
+
+    transform: translateX(-50%);
+
+    min-width: 180px;
+
+    padding: 8px;
+
+    background: #570b16;
+
+    border: 1px solid var(--dourado);
+
+    border-radius: 7px;
+
+    z-index: 1100;
+
+    box-shadow: 0 12px 25px #0005;
+
+}
+
+.pagina-salgados .dropdown:hover .dropdown-conteudo,
+
+.pagina-salgados .dropdown:focus-within .dropdown-conteudo,
+
+.pagina-salgados .dropdown.aberto .dropdown-conteudo {
+
+    display: block;
+
+}
+
+.pagina-salgados .dropdown-conteudo a {
+
+    display: block;
+
+    padding: 10px 12px;
+
+    color: #f5dca6;
+
+    border-radius: 4px;
+
+}
+
+.pagina-salgados .dropdown-conteudo a:hover {
+
+    background: #842234;
+
+}
+
+/* ==========================================
+
+   BANNER
+
+========================================== */
+
+.pagina-salgados .sal-abertura {
+
+    display: grid;
+
+    grid-template-columns: 1fr minmax(420px, 1.6fr) 1fr;
+
+    min-height: 490px;
+
+    background: linear-gradient(
+
+        110deg,
+
+        #410810,
+
+        #751524,
+
+        #410810
+
+    );
+
+    color: var(--dourado-claro);
+
+    overflow: hidden;
+
+}
+
+.pagina-salgados .sal-hero-lado {
+
+    background: linear-gradient(
+
+        140deg,
+
+        #390610,
+
+        #79202e
+
+    );
+
+}
+
+.pagina-salgados .sal-foto-pendente {
+
+    display: flex;
+
+    flex-direction: column;
+
+    align-items: center;
+
+    justify-content: center;
+
+    gap: 10px;
+
+    height: 100%;
+
+    padding: 20px;
+
+    color: #e9c584;
+
+    text-align: center;
+
+    font-size: 15px;
+
+}
+
+.pagina-salgados .sal-foto-pendente small {
+
+    font-size: 14px;
+
+}
+
+.pagina-salgados .sal-abertura-interior {
+
+    display: flex;
+
+    flex-direction: column;
+
+    align-items: center;
+
+    justify-content: center;
+
+    padding: 35px 25px 45px;
+
+    text-align: center;
+
+}
+
+/* ==========================================
+
+   ÚNICO EMBLEMA ANIMADO
+
+========================================== */
+
+/*
+
+   Este elemento reserva o espaço original
+
+   no banner, evitando saltos no layout.
+
+*/
+
+.pagina-salgados .sal-marca-nome {
+
+    display: flex;
+
+    justify-content: center;
+
+    align-items: center;
+
+    width: 100%;
+
+    height: 205px;
+
+    margin: 0 auto 15px;
+
+}
+
+/*
+
+   O JavaScript posicionará esta imagem
+
+   na tela durante a rolagem.
+
+*/
+
+.pagina-salgados .sal-logo-banner {
+
+    position: fixed;
+
+    top: 0;
+
+    left: 0;
+
+    z-index: 1200;
+
+    display: block;
+
+    width: 260px;
+
+    height: auto;
+
+    object-fit: contain;
+
+    pointer-events: none;
+
+    filter: drop-shadow(
+
+        0 5px 8px rgba(0, 0, 0, 0.3)
+
+    );
+
+    will-change: top, left, width;
+
+}
+
+/* ==========================================
+
+   TEXTOS DO BANNER
+
+========================================== */
+
+.pagina-salgados .sal-ornamento {
+
+    margin: 14px auto;
+
+    text-align: center;
+
+    color: var(--dourado);
+
+    letter-spacing: 2px;
+
+}
+
+.pagina-salgados .sal-abertura h1 {
+
+    margin: 18px 0;
+
+    font-family: "Great Vibes", cursive;
+
+    font-size: clamp(52px, 5vw, 76px);
+
+    font-weight: 400;
+
+    line-height: 1.2;
+
+    color: #f8d88b;
+
+}
+
+.pagina-salgados .sal-frase {
+
+    margin: 10px 0;
+
+    font-size: 26px;
+
+    color: #fff0d7;
+
+}
+
+.pagina-salgados .sal-orientacao {
+
+    max-width: 430px;
+
+    margin: 10px auto;
+
+    font-size: 17px;
+
+    line-height: 1.5;
+
+    color: #eed9b9;
+
+}
+
+/* ==========================================
+
+   CARDÁPIO
+
+========================================== */
+
+.pagina-salgados .sal-cardapio {
+
+    padding: 65px 20px 75px;
+
+    background: linear-gradient(
+
+        #fff8ed,
+
+        #f5e5cc
+
+    );
+
+    overflow: visible;
+
+}
+
+.pagina-salgados .sal-container {
+
+    max-width: 1050px;
+
+    margin: 0 auto;
+
+    overflow: visible;
+
+}
+
+.pagina-salgados .sal-chamada {
+
+    margin: 0;
+
+    font-family: "Great Vibes", cursive;
+
+    font-size: 31px;
+
+    color: #a8752a;
+
+    text-align: center;
+
+}
+
+.pagina-salgados .sal-cardapio h2,
+
+.pagina-salgados .sal-carrinho h2 {
+
+    margin: 12px 0;
+
+    font-family: "Great Vibes", cursive;
+
+    font-size: 62px;
+
+    font-weight: 400;
+
+    color: #711020;
+
+    text-align: center;
+
+}
+
+/* ==========================================
+
+   LISTA E FOTOGRAFIA
+
+========================================== */
+
+.pagina-salgados .sal-vitrine {
+
+    display: grid;
+
+    grid-template-columns:
+
+        minmax(0, 1.15fr)
+
+        minmax(0, 0.85fr);
+
+    align-items: start;
+
+    gap: 24px;
+
+    margin-top: 30px;
+
+    overflow: visible;
+
+}
+
+.pagina-salgados .sal-lista {
+
+    display: flex;
+
+    flex-direction: column;
+
+    gap: 10px;
+
+}
+
+.pagina-salgados .sal-sabor {
+
+    display: flex;
+
+    align-items: center;
+
+    gap: 12px;
+
+    width: 100%;
+
+    min-height: 62px;
+
+    padding: 12px 17px;
+
+    background: #fffaf1;
+
+    color: #681324;
+
+    border: 1px solid var(--dourado);
+
+    border-radius: 8px;
+
+    text-align: left;
+
+    font-size: 21px;
+
+    font-weight: 600;
+
+    box-shadow: 0 5px 12px #460a1412;
+
+    transition:
+
+        background 0.2s,
+
+        transform 0.2s;
+
+}
+
+.pagina-salgados .sal-sabor:hover,
+
+.pagina-salgados .sal-sabor:focus-visible,
+
+.pagina-salgados .sal-sabor.sal-selecionado {
+
+    background: #f1dfbf;
+
+    transform: translateX(3px);
+
+}
+
+.pagina-salgados .sal-sabor > span:first-child {
+
+    color: #b88c36;
+
+}
+
+.pagina-salgados .sal-seta {
+
+    margin-left: auto;
+
+    color: #b88c36;
+
+    font-size: 25px;
+
+}
+
+/* ==========================================
+
+   FOTOGRAFIA FIXA NA LISTA
+
+========================================== */
+
+.pagina-salgados .sal-preview {
+
+    position: sticky;
+
+    top: 110px;
+
+    align-self: start;
+
+    border: 2px solid var(--dourado);
+
+    border-radius: 14px;
+
+    overflow: hidden;
+
+    background: #fff7e9;
+
+    box-shadow: 0 12px 30px #41081228;
+
+}
+
+.pagina-salgados .sal-preview-foto {
+
+    position: relative;
+
+    height: 280px;
+
+    background: linear-gradient(
+
+        135deg,
+
+        #35050e,
+
+        #75202d,
+
+        #400812
+
+    );
+
+}
+
+.pagina-salgados .sal-preview-foto img {
+
+    display: block;
+
+    width: 100%;
+
+    height: 100%;
+
+    object-fit: cover;
+
+}
+
+.pagina-salgados .sal-preview-vazio {
+
+    position: absolute;
+
+    inset: 0;
+
+    display: flex;
+
+    flex-direction: column;
+
+    align-items: center;
+
+    justify-content: center;
+
+    padding: 25px;
+
+    color: #f0cc82;
+
+    text-align: center;
+
+}
+
+.pagina-salgados .sal-preview-vazio span {
+
+    font-size: 50px;
+
+}
+
+.pagina-salgados .sal-preview-vazio p {
+
+    font-size: 21px;
+
+}
+
+.pagina-salgados .sal-preview-texto {
+
+    padding: 28px 22px;
+
+    background: linear-gradient(
+
+        145deg,
+
+        #fffaf0,
+
+        #eed8b5
+
+    );
+
+    text-align: center;
+
+}
+
+.pagina-salgados .sal-selo {
+
+    color: #800f25;
+
+    font-size: 17px;
+
+    font-weight: 700;
+
+    letter-spacing: 1px;
+
+}
+
+.pagina-salgados #sal-preview-nome {
+
+    margin: 15px 0;
+
+    color: #800f25;
+
+    font-family: "Great Vibes", cursive;
+
+    font-size: 48px;
+
+    font-weight: 400;
+
+}
+
+.pagina-salgados #sal-preview-preco {
+
+    font-size: 21px;
+
+    font-weight: 700;
+
+}
+
+.pagina-salgados .sal-preview-ajuda {
+
+    font-size: 16px;
+
+    color: #76504b;
+
+}
+
+.pagina-salgados .sal-observacao {
+
+    margin-top: 30px;
+
+    text-align: center;
+
+    font-size: 16px;
+
+}
+
+/* ==========================================
+
+   CARRINHO
+
+========================================== */
+
+.pagina-salgados .sal-carrinho {
+
+    padding: 65px 20px;
+
+    background: #fff7e9;
+
+}
+
+.pagina-salgados #sal-carrinho-vazio {
+
+    text-align: center;
+
+}
+
+.pagina-salgados #sal-carrinho-itens {
+
+    max-width: 900px;
+
+    margin: 25px auto;
+
+}
+
+.pagina-salgados .sal-carrinho-linha {
+
+    display: flex;
+
+    justify-content: space-between;
+
+    align-items: center;
+
+    gap: 15px;
+
+    padding: 14px;
+
+    margin-bottom: 10px;
+
+    background: #fffaf1;
+
+    border: 1px solid var(--dourado);
+
+    border-radius: 8px;
+
+}
+
+.pagina-salgados .sal-carrinho-controles {
+
+    display: flex;
+
+    align-items: center;
+
+    flex-wrap: wrap;
+
+    gap: 9px;
+
+}
+
+.pagina-salgados .sal-carrinho-controles button {
+
+    padding: 6px 10px;
+
+    border: 1px solid var(--dourado);
+
+    border-radius: 5px;
+
+    background: #f6e6ca;
+
+    color: var(--vinho);
+
+}
+
+.pagina-salgados .sal-carrinho-resumo {
+
+    display: flex;
+
+    justify-content: space-between;
+
+    gap: 15px;
+
+    max-width: 900px;
+
+    padding: 18px 10px;
+
+    margin: 20px auto;
+
+    border-top: 2px solid var(--dourado);
+
+    font-size: 24px;
+
+    font-weight: 700;
+
+}
+
+.pagina-salgados .sal-carrinho-aviso {
+
+    text-align: center;
+
+}
+
+.pagina-salgados .sal-carrinho-acoes {
+
+    display: flex;
+
+    justify-content: center;
+
+    flex-wrap: wrap;
+
+    gap: 12px;
+
+}
+
+.pagina-salgados .sal-carrinho-botao,
+
+.pagina-salgados .sal-carrinho-limpar,
+
+.pagina-salgados .sal-encomendar {
+
+    display: inline-block;
+
+    padding: 12px 18px;
+
+    background: #650e1b;
+
+    border: 1px solid var(--dourado);
+
+    border-radius: 6px;
+
+    color: #fff1d8;
+
+    text-align: center;
+
+    font-size: 17px;
+
+    font-weight: 700;
+
+    cursor: pointer;
+
+}
+
+.pagina-salgados .sal-carrinho-botao:hover,
+
+.pagina-salgados .sal-carrinho-limpar:hover,
+
+.pagina-salgados .sal-encomendar:hover {
+
+    background: #872134;
+
+}
+
+.pagina-salgados #sal-copiar-status {
+
+    text-align: center;
+
+}
+
+/* ==========================================
+
+   FINAL E RODAPÉ
+
+========================================== */
+
+.pagina-salgados .sal-final {
+
+    padding: 65px 20px;
+
+    background: linear-gradient(
+
+        135deg,
+
+        #35050e,
+
+        #650e1b
+
+    );
+
+    color: #f3ca70;
+
+    text-align: center;
+
+}
+
+.pagina-salgados .sal-final h2 {
+
+    font-family: "Great Vibes", cursive;
+
+    font-size: 52px;
+
+    font-weight: 400;
+
+}
+
+.pagina-salgados .sal-rodape {
+
+    padding: 35px 20px;
+
+    background: #400810;
+
+    color: #f3ca70;
+
+    text-align: center;
+
+}
+
+.pagina-salgados .sal-rodape h2 {
+
+    margin: 0;
+
+    font-family: "Great Vibes", cursive;
+
+    font-size: 38px;
+
+    font-weight: 400;
+
+}
+
+.pagina-salgados .sal-rodape nav {
+
+    display: flex;
+
+    justify-content: center;
+
+    gap: 20px;
+
+    flex-wrap: wrap;
+
+    margin: 20px 0;
+
+}
+
+.pagina-salgados .sal-rodape a {
+
+    color: #f3ca70;
+
+}
+
+/* ==========================================
+
+   JANELA DE QUANTIDADE
+
+========================================== */
+
+.pagina-salgados .sal-modal {
+
+    width: min(780px, 94vw);
+
+    max-height: 90vh;
+
+    padding: 0;
+
+    border: 2px solid var(--dourado);
+
+    border-radius: 14px;
+
+    background: #fff7e9;
+
+    color: #650e1b;
+
+}
+
+.pagina-salgados .sal-modal::backdrop {
+
+    background: #140005bf;
+
+}
+
+.pagina-salgados .sal-modal-corpo {
+
+    position: relative;
+
+    display: grid;
+
+    grid-template-columns: 1fr 1fr;
+
+}
+
+.pagina-salgados .sal-fechar {
+
+    position: absolute;
+
+    top: 10px;
+
+    right: 12px;
+
+    z-index: 5;
+
+    border: none;
+
+    background: transparent;
+
+    color: #650e1b;
+
+    font-size: 35px;
+
+}
+
+.pagina-salgados .sal-foto {
+
+    min-height: 380px;
+
+    background: linear-gradient(
+
+        135deg,
+
+        #35050e,
+
+        #751d2c
+
+    );
+
+}
+
+.pagina-salgados .sal-foto img {
+
+    width: 100%;
+
+    height: 100%;
+
+    object-fit: cover;
+
+}
+
+.pagina-salgados .sal-sem-foto {
+
+    display: flex;
+
+    flex-direction: column;
+
+    align-items: center;
+
+    justify-content: center;
+
+    height: 100%;
+
+    min-height: 380px;
+
+    color: #f3ca70;
+
+    text-align: center;
+
+}
+
+.pagina-salgados .sal-sem-foto span {
+
+    font-size: 60px;
+
+}
+
+.pagina-salgados .sal-modal-info {
+
+    padding: 45px 25px 25px;
+
+    text-align: center;
+
+}
+
+.pagina-salgados .sal-modal-info h2 {
+
+    margin: 10px 0;
+
+    font-family: "Great Vibes", cursive;
+
+    font-size: 47px;
+
+    font-weight: 400;
+
+}
+
+.pagina-salgados .sal-quant-label {
+
+    display: block;
+
+    margin-top: 20px;
+
+}
+
+.pagina-salgados .sal-quant-controles {
+
+    display: flex;
+
+    justify-content: center;
+
+    gap: 8px;
+
+    margin: 15px 0;
+
+}
+
+.pagina-salgados .sal-quant-controles button {
+
+    width: 45px;
+
+    border: 1px solid var(--dourado);
+
+    border-radius: 5px;
+
+    background: #f1dfc3;
+
+}
+
+.pagina-salgados #sal-quantidade {
+
+    width: 75px;
+
+    padding: 10px;
+
+    border: 1px solid var(--dourado);
+
+    border-radius: 5px;
+
+    text-align: center;
+
+}
+
+.pagina-salgados .sal-total {
+
+    display: flex;
+
+    flex-direction: column;
+
+    gap: 5px;
+
+    margin: 18px 0;
+
+    font-size: 22px;
+
+}
+
+.pagina-salgados .sal-nota {
+
+    font-size: 14px;
+
+}
+
+.pagina-salgados .sal-modal-info .sal-encomendar,
+
+.pagina-salgados .sal-voltar-sabores {
+
+    display: block;
+
+    width: 100%;
+
+    margin-top: 10px;
+
+    padding: 12px;
+
+    border-radius: 6px;
+
+    cursor: pointer;
+
+}
+
+.pagina-salgados .sal-voltar-sabores {
+
+    border: 1px solid var(--dourado);
+
+    background: transparent;
+
+    color: var(--vinho);
+
+}
+
+/* ==========================================
+
+   AJUSTES PARA CELULAR
+
+========================================== */
+
+@media (max-width: 800px) {
+
+    .pagina-salgados .cabecalho {
+
+        height: auto;
+
+        min-height: 85px;
+
+    }
+
+    .pagina-salgados .navegacao {
+
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+
+        gap: 10px;
+
+        padding: 12px;
+
+    }
+
+    .pagina-salgados .marca {
+
+        grid-column: 1 / -1;
+
+        grid-row: 1;
+
+        width: 120px;
+
+        height: 70px;
+
+    }
+
+    .pagina-salgados .nav-botao {
+
+        font-size: 13px;
+
+        padding: 9px;
+
+    }
+
+    .pagina-salgados .sal-abertura {
+
+        grid-template-columns: 1fr;
+
+    }
+
+    .pagina-salgados .sal-hero-lado {
+
+        display: none;
+
+    }
+
+    .pagina-salgados .sal-marca-nome {
+
+        height: 190px;
+
+    }
+
+    .pagina-salgados .sal-vitrine {
+
+        grid-template-columns: 1fr;
+
+    }
+
+    .pagina-salgados .sal-preview {
+
+        position: static;
+
+    }
+
+    .pagina-salgados .sal-modal-corpo {
+
+        grid-template-columns: 1fr;
+
+    }
+
+    .pagina-salgados .sal-foto,
+
+    .pagina-salgados .sal-sem-foto {
+
+        min-height: 190px;
+
+    }
+
+    .pagina-salgados .sal-carrinho-linha {
+
+        flex-direction: column;
+
+        align-items: stretch;
+
+    }
+
+}
+
+@media (prefers-reduced-motion: reduce) {
+
+    html {
+
+        scroll-behavior: auto;
+
+    }
+
+    .pagina-salgados .sal-sabor {
+
+        transition: none;
+
+    }
+
+}
