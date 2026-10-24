@@ -24,6 +24,12 @@ document.addEventListener("DOMContentLoaded", function () {
     const origem = document.getElementById("origem-logo");
     const destino = document.getElementById("espaco-logo");
 
+    // Mantém o logotipo fora do banner,
+    // permitindo que fique fixo sobre o menu.
+    if (logo) {
+        document.body.appendChild(logo);
+    }
+
     let animacaoPendente = false;
 
     function atualizarEmblema() {
@@ -75,8 +81,8 @@ document.addEventListener("DOMContentLoaded", function () {
         const esquerdaFinal =
             retanguloDestino.left +
             (retanguloDestino.width - larguraPequena) / 2;
-
-        const topoFinal =
+        
+            const topoFinal =
             retanguloDestino.top +
             (retanguloDestino.height - alturaPequena) / 2;
 
@@ -97,6 +103,12 @@ document.addEventListener("DOMContentLoaded", function () {
         logo.style.width = larguraAtual + "px";
         logo.style.left = esquerdaAtual + "px";
         logo.style.top = topoAtual + "px";
+
+        logo.style.position = "fixed";
+        logo.style.zIndex = "9999";
+        logo.style.pointerEvents = "none";
+        logo.style.display = "block";
+        logo.style.visibility = "visible";
 
     }
 
@@ -318,7 +330,22 @@ document.addEventListener("DOMContentLoaded", function () {
 
     let saborSelecionado = null;
 
+  // Carrega os geladinhos já salvos no carrinho compartilhado
     const carrinho = new Map();
+
+    if (window.RositaCarrinho) {
+        const produtosSalvos = RositaCarrinho.carregar();
+
+        produtosSalvos
+        .filter(produto => produto.categoria === "Geladinhos")
+        .forEach(produto => {
+            carrinho.set(produto.nome, {
+                nome: produto.nome,
+                preco: produto.preco,
+                quantidade: produto.quantidade
+            });
+        });
+}
 
 
     // ========================================
@@ -705,16 +732,16 @@ document.addEventListener("DOMContentLoaded", function () {
                 "Aumentar " + nome
             );
 
-            aumentar.addEventListener("click", function () {
+           aumentar.addEventListener("click", function () {
 
-                produto.quantidade = Math.min(
-                    999,
-                    produto.quantidade + 1
-                );
+    produto.quantidade = Math.min(
+        999,
+        produto.quantidade + 1
+    );
 
-                atualizarCarrinho();
+    atualizarCarrinho();
 
-            });
+});
 
             // Subtotal do produto
 
@@ -756,6 +783,30 @@ document.addEventListener("DOMContentLoaded", function () {
             carrinhoItens.appendChild(linha);
 
         });
+
+    // Sincroniza os geladinhos com o carrinho compartilhado
+    if (window.RositaCarrinho) {
+
+        const produtosSalvos = RositaCarrinho.carregar();
+
+        // Remove apenas os geladinhos antigos
+        const outrosProdutos = produtosSalvos.filter(
+        produto => produto.categoria !== "Geladinhos");
+
+        // Recria os geladinhos com as quantidades atuais
+        carrinho.forEach(produto => {
+            outrosProdutos.push({
+                id: "Geladinhos:" + produto.nome,
+                categoria: "Geladinhos",
+                nome: produto.nome,
+                preco: produto.preco,
+                quantidade: produto.quantidade
+            });
+        });
+
+        // Grava o resultado sem apagar bolos, doces ou salgados
+       RositaCarrinho.salvar(outrosProdutos);
+    }
 
         carrinhoVazio.hidden =
             carrinho.size > 0;
@@ -895,9 +946,35 @@ document.addEventListener("DOMContentLoaded", function () {
 
 
     // ========================================
-    // 19. INICIALIZAÇÃO
+    // 19. CONTADOR DO CARRINHO FLUTUANTE
+    // ========================================
+
+    function atualizarContadorFlutuante() {
+
+        const contador =
+        document.getElementById("carrinho-contador");
+
+        if (!contador || !window.RositaCarrinho) {
+            return;
+        }
+
+        const totais = RositaCarrinho.calcularTotais();
+
+        contador.textContent = totais.quantidade;
+
+        contador.hidden = totais.quantidade === 0;
+    }
+
+    window.addEventListener(
+        "rosita:carrinho-atualizado",
+        atualizarContadorFlutuante
+    );
+
+    // ========================================
+    // 20. INICIALIZAÇÃO
     // ========================================
 
     atualizarCarrinho();
+    atualizarContadorFlutuante();
 
 });

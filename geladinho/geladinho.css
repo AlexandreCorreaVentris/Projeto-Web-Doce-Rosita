@@ -798,3 +798,372 @@ a {
     }
 
 }
+/* ==========================================
+   NOVO BANNER ROSITA - GELADINHOS GOURMET
+========================================== */
+
+.pagina-geladinho .gel-abertura {
+
+    display: flex;
+
+    align-items: center;
+    justify-content: center;
+
+    width: 100%;
+    min-height: 620px;
+
+    background-color: #35030c;
+
+   background-image:
+    url("../imagens/Geladinho sem escrito Painel Luxuoso de Sobremesas Gourmet.png");
+
+    background-position: center center;
+
+    background-size: cover;
+
+    background-repeat: no-repeat;
+
+    position: relative;
+
+    overflow: hidden;
+}
+
+
+/* ==========================================
+   ÁREA CENTRAL
+========================================== */
+
+.pagina-geladinho .gel-abertura-interior {
+
+    position: relative;
+
+    z-index: 2;
+
+    display: flex;
+
+    flex-direction: column;
+
+    align-items: center;
+
+    justify-content: center;
+
+    width: 40%;
+    max-width: 620px;
+
+    min-height: 620px;
+
+    padding: 20px 12px 30px;
+
+    background: transparent;
+
+    text-align: center;
+}
+
+
+/* ==========================================
+   ESPAÇO DO LOGOTIPO
+========================================== */
+
+.pagina-geladinho .gel-marca-nome {
+
+    width: 100%;
+
+    height: 245px;
+
+    margin: 0 auto 10px;
+
+}
+
+
+/* ==========================================
+   TÍTULO GELADINHOS GOURMET
+========================================== */
+
+.pagina-geladinho .gel-abertura .gel-titulo {
+
+    display: flex;
+
+    flex-direction: column;
+
+    align-items: center;
+
+    margin: 0;
+
+    line-height: 1;
+
+    text-align: center;
+
+}
+
+
+/* Geladinhos: referência à escrita Rosita */
+
+.pagina-geladinho .gel-titulo span {
+
+    font-family: "Great Vibes", cursive;
+
+    font-size: clamp(58px, 6vw, 105px);
+
+    font-weight: 400;
+
+    color: #f5cf77;
+
+    text-shadow:
+        2px 3px 2px #51000c,
+        0 4px 8px rgba(0, 0, 0, 0.55);
+
+}
+
+
+/* Gourmet: estilo clássico */
+
+.pagina-geladinho .gel-titulo strong {
+
+    font-family: "Cormorant Garamond", serif;
+
+    font-size: clamp(36px, 3.8vw, 65px);
+
+    font-weight: 600;
+
+    color: #ffe5a6;
+
+    text-shadow:
+        0 3px 6px rgba(0, 0, 0, 0.5);
+
+}
+
+
+/* ==========================================
+   ORNAMENTO DOURADO
+========================================== */
+
+.pagina-geladinho .gel-abertura .gel-ornamento {
+
+    margin: 15px auto 8px;
+
+    color: #d4af37;
+
+    font-size: 17px;
+
+}
+
+
+/* ==========================================
+   FRASE PRINCIPAL
+========================================== */
+
+.pagina-geladinho .gel-abertura .gel-frase {
+
+    max-width: 530px;
+
+    margin: 8px auto;
+
+    font-family: "Cormorant Garamond", serif;
+
+    font-size: clamp(18px, 1.65vw, 25px);
+
+    line-height: 1.25;
+
+    color: #fff4e8;
+
+    text-shadow:
+        0 2px 5px rgba(0, 0, 0, 0.6);
+
+}
+
+
+/* ==========================================
+   ORIENTAÇÃO - TEXTO DISCRETO
+========================================== */
+
+.pagina-geladinho .gel-abertura .gel-orientacao {
+
+    max-width: 490px;
+
+    margin: 10px auto 0;
+
+    font-size: clamp(14px, 1.1vw, 17px);
+
+    line-height: 1.4;
+
+    color: #f4e9df;
+
+    text-shadow:
+        0 1px 4px rgba(0, 0, 0, 0.5);
+
+}
+
+
+/* ==========================================
+   RESPONSIVIDADE
+========================================== */
+
+@media (max-width: 800px) {
+
+    .pagina-geladinho .gel-abertura {
+
+        min-height: 570px;
+
+        background-position: center;
+
+    }
+
+    .pagina-geladinho .gel-abertura-interior {
+
+        width: 75%;
+
+        min-height: 570px;
+
+        padding: 20px 10px;
+
+    }
+
+    .pagina-geladinho .gel-marca-nome {
+
+        height: 195px;
+
+    }
+
+    .pagina-geladinho .gel-titulo span {
+
+        font-size: clamp(48px, 9vw, 72px);
+
+    }
+
+    .pagina-geladinho .gel-titulo strong {
+
+        font-size: clamp(30px, 6vw, 45px);
+
+    }
+
+}
+
+@media (max-width: 480px) {
+
+    .pagina-geladinho .gel-abertura-interior {
+
+        width: 94%;
+
+    }
+
+}
+/* ======================================
+   CORREÇÃO DO LOGOTIPO ANIMADO
+====================================== */
+
+.pagina-geladinho .cabecalho {
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+}
+
+.pagina-geladinho .gel-abertura {
+    overflow: visible;
+}
+
+.pagina-geladinho .gel-logo-banner {
+    position: fixed;
+    z-index: 2000;
+    pointer-events: none;
+}
+/* LOGOTIPO ROSITA FIXO NO MENU */
+
+.pagina-geladinho .gel-logo-banner {
+    position: fixed !important;
+    z-index: 9999 !important;
+    display: block !important;
+    visibility: visible !important;
+    pointer-events: none;
+}
+
+.pagina-geladinho .marca {
+    position: relative;
+    width: 145px;
+    height: 85px;
+}
+/* ========================================
+   LOGOTIPO ROSITA - CORREÇÃO DO MENU
+======================================== */
+
+.pagina-geladinho .cabecalho {
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+}
+
+.pagina-geladinho .gel-abertura {
+    overflow: visible;
+}
+
+.pagina-geladinho .gel-logo-banner {
+    position: fixed !important;
+    z-index: 9999 !important;
+    pointer-events: none;
+}
+/* ==========================================
+   CARRINHO FLUTUANTE - ROSITA
+========================================== */
+
+.carrinho-flutuante {
+    position: fixed;
+    right: 25px;
+    bottom: 25px;
+
+    width: 65px;
+    height: 65px;
+
+    background: #76283b;
+    color: #f2cf86;
+
+    border: 2px solid #d4af37;
+    border-radius: 50%;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    text-decoration: none;
+
+    box-shadow: 0 5px 18px rgba(0, 0, 0, 0.35);
+
+    z-index: 10000;
+
+    transition: transform 0.3s ease,
+                background 0.3s ease;
+}
+
+.carrinho-flutuante:hover {
+    transform: scale(1.1);
+    background: #581c2d;
+}
+
+.carrinho-contador {
+    position: absolute;
+    top: -7px;
+    right: -7px;
+
+    min-width: 24px;
+    height: 24px;
+    padding: 0 5px;
+
+    background: #d4af37;
+    color: #4b1726;
+
+    border-radius: 50%;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    font-size: 12px;
+    font-weight: bold;
+}
+
+@media (max-width: 600px) {
+    .carrinho-flutuante {
+        width: 55px;
+        height: 55px;
+        right: 15px;
+        bottom: 15px;
+    }
+}
