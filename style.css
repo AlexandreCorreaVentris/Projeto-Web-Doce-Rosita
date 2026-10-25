@@ -3775,6 +3775,9 @@ body #produtos.cozinha-editorial
         width 0.4s ease,
         height 0.4s ease,
         transform 0.4s ease;
+
+    backface-visibility: hidden;
+    -webkit-backface-visibility: hidden;
 }
 
 /* Cabeçalho depois de rolar a página */

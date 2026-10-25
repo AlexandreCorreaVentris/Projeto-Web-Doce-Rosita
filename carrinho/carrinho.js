@@ -107,6 +107,8 @@
         // Identificador próprio de cada produto
         const id = categoria + ":" + nome;
 
+       // Futuramente integrar bolo.js e doce.js.
+
         const produtos = carregar();
 
         const existente = produtos.find(function (item) {
@@ -318,3 +320,39 @@
     gerarResumo: gerarResumo
 };
 })();
+
+/*
+========================================
+VOLTAR À PÁGINA ANTERIOR
+========================================
+*/
+
+document.addEventListener("DOMContentLoaded", function () {
+
+    const botaoVoltar =
+        document.getElementById("continuar-escolhendo");
+
+    if (!botaoVoltar) return;
+
+    const paginaAnterior = document.referrer;
+
+    if (paginaAnterior) {
+
+        try {
+            const endereco = new URL(paginaAnterior);
+
+            const mesmaOrigem =
+                endereco.origin === window.location.origin;
+
+            const paginaCarrinho =
+                endereco.pathname === window.location.pathname;
+
+            if (mesmaOrigem && !paginaCarrinho) {
+                botaoVoltar.href = endereco.href;
+            }
+
+        } catch (erro) {
+            console.warn("Não foi possível identificar a página anterior.");
+        }
+    }
+});

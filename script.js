@@ -379,31 +379,49 @@ document.addEventListener("DOMContentLoaded", function () {
         }, true);
     });
 
-
     /* ======================================================
-       6. CABEÇALHO E LOGO ACOMPANHAM A ROLAGEM
+       6. CABEÇALHO E LOGO — SEM TREMOR
     ====================================================== */
 
     const cabecalho = document.querySelector(".cabecalho");
 
     if (cabecalho) {
 
+        let compacto = false;
+        let atualizacaoPendente = false;
+
         function atualizarCabecalho() {
 
-            // Após 80 pixels, ativa o menu compacto.
-            cabecalho.classList.toggle(
-                "rolando",
-                window.scrollY > 80
-            );
+            const rolagem = window.scrollY;
+
+            // Encolhe quando ultrapassa 100 pixels.
+            if (!compacto && rolagem > 100) {
+                compacto = true;
+                cabecalho.classList.add("rolando");
+            }
+
+            // Volta ao tamanho original abaixo de 40 pixels.
+            else if (compacto && rolagem < 40) {
+                compacto = false;
+                cabecalho.classList.remove("rolando");
+            }
         }
 
-        window.addEventListener(
-            "scroll",
-            atualizarCabecalho,
-            { passive: true }
-        );
+        window.addEventListener("scroll", function () {
+
+            if (atualizacaoPendente) return;
+
+            atualizacaoPendente = true;
+
+            requestAnimationFrame(function () {
+                atualizarCabecalho();
+                atualizacaoPendente = false;
+            });
+
+        }, { passive: true });
 
         atualizarCabecalho();
     }
 
-});
+}); // Mantenha: fecha o DOMContentLoaded.
+

@@ -224,51 +224,43 @@ a {
 
 }
 
+
 /* ==========================================
-
-   BANNER
-
+   BANNER PRINCIPAL DOS SALGADOS
+   Uma imagem panorâmica para toda a abertura
 ========================================== */
 
+    
 .pagina-salgados .sal-abertura {
-
     display: grid;
 
-    grid-template-columns: 1fr minmax(420px, 1.6fr) 1fr;
+    grid-template-columns: minmax(0, 1fr) minmax(420px, 1.6fr) minmax(0, 1fr);
 
-    min-height: 490px;
+    min-height: 670px;
 
-    background: linear-gradient(
+    background-color: #410810;
 
-        110deg,
+    background-image: url("../imagens/Salgado Banner Gastronômico de Salgadinhos Brasileiros.png");
 
-        #410810,
-
-        #751524,
-
-        #410810
-
-    );
+    background-size: cover;
+    background-position: center center;
+    background-repeat: no-repeat;
 
     color: var(--dourado-claro);
 
     overflow: hidden;
-
 }
+
+
+
+
+/* Laterais transparentes para mostrar
+   a mesma fotografia panorâmica */
 
 .pagina-salgados .sal-hero-lado {
-
-    background: linear-gradient(
-
-        140deg,
-
-        #390610,
-
-        #79202e
-
-    );
-
+    background: transparent;
 }
+
 
 .pagina-salgados .sal-foto-pendente {
 
@@ -300,21 +292,24 @@ a {
 
 }
 
+
 .pagina-salgados .sal-abertura-interior {
+    grid-column: 2;
 
     display: flex;
-
     flex-direction: column;
 
     align-items: center;
-
     justify-content: center;
 
-    padding: 35px 25px 45px;
+    width: 100%;
+    min-width: 0;
+
+    padding: 35px 15px 45px;
 
     text-align: center;
-
 }
+
 
 /* ==========================================
 
@@ -1350,4 +1345,68 @@ a {
 
     }
 
+}
+/* CARRINHO FLUTUANTE */
+
+.pagina-salgados .sal-carrinho-flutuante {
+    position: fixed;
+    right: 24px;
+    bottom: 24px;
+    z-index: 1500;
+
+    width: 72px;
+    height: 72px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    background: linear-gradient(145deg, #750e25, #400812);
+    border: 2px solid #d4af37;
+    border-radius: 50%;
+
+    color: #fff7e9;
+    text-decoration: none;
+
+    box-shadow: 0 6px 22px rgba(0, 0, 0, 0.35);
+
+    transition: transform 0.25s, box-shadow 0.25s;
+}
+
+.pagina-salgados .sal-carrinho-flutuante:hover {
+    transform: translateY(-6px) scale(1.07);
+    box-shadow: 0 10px 28px rgba(212, 175, 55, 0.45);
+}
+
+.pagina-salgados .sal-icone-carrinho {
+    font-size: 34px;
+}
+
+.pagina-salgados #sal-contador-flutuante {
+    position: absolute;
+    top: -8px;
+    right: -5px;
+
+    min-width: 25px;
+    height: 25px;
+    padding: 2px 5px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    background: #d4af37;
+    color: #400812;
+
+    border-radius: 50%;
+    font: bold 14px Arial, sans-serif;
+}
+
+@media (max-width: 600px) {
+    .pagina-salgados .sal-carrinho-flutuante {
+        right: 15px;
+        bottom: 15px;
+        width: 60px;
+        height: 60px;
+    }
 }

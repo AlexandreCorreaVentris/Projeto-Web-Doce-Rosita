@@ -4,17 +4,19 @@
  ROSITA DOCES ARTESANAIS
  SALGADOS ARTESANAIS
 
- - Um único emblema animado
- - Cabeçalho fixo
+ - Emblema animado
  - Menus suspensos
- - Prévia de fotografias
- - Seleção de quantidades
- - Carrinho com vários sabores
- - Subtotal sem frete
+ - Fotografias dos salgados
+ - Janela de seleção
+ - Controle de quantidades
+ - Carrinho compartilhado
+ - Contador flutuante
+ - Persistência dos pedidos
 ====================================================
 */
 
 document.addEventListener("DOMContentLoaded", function () {
+    "use strict";
 
     // ========================================
     // 1. EMBLEMA ANIMADO
@@ -27,60 +29,41 @@ document.addEventListener("DOMContentLoaded", function () {
     let animacaoPendente = false;
 
     function atualizarEmblema() {
+        if (!logo || !origem || !destino) return;
 
-        if (!logo || !origem || !destino) {
-            return;
-        }
+        const areaOrigem = origem.getBoundingClientRect();
+        const areaDestino = destino.getBoundingClientRect();
 
-        const retanguloOrigem =
-            origem.getBoundingClientRect();
+        const larguraGrande = window.innerWidth <= 800 ? 190 : 260;
+        const larguraPequena = window.innerWidth <= 800 ? 75 : 95;
 
-        const retanguloDestino =
-            destino.getBoundingClientRect();
-
-        const larguraGrande =
-            window.innerWidth <= 800 ? 190 : 260;
-
-        const larguraPequena =
-            window.innerWidth <= 800 ? 75 : 95;
-
-        const proporcao =
-            logo.naturalWidth > 0
-                ? logo.naturalHeight / logo.naturalWidth
-                : 1;
+        const proporcao = logo.naturalWidth > 0
+            ? logo.naturalHeight / logo.naturalWidth
+            : 1;
 
         const alturaGrande = larguraGrande * proporcao;
         const alturaPequena = larguraPequena * proporcao;
-
-        // A transição acontece durante
-        // os primeiros 240 pixels de rolagem.
 
         const progresso = Math.min(
             1,
             Math.max(0, window.scrollY / 240)
         );
 
-        // Posição inicial: centro do banner.
-
         const esquerdaInicial =
-            retanguloOrigem.left +
-            (retanguloOrigem.width - larguraGrande) / 2;
+            areaOrigem.left +
+            (areaOrigem.width - larguraGrande) / 2;
 
         const topoInicial =
-            retanguloOrigem.top +
-            (retanguloOrigem.height - alturaGrande) / 2;
-
-        // Posição final: centro do cabeçalho.
+            areaOrigem.top +
+            (areaOrigem.height - alturaGrande) / 2;
 
         const esquerdaFinal =
-            retanguloDestino.left +
-            (retanguloDestino.width - larguraPequena) / 2;
+            areaDestino.left +
+            (areaDestino.width - larguraPequena) / 2;
 
         const topoFinal =
-            retanguloDestino.top +
-            (retanguloDestino.height - alturaPequena) / 2;
-
-        // Interpolação entre as posições.
+            areaDestino.top +
+            (areaDestino.height - alturaPequena) / 2;
 
         const larguraAtual =
             larguraGrande +
@@ -97,29 +80,20 @@ document.addEventListener("DOMContentLoaded", function () {
         logo.style.width = larguraAtual + "px";
         logo.style.left = esquerdaAtual + "px";
         logo.style.top = topoAtual + "px";
-
     }
 
     function solicitarAtualizacaoEmblema() {
-
-        if (animacaoPendente) {
-            return;
-        }
+        if (animacaoPendente) return;
 
         animacaoPendente = true;
 
         requestAnimationFrame(function () {
-
             atualizarEmblema();
-
             animacaoPendente = false;
-
         });
-
     }
 
     if (logo && origem && destino) {
-
         window.addEventListener(
             "scroll",
             solicitarAtualizacaoEmblema,
@@ -136,13 +110,8 @@ document.addEventListener("DOMContentLoaded", function () {
             solicitarAtualizacaoEmblema
         );
 
-        // Também funciona quando a imagem
-        // já foi carregada pelo navegador.
-
         solicitarAtualizacaoEmblema();
-
     }
-
 
     // ========================================
     // 2. MENUS SUSPENSOS
@@ -152,10 +121,8 @@ document.addEventListener("DOMContentLoaded", function () {
         document.querySelectorAll(".dropdown-botao");
 
     function fecharMenus() {
-
         document.querySelectorAll(".dropdown")
             .forEach(function (menu) {
-
                 menu.classList.remove("aberto");
 
                 const botao =
@@ -167,16 +134,13 @@ document.addEventListener("DOMContentLoaded", function () {
                         "false"
                     );
                 }
-
             });
-
     }
 
     botoesMenu.forEach(function (botao) {
-
         botao.addEventListener("click", function () {
-
             const menu = botao.closest(".dropdown");
+            if (!menu) return;
 
             const estavaAberto =
                 menu.classList.contains("aberto");
@@ -184,39 +148,29 @@ document.addEventListener("DOMContentLoaded", function () {
             fecharMenus();
 
             if (!estavaAberto) {
-
                 menu.classList.add("aberto");
-
                 botao.setAttribute(
                     "aria-expanded",
                     "true"
                 );
-
             }
-
         });
-
     });
 
     document.addEventListener("click", function (evento) {
-
         if (!evento.target.closest(".dropdown")) {
             fecharMenus();
         }
-
     });
 
     document.addEventListener("keydown", function (evento) {
-
         if (evento.key === "Escape") {
             fecharMenus();
         }
-
     });
 
-
     // ========================================
-    // 3. FORMATAÇÃO DOS VALORES
+    // 3. FORMATAÇÃO DOS PREÇOS
     // ========================================
 
     const moeda = new Intl.NumberFormat("pt-BR", {
@@ -224,9 +178,8 @@ document.addEventListener("DOMContentLoaded", function () {
         currency: "BRL"
     });
 
-
     // ========================================
-    // 4. ELEMENTOS DOS SABORES
+    // 4. ELEMENTOS DOS SALGADOS
     // ========================================
 
     const sabores =
@@ -244,9 +197,8 @@ document.addEventListener("DOMContentLoaded", function () {
     const previewPreco =
         document.getElementById("sal-preview-preco");
 
-
     // ========================================
-    // 5. ELEMENTOS DA JANELA
+    // 5. ELEMENTOS DO MODAL
     // ========================================
 
     const modal =
@@ -285,7 +237,6 @@ document.addEventListener("DOMContentLoaded", function () {
     const botaoFechar =
         document.querySelector(".sal-fechar");
 
-
     // ========================================
     // 6. ELEMENTOS DO CARRINHO
     // ========================================
@@ -311,18 +262,49 @@ document.addEventListener("DOMContentLoaded", function () {
     const copiarStatus =
         document.getElementById("sal-copiar-status");
 
+    const contadorFlutuante =
+        document.getElementById("sal-contador-flutuante");
 
     // ========================================
-    // 7. VARIÁVEIS
+    // 7. CARRINHO COMPARTILHADO
     // ========================================
 
-    let saborSelecionado = null;
+    const sistema = window.RositaCarrinho;
 
     const carrinho = new Map();
 
+    let saborSelecionado = null;
+
+    if (!sistema) {
+        console.error(
+            "ERRO: carrinho.js não foi carregado antes de salgado.js."
+        );
+    } else {
+        carregarSalgadosSalvos();
+    }
+
+    function carregarSalgadosSalvos() {
+        if (!sistema) return;
+
+        carrinho.clear();
+
+        const produtos = sistema.carregar();
+
+        produtos
+            .filter(function (produto) {
+                return produto.categoria === "Salgados";
+            })
+            .forEach(function (produto) {
+                carrinho.set(produto.nome, {
+                    nome: produto.nome,
+                    preco: Number(produto.preco),
+                    quantidade: Number(produto.quantidade)
+                });
+            });
+    }
 
     // ========================================
-    // 8. CARREGAR FOTOGRAFIA
+    // 8. FOTOGRAFIAS
     // ========================================
 
     function mostrarFotografia(
@@ -331,81 +313,63 @@ document.addEventListener("DOMContentLoaded", function () {
         caminho,
         nome
     ) {
+        if (!imagem || !aviso) return;
 
         imagem.hidden = true;
         aviso.hidden = false;
-
-        // Evita que uma fotografia anterior
-        // apareça depois da seleção mudar.
 
         imagem.onload = null;
         imagem.onerror = null;
 
         imagem.onload = function () {
-
             imagem.hidden = false;
             aviso.hidden = true;
-
         };
 
         imagem.onerror = function () {
-
             imagem.hidden = true;
             aviso.hidden = false;
-
         };
 
         imagem.alt = "Salgado: " + nome;
 
         if (caminho) {
-
             imagem.src = caminho;
 
-            // Trata imagens já armazenadas
-            // no cache do navegador.
-
             if (imagem.complete && imagem.naturalWidth > 0) {
-
                 imagem.hidden = false;
                 aviso.hidden = true;
-
             }
-
         } else {
-
             imagem.removeAttribute("src");
-
         }
-
     }
 
-
     // ========================================
-    // 9. PRÉVIA DOS SABORES
+    // 9. PRÉVIA DO SALGADO
     // ========================================
 
     function atualizarPreview(botao) {
-
         const nome = botao.dataset.nome;
-
         const preco = Number(botao.dataset.preco);
-
         const foto = botao.dataset.foto;
 
         sabores.forEach(function (item) {
-
             item.classList.toggle(
                 "sal-selecionado",
                 item === botao
             );
-
         });
 
-        previewNome.textContent = nome;
+        if (previewNome) {
+            previewNome.textContent = nome;
+        }
 
-        previewPreco.textContent =
-            "Valor demonstrativo: " +
-            moeda.format(preco);
+        if (previewPreco) {
+            previewPreco.textContent =
+                "Valor demonstrativo: " +
+                moeda.format(preco);
+        }
 
         mostrarFotografia(
             previewImagem,
@@ -413,19 +377,14 @@ document.addEventListener("DOMContentLoaded", function () {
             foto,
             nome
         );
-
     }
 
-
     // ========================================
-    // 10. CÁLCULO DO SUBTOTAL
+    // 10. SUBTOTAL DA JANELA
     // ========================================
 
     function atualizarSubtotal() {
-
-        if (!saborSelecionado) {
-            return 1;
-        }
+        if (!saborSelecionado) return 1;
 
         let quantidade =
             parseInt(quantidadeInput.value, 10);
@@ -441,31 +400,23 @@ document.addEventListener("DOMContentLoaded", function () {
 
         quantidadeInput.value = quantidade;
 
-        const subtotal =
-            quantidade * saborSelecionado.preco;
-
         subtotalElemento.textContent =
-            moeda.format(subtotal);
+            moeda.format(
+                quantidade * saborSelecionado.preco
+            );
 
         return quantidade;
-
     }
 
-
     // ========================================
-    // 11. ABRIR JANELA DO SABOR
+    // 11. ABRIR JANELA DO SALGADO
     // ========================================
 
     function abrirModal(botao) {
-
         saborSelecionado = {
-
             nome: botao.dataset.nome,
-
             preco: Number(botao.dataset.preco),
-
             foto: botao.dataset.foto
-
         };
 
         modalTitulo.textContent =
@@ -486,75 +437,51 @@ document.addEventListener("DOMContentLoaded", function () {
         );
 
         modal.showModal();
-
     }
 
-
     // ========================================
-    // 12. EVENTOS DOS SABORES
+    // 12. EVENTOS DOS SALGADOS
     // ========================================
 
     sabores.forEach(function (botao) {
+        botao.addEventListener("mouseenter", function () {
+            atualizarPreview(botao);
+        });
 
-        botao.addEventListener(
-            "mouseenter",
-            function () {
+        botao.addEventListener("focus", function () {
+            atualizarPreview(botao);
+        });
 
-                atualizarPreview(botao);
-
-            }
-        );
-
-        botao.addEventListener(
-            "focus",
-            function () {
-
-                atualizarPreview(botao);
-
-            }
-        );
-
-        botao.addEventListener(
-            "click",
-            function () {
-
-                atualizarPreview(botao);
-                abrirModal(botao);
-
-            }
-        );
-
+        botao.addEventListener("click", function () {
+            atualizarPreview(botao);
+            abrirModal(botao);
+        });
     });
 
     if (sabores.length > 0) {
         atualizarPreview(sabores[0]);
     }
 
-
     // ========================================
     // 13. CONTROLES DE QUANTIDADE
     // ========================================
 
     botaoMais.addEventListener("click", function () {
-
         const quantidade = atualizarSubtotal();
 
         quantidadeInput.value =
             Math.min(999, quantidade + 1);
 
         atualizarSubtotal();
-
     });
 
     botaoMenos.addEventListener("click", function () {
-
         const quantidade = atualizarSubtotal();
 
         quantidadeInput.value =
             Math.max(1, quantidade - 1);
 
         atualizarSubtotal();
-
     });
 
     quantidadeInput.addEventListener(
@@ -562,70 +489,129 @@ document.addEventListener("DOMContentLoaded", function () {
         atualizarSubtotal
     );
 
-
     // ========================================
-    // 14. ADICIONAR AO CARRINHO
+    // 14. ADICIONAR SALGADO
     // ========================================
 
     botaoAdicionar.addEventListener("click", function () {
-
-        if (!saborSelecionado) {
-            return;
-        }
+        if (!saborSelecionado) return;
 
         const quantidade = atualizarSubtotal();
-
         const nome = saborSelecionado.nome;
 
         if (carrinho.has(nome)) {
-
             const produto = carrinho.get(nome);
 
             produto.quantidade = Math.min(
                 999,
                 produto.quantidade + quantidade
             );
+        } else {
+            carrinho.set(nome, {
+                nome: nome,
+                preco: saborSelecionado.preco,
+                quantidade: quantidade
+            });
+        }
+
+        atualizarCarrinho(true);
+
+        modal.close();
+
+        const secaoPedido =
+            document.getElementById("sal-carrinho");
+
+        if (secaoPedido) {
+            secaoPedido.scrollIntoView({
+                behavior: "smooth"
+            });
+        }
+    });
+
+    // ========================================
+    // 15. SALVAR SALGADOS NO CARRINHO GERAL
+    // ========================================
+
+    function salvarSalgados() {
+        if (!sistema) return;
+
+        const produtosSalvos = sistema.carregar();
+
+        // Preserva geladinhos, bolos e doces.
+        const outrosProdutos = produtosSalvos.filter(
+            function (produto) {
+                return produto.categoria !== "Salgados";
+            }
+        );
+
+        // Atualiza somente os salgados.
+        carrinho.forEach(function (produto) {
+            outrosProdutos.push({
+                id: "Salgados:" + produto.nome,
+                categoria: "Salgados",
+                nome: produto.nome,
+                preco: produto.preco,
+                quantidade: produto.quantidade
+            });
+        });
+
+        sistema.salvar(outrosProdutos);
+    }
+
+   
+    // ========================================
+    // 16. ATUALIZAR CONTADOR FLUTUANTE
+    // ========================================
+
+    function atualizarContador() {
+
+        const contador = document.getElementById(
+            "sal-contador-flutuante"
+        );
+
+        if (!contador) {
+            console.error("Contador do carrinho não encontrado.");
+            return;
+        }
+
+        let quantidadeTotal = 0;
+
+        if (window.RositaCarrinho) {
+
+            const produtos = window.RositaCarrinho.carregar();
+
+            produtos.forEach(function (produto) {
+                quantidadeTotal += Number(produto.quantidade) || 0;
+            });
 
         } else {
 
-            carrinho.set(nome, {
-
-                nome: nome,
-
-                preco: saborSelecionado.preco,
-
-                quantidade: quantidade
-
+            carrinho.forEach(function (produto) {
+                quantidadeTotal += Number(produto.quantidade) || 0;
             });
 
         }
 
-        atualizarCarrinho();
+        contador.textContent = quantidadeTotal;
 
-        modal.close();
-
-        document.getElementById("sal-carrinho")
-            .scrollIntoView({
-                behavior: "smooth"
-            });
-
-    });
+        console.log(
+            "Quantidade total no carrinho:",
+            quantidadeTotal
+        );
+    }
 
 
     // ========================================
-    // 15. ATUALIZAR CARRINHO
+    // 17. EXIBIR CARRINHO DOS SALGADOS
     // ========================================
 
-    function atualizarCarrinho() {
-
+    function atualizarCarrinho(deveSalvar = false) {
         carrinhoItens.replaceChildren();
 
         let quantidadeTotal = 0;
-
         let valorTotal = 0;
 
         carrinho.forEach(function (produto, nome) {
-
             quantidadeTotal += produto.quantidade;
 
             const subtotal =
@@ -633,37 +619,19 @@ document.addEventListener("DOMContentLoaded", function () {
 
             valorTotal += subtotal;
 
-            // Linha do produto
-
-            const linha =
-                document.createElement("div");
-
+            const linha = document.createElement("div");
             linha.className = "sal-carrinho-linha";
 
-            // Descrição
-
-            const descricao =
-                document.createElement("span");
-
+            const descricao = document.createElement("span");
             descricao.textContent =
-                produto.nome +
-                " — " +
-                moeda.format(produto.preco) +
-                " cada";
+                produto.nome + " — " +
+                moeda.format(produto.preco) + " cada";
 
-            // Controles
-
-            const controles =
-                document.createElement("div");
-
-            controles.className =
-                "sal-carrinho-controles";
+            const controles = document.createElement("div");
+            controles.className = "sal-carrinho-controles";
 
             // Diminuir
-
-            const diminuir =
-                document.createElement("button");
-
+            const diminuir = document.createElement("button");
             diminuir.type = "button";
             diminuir.textContent = "−";
 
@@ -673,30 +641,21 @@ document.addEventListener("DOMContentLoaded", function () {
             );
 
             diminuir.addEventListener("click", function () {
-
                 produto.quantidade--;
 
                 if (produto.quantidade <= 0) {
                     carrinho.delete(nome);
                 }
 
-                atualizarCarrinho();
-
+                atualizarCarrinho(true);
             });
 
             // Quantidade
-
-            const numero =
-                document.createElement("strong");
-
-            numero.textContent =
-                produto.quantidade;
+            const numero = document.createElement("strong");
+            numero.textContent = produto.quantidade;
 
             // Aumentar
-
-            const aumentar =
-                document.createElement("button");
-
+            const aumentar = document.createElement("button");
             aumentar.type = "button";
             aumentar.textContent = "+";
 
@@ -706,38 +665,26 @@ document.addEventListener("DOMContentLoaded", function () {
             );
 
             aumentar.addEventListener("click", function () {
-
                 produto.quantidade = Math.min(
                     999,
                     produto.quantidade + 1
                 );
 
-                atualizarCarrinho();
-
+                atualizarCarrinho(true);
             });
 
-            // Subtotal do produto
-
-            const valor =
-                document.createElement("strong");
-
-            valor.textContent =
-                moeda.format(subtotal);
+            // Subtotal individual
+            const valor = document.createElement("strong");
+            valor.textContent = moeda.format(subtotal);
 
             // Remover
-
-            const remover =
-                document.createElement("button");
-
+            const remover = document.createElement("button");
             remover.type = "button";
             remover.textContent = "Remover";
 
             remover.addEventListener("click", function () {
-
                 carrinho.delete(nome);
-
-                atualizarCarrinho();
-
+                atualizarCarrinho(true);
             });
 
             controles.append(
@@ -748,17 +695,11 @@ document.addEventListener("DOMContentLoaded", function () {
                 remover
             );
 
-            linha.append(
-                descricao,
-                controles
-            );
-
+            linha.append(descricao, controles);
             carrinhoItens.appendChild(linha);
-
         });
 
-        carrinhoVazio.hidden =
-            carrinho.size > 0;
+        carrinhoVazio.hidden = carrinho.size > 0;
 
         carrinhoQuantidade.textContent =
             quantidadeTotal + " unidade(s)";
@@ -766,138 +707,135 @@ document.addEventListener("DOMContentLoaded", function () {
         carrinhoTotal.textContent =
             moeda.format(valorTotal);
 
+        // Só grava quando houve uma alteração.
+        // Ao abrir a página, apenas lê os dados.
+        if (deveSalvar) {
+            salvarSalgados();
+        }
+
+        // O contador é atualizado após o salvamento.
+        atualizarContador();
     }
 
-
     // ========================================
-    // 16. LIMPAR PEDIDO
+    // 18. LIMPAR PEDIDO DE SALGADOS
     // ========================================
 
     botaoLimpar.addEventListener("click", function () {
+        if (carrinho.size === 0) return;
 
+        if (confirm("Deseja limpar o pedido de salgados?")) {
+            carrinho.clear();
+            atualizarCarrinho(true);
+            copiarStatus.textContent = "";
+        }
+    });
+
+    // ========================================
+    // 19. COPIAR RESUMO
+    // ========================================
+
+    botaoCopiar.addEventListener("click", async function () {
         if (carrinho.size === 0) {
+            copiarStatus.textContent =
+                "Escolha pelo menos um salgado.";
             return;
         }
 
-        if (confirm("Deseja limpar todo o pedido?")) {
+        const linhas = [
+            "PEDIDO ROSITA - SALGADOS ARTESANAIS",
+            ""
+        ];
 
-            carrinho.clear();
+        let total = 0;
+        let unidades = 0;
 
-            atualizarCarrinho();
+        carrinho.forEach(function (produto) {
+            const subtotal =
+                produto.quantidade * produto.preco;
 
-            copiarStatus.textContent = "";
-
-        }
-
-    });
-
-
-    // ========================================
-    // 17. COPIAR RESUMO
-    // ========================================
-
-    botaoCopiar.addEventListener(
-        "click",
-        async function () {
-
-            if (carrinho.size === 0) {
-
-                copiarStatus.textContent =
-                    "Escolha pelo menos um salgado.";
-
-                return;
-
-            }
-
-            const linhas = [
-                "PEDIDO ROSITA - SALGADOS ARTESANAIS",
-                ""
-            ];
-
-            let total = 0;
-            let unidades = 0;
-
-            carrinho.forEach(function (produto) {
-
-                const subtotal =
-                    produto.quantidade * produto.preco;
-
-                total += subtotal;
-
-                unidades += produto.quantidade;
-
-                linhas.push(
-                    produto.quantidade +
-                    "x " +
-                    produto.nome +
-                    " - " +
-                    moeda.format(subtotal)
-                );
-
-            });
+            total += subtotal;
+            unidades += produto.quantidade;
 
             linhas.push(
-                "",
-                "Quantidade total: " + unidades,
-                "Subtotal: " + moeda.format(total),
-                "Frete não incluído.",
-                "Valores sujeitos a confirmação."
+                produto.quantidade + "x " +
+                produto.nome + " - " +
+                moeda.format(subtotal)
+            );
+        });
+
+        linhas.push(
+            "",
+            "Quantidade total: " + unidades,
+            "Subtotal: " + moeda.format(total),
+            "Frete não incluído.",
+            "Valores sujeitos a confirmação."
+        );
+
+        try {
+            await navigator.clipboard.writeText(
+                linhas.join("\n")
             );
 
-            try {
-
-                await navigator.clipboard.writeText(
-                    linhas.join("\n")
-                );
-
-                copiarStatus.textContent =
-                    "Resumo copiado com sucesso!";
-
-            } catch (erro) {
-
-                copiarStatus.textContent =
-                    "Não foi possível copiar automaticamente.";
-
-            }
-
+            copiarStatus.textContent =
+                "Resumo copiado com sucesso!";
+        } catch (erro) {
+            copiarStatus.textContent =
+                "Não foi possível copiar automaticamente.";
         }
-    );
-
+    });
 
     // ========================================
-    // 18. FECHAR JANELA
+    // 20. FECHAR JANELA
     // ========================================
 
     botaoFechar.addEventListener("click", function () {
-
         modal.close();
-
     });
 
     botaoOutroSabor.addEventListener("click", function () {
-
         modal.close();
 
-        document.getElementById("sal-sabores")
-            .scrollIntoView({
+        const secaoSabores =
+            document.getElementById("sal-sabores");
+
+        if (secaoSabores) {
+            secaoSabores.scrollIntoView({
                 behavior: "smooth"
             });
-
+        }
     });
 
     modal.addEventListener("click", function (evento) {
-
         if (evento.target === modal) {
             modal.close();
         }
-
     });
 
+    // ========================================
+    // 21. SINCRONIZAR AO VOLTAR À PÁGINA
+    // ========================================
+
+    window.addEventListener("pageshow", function () {
+        if (sistema) {
+            carregarSalgadosSalvos();
+            atualizarCarrinho(false);
+        }
+    });
+
+    // Atualiza se outra aba modificar o pedido.
+    window.addEventListener("storage", function (evento) {
+        if (evento.key === "rosita_carrinho_v1") {
+            carregarSalgadosSalvos();
+            atualizarCarrinho(false);
+        }
+    });
 
     // ========================================
-    // 19. INICIALIZAÇÃO
+    // 22. INICIALIZAÇÃO
     // ========================================
 
-    atualizarCarrinho();
+    // Não sobrescreve o pedido ao abrir a página.
+    atualizarCarrinho(false);
 
 });

@@ -1,12 +1,12 @@
+
 # Rosita Doces Artesanais
 
-**Projeto de Desenvolvimento Web — Versão 3.1.0**
+**Projeto de Desenvolvimento Web — Versão 3.2.0**
 
 **Disciplina:** Web Design  
 **Tecnologias:** HTML5, CSS3 e JavaScript  
 **Ambiente de desenvolvimento:** Visual Studio Code  
 **Controle de versões:** Git e GitHub
-
 
 ---
 
@@ -20,15 +20,17 @@ A proposta é proporcionar uma experiência visual agradável, organizada e inte
 
 O desenvolvimento faz parte das atividades práticas da disciplina de **Web Design**, permitindo aplicar conhecimentos relacionados à estruturação de páginas, estilização, programação e organização de arquivos.
 
-O projeto utiliza as tecnologias **HTML5, CSS3 e JavaScript**, além das ferramentas Git, GitHub e Visual Studio Code.
-
 A identidade visual da Rosita Doces Artesanais utiliza principalmente tons de vinho e dourado, associados a elementos decorativos que remetem à confeitaria artesanal.
+
+Nesta versão, o projeto recebeu melhorias importantes relacionadas à integração dos pedidos, sincronização entre páginas e correção de problemas identificados durante os testes.
 
 ---
 
 ## 2. Objetivo geral
 
 Desenvolver um site interativo para apresentação dos produtos da Rosita Doces Artesanais, aplicando conhecimentos de HTML, CSS e JavaScript na construção de uma interface organizada, visualmente atrativa e funcional.
+
+Além da apresentação dos produtos, o sistema busca proporcionar uma experiência de navegação na qual o visitante possa selecionar diferentes sabores, definir quantidades e organizar uma simulação de encomenda em um carrinho compartilhado.
 
 ---
 
@@ -41,10 +43,13 @@ Desenvolver um site interativo para apresentação dos produtos da Rosita Doces 
 - Permitir a navegação manual entre os slides.
 - Desenvolver menus de navegação interativos.
 - Criar páginas específicas para as categorias de produtos.
-- Desenvolver uma página dedicada aos geladinhos gourmet.
 - Permitir a seleção de sabores e quantidades.
 - Calcular automaticamente os valores dos produtos selecionados.
-- Implementar uma interface de carrinho de compras.
+- Implementar um carrinho de compras compartilhado.
+- Armazenar os produtos selecionados no navegador.
+- Sincronizar os pedidos entre diferentes categorias.
+- Atualizar automaticamente o contador do carrinho.
+- Corrigir problemas de navegação e animação.
 - Desenvolver uma animação de abertura personalizada.
 - Organizar imagens e recursos visuais em pastas.
 - Utilizar Git para controle de versões.
@@ -58,7 +63,7 @@ Desenvolver um site interativo para apresentação dos produtos da Rosita Doces 
 
 Utilizado para estruturar as páginas do site.
 
-Organiza os cabeçalhos, menus, imagens, botões, seções, formulários, links e rodapés.
+Organiza cabeçalhos, menus, imagens, botões, seções, formulários, links e rodapés.
 
 Também permite estabelecer a organização semântica dos elementos apresentados ao usuário.
 
@@ -76,23 +81,33 @@ Utilizado para implementar funcionalidades interativas e comportamentos dinâmic
 
 Permite manipular elementos HTML, responder às ações dos usuários, controlar animações, calcular valores e atualizar informações apresentadas na página.
 
-### 4.4. Git
+Nesta atualização, também foi utilizado para sincronizar o carrinho de compras entre diferentes páginas.
+
+### 4.4. localStorage
+
+Recurso do navegador utilizado para armazenar os produtos adicionados ao carrinho.
+
+Permite que os itens selecionados permaneçam disponíveis ao navegar entre páginas ou atualizar o site.
+
+O armazenamento ocorre localmente no navegador, sem necessidade de banco de dados.
+
+### 4.5. Git
 
 Utilizado para registrar as alterações realizadas durante o desenvolvimento.
 
 O versionamento permite acompanhar a evolução do projeto, identificar modificações e preservar o histórico de desenvolvimento.
 
-### 4.5. GitHub
+### 4.6. GitHub
 
 Utilizado para armazenar e disponibilizar o código-fonte do projeto.
 
 Também facilita o compartilhamento dos arquivos e o acompanhamento das versões desenvolvidas.
 
-### 4.6. GitHub Pages
+### 4.7. GitHub Pages
 
-Utilizado para publicar o site na internet, permitindo sua visualização por meio de um navegador.
+Recurso destinado à publicação do site na internet, permitindo sua visualização por meio de um navegador.
 
-### 4.7. Visual Studio Code
+### 4.8. Visual Studio Code
 
 Editor utilizado durante o desenvolvimento, organização e manutenção dos arquivos HTML, CSS e JavaScript.
 
@@ -121,11 +136,15 @@ Projeto-Web-Doce-Rosita/
 │   └── geladinho.js
 │
 ├── salgado/
+│   ├── salgado.html
+│   ├── salgado.css
+│   └── salgado.js
 │
 ├── carrinho/
 │   ├── carrinho.html
 │   ├── carrinho.css
-│   └── carrinho.js
+│   ├── carrinho.js
+│   └── carrinho-pagina.js
 │
 └── imagens/
 ```
@@ -134,7 +153,7 @@ Projeto-Web-Doce-Rosita/
 
 **index.html**
 
-Funciona como a página de entrada do site, apresentando a animação inicial personalizada da Rosita Doces Artesanais.
+Funciona como página de entrada do site, apresentando a animação inicial personalizada da Rosita Doces Artesanais.
 
 **inicio.html**
 
@@ -152,9 +171,13 @@ Contém as funcionalidades JavaScript da página principal, como controle do car
 
 Contém os arquivos relacionados à apresentação dos bolos artesanais.
 
+A integração completa dessa categoria com o carrinho compartilhado está prevista para uma etapa futura.
+
 ### 5.3. Pasta doce
 
 Contém os arquivos destinados à apresentação dos doces artesanais.
+
+A integração completa dessa categoria com o carrinho compartilhado está prevista para uma etapa futura.
 
 ### 5.4. Pasta geladinho
 
@@ -162,19 +185,24 @@ Contém os arquivos específicos da página de geladinhos gourmet.
 
 - `geladinho.html`: estrutura da página, apresentação dos sabores e interface de pedidos.
 - `geladinho.css`: estilização da página.
-- `geladinho.js`: funcionalidades interativas, seleção de sabores, quantidades e cálculos.
+- `geladinho.js`: funcionalidades interativas, seleção de sabores, quantidades, cálculos e sincronização com o carrinho geral.
 
 ### 5.5. Pasta salgado
 
 Contém os arquivos relacionados à apresentação dos salgados artesanais.
 
+- `salgado.html`: estrutura da página e interface de seleção.
+- `salgado.css`: estilização, animações e carrinho flutuante.
+- `salgado.js`: seleção de produtos, cálculos, controle de quantidades e integração com o carrinho compartilhado.
+
 ### 5.6. Pasta carrinho
 
-Contém os arquivos utilizados no desenvolvimento da interface do carrinho de compras.
+Contém os arquivos utilizados no gerenciamento da encomenda geral.
 
 - `carrinho.html`: estrutura da página do carrinho.
 - `carrinho.css`: apresentação visual.
-- `carrinho.js`: comportamentos interativos.
+- `carrinho.js`: sistema compartilhado de armazenamento e gerenciamento dos produtos.
+- `carrinho-pagina.js`: exibição dos produtos, atualização de quantidades, remoção e resumo da encomenda.
 
 ### 5.7. Pasta imagens
 
@@ -204,268 +232,493 @@ Essa funcionalidade oferece maior controle sobre a visualização do conteúdo.
 
 Os menus apresentam opções adicionais de navegação.
 
-A abertura ocorre por meio de cliques.
+A abertura ocorre por meio de cliques, permitindo acessar as diferentes categorias de produtos e outras seções do site.
 
-Os menus podem ser fechados ao clicar fora deles ou pressionando a tecla **Esc**.
+### 6.4. Animação do emblema
 
-### 6.4. Miniaturas interativas
+O logotipo da Rosita Doces Artesanais possui animações que acompanham a apresentação visual do site.
 
-As miniaturas apresentam imagens relacionadas aos slides.
+Na página inicial, o emblema acompanha o comportamento do cabeçalho durante a rolagem.
 
-O JavaScript associa as miniaturas às imagens do carrossel e permite navegar para seções específicas da página.
+Nas páginas de produtos, o emblema também participa da transição visual entre o banner e o cabeçalho.
 
-### 6.5. Cabeçalho dinâmico
+### 6.5. Seleção de produtos
 
-O cabeçalho responde à rolagem da página.
+O visitante pode escolher produtos e definir quantidades.
 
-Uma classe CSS é ativada após determinada distância de rolagem, permitindo modificar sua apresentação visual.
+O sistema calcula os valores de acordo com o preço unitário e a quantidade selecionada.
 
-### 6.6. Emblema animado
+### 6.6. Carrinho de compras compartilhado
 
-A página de geladinhos apresenta o emblema da Rosita.
+O carrinho permite reunir produtos de diferentes categorias em uma única encomenda.
 
-O emblema altera seu tamanho e sua posição durante a rolagem, com comportamento controlado por JavaScript.
+Atualmente, a integração contempla:
 
-### 6.7. Prévia dos sabores
+- Salgados artesanais.
+- Geladinhos gourmet.
 
-O usuário pode selecionar diferentes sabores de geladinhos gourmet.
-
-O sistema apresenta o nome e o preço do produto, além de uma área destinada à fotografia do sabor.
-
-### 6.8. Janela de seleção
-
-Ao clicar em um sabor, uma janela interativa é apresentada.
-
-A janela permite escolher a quantidade desejada.
-
-O usuário pode aumentar ou diminuir essa quantidade por meio dos controles disponíveis.
-
-### 6.9. Cálculo do subtotal
-
-O JavaScript multiplica o preço unitário pela quantidade selecionada.
-
-O resultado é apresentado em reais, utilizando formatação monetária no padrão brasileiro.
-
-**Fórmula utilizada:**
-
-Subtotal = Preço unitário × Quantidade
-
-### 6.10. Carrinho de pedidos
-
-O usuário pode adicionar diferentes sabores ao pedido.
-
-O sistema organiza os itens selecionados durante a utilização da página.
-
-As quantidades podem ser modificadas, e os produtos podem ser removidos individualmente.
-
-O valor total é atualizado automaticamente conforme as alterações realizadas.
-
-### 6.11. Limpeza do pedido
-
-O usuário pode limpar todos os itens do carrinho.
-
-O sistema solicita uma confirmação antes de realizar a limpeza, evitando a exclusão acidental dos produtos selecionados.
-
-### 6.12. Cópia do resumo
-
-O JavaScript prepara um resumo dos produtos selecionados.
-
-O resumo apresenta informações como produtos, quantidades e valores.
-
-O usuário pode copiar essas informações para a área de transferência.
+As categorias de bolos e doces serão integradas posteriormente.
 
 ---
 
-## 7. Animação de abertura personalizada
+## 7. Atualização da página de salgados
 
-Uma das melhorias visuais do projeto é a animação apresentada no arquivo `index.html`.
+A página de salgados recebeu melhorias relacionadas ao funcionamento do carrinho.
 
-A abertura foi desenvolvida para reforçar a identidade da Rosita Doces Artesanais e criar uma experiência visual diferenciada antes da apresentação da página principal.
+### 7.1. Integração com o carrinho compartilhado
 
-### 7.1. Elementos da animação
+Anteriormente, os produtos eram controlados localmente na página de salgados.
 
-A animação utiliza:
+Foi implementada a integração com o sistema `RositaCarrinho`, permitindo compartilhar os produtos selecionados com outras páginas.
 
-- Fundo com tonalidades de vinho.
-- Coração dourado com efeito luminoso.
-- Borboleta animada acompanhando o desenho do coração.
-- Partículas brilhantes e efeitos decorativos.
-- Pequenos corações.
-- Efeito de explosão luminosa.
-- Apresentação do logotipo da Rosita.
-- Frase institucional: **Onde o amor ganha sabor.**
+Os salgados são identificados pela categoria correspondente, evitando conflitos com produtos de outras categorias.
 
-### 7.2. Funcionamento
+### 7.2. Persistência dos produtos
 
-A animação é executada quando o visitante acessa a página de entrada do site.
+Os salgados selecionados são armazenados no navegador.
 
-Os elementos visuais são apresentados em sequência, utilizando recursos de CSS e JavaScript.
+Ao retornar à página, o sistema recupera os produtos salvos e suas respectivas quantidades.
 
-Após a apresentação, ocorre a transição para a página principal.
+### 7.3. Sincronização dos pedidos
 
-Também foi disponibilizado um botão para pular a animação, permitindo que o visitante avance diretamente para o conteúdo do site.
+As alterações realizadas na página de salgados são sincronizadas com o carrinho geral.
 
-### 7.3. Objetivo da animação
+Ao atualizar os salgados, os produtos pertencentes a outras categorias são preservados.
 
-A animação procura estabelecer uma conexão visual entre a identidade da confeitaria e a experiência de navegação.
+### 7.4. Correção do contador flutuante
 
-Além do aspecto decorativo, sua implementação permite aplicar conceitos de temporização, transições, manipulação de elementos e programação de efeitos visuais.
+Foi identificado um problema no qual o contador do carrinho flutuante não apresentava corretamente a quantidade de produtos.
 
----
+A correção envolveu:
 
-## 8. Organização dos arquivos JavaScript
+- Revisão da estrutura HTML.
+- Remoção de elementos duplicados.
+- Correção da atualização do contador.
+- Integração com a quantidade total do carrinho compartilhado.
 
-As funcionalidades JavaScript foram distribuídas em arquivos específicos, conforme a finalidade de cada página.
+Após a correção, o contador passou a apresentar a quantidade total de unidades armazenadas no carrinho.
 
-**script.js**
+### 7.5. Preservação do layout
 
-Responsável pelos comportamentos da página principal, incluindo carrossel, menus e elementos interativos.
+As alterações foram realizadas mantendo a identidade visual da página.
 
-**geladinho.js**
+Foram preservados:
 
-Responsável pelas funcionalidades da página de geladinhos, incluindo seleção de sabores, quantidades e cálculos.
-
-**carrinho.js**
-
-Destinado aos comportamentos interativos da interface do carrinho de compras.
-
-**index.html**
-
-Contém os recursos necessários para a apresentação da animação de abertura, incluindo sua programação integrada.
-
-A separação dos arquivos facilita a manutenção, a identificação de erros e a organização do desenvolvimento.
+- Cores vinho e dourado.
+- Fotografias dos salgados.
+- Emblema animado.
+- Menus suspensos.
+- Janela de seleção de produtos.
+- Estilo do carrinho flutuante.
 
 ---
 
-## 9. Experiência do usuário e identidade visual
+## 8. Atualização da página de geladinhos
 
-O desenvolvimento do site considera a importância de uma interface compreensível, organizada e visualmente atrativa.
+A página de geladinhos também recebeu integração com o carrinho geral.
 
-Entre os recursos utilizados, destacam-se:
+### 8.1. Sincronização dos produtos
 
-- Navegação por categorias.
-- Apresentação visual dos produtos.
-- Carrossel de imagens.
-- Botões interativos.
-- Menus de navegação.
-- Animações decorativas.
-- Identidade visual com cores associadas à marca.
-- Organização dos arquivos e recursos visuais.
+Os geladinhos selecionados passaram a utilizar o mesmo sistema de armazenamento dos salgados.
 
-A proposta busca equilibrar a apresentação estética com a funcionalidade das páginas.
+Dessa forma, os produtos podem ser reunidos em uma única encomenda.
 
----
+### 8.2. Armazenamento das quantidades
 
-## 10. Atualizações da versão 3.1.0
+As quantidades selecionadas são preservadas durante a navegação.
 
-A versão 3.1.0 documenta uma nova etapa de desenvolvimento do projeto Rosita Doces Artesanais.
+O visitante pode acessar outras categorias e retornar à página de geladinhos sem perder os itens salvos.
 
-### Principais melhorias
+### 8.3. Integração com o carrinho geral
 
-**Animação de abertura**
+Os geladinhos são apresentados na página do carrinho juntamente com os salgados.
 
-Desenvolvimento de uma apresentação visual personalizada com coração luminoso, borboleta, partículas, logotipo e assinatura da marca.
+Cada produto mantém suas informações:
 
-**Página de geladinhos gourmet**
+- Categoria.
+- Nome.
+- Preço unitário.
+- Quantidade.
+- Subtotal.
 
-Atualizações nos arquivos HTML, CSS e JavaScript da categoria, com melhorias na apresentação e nas funcionalidades interativas.
+### 8.4. Preservação das funcionalidades
 
-**Carrinho de compras**
+Foram mantidos os recursos visuais e interativos já existentes na página.
 
-Inclusão de uma pasta específica para o carrinho, com arquivos HTML, CSS e JavaScript.
-
-**Imagens dos produtos**
-
-Adição de novos recursos visuais, incluindo fotografias de bolos, doces, salgados e geladinhos gourmet.
-
-**Organização do projeto**
-
-Manutenção da estrutura em pastas, separando páginas, estilos, scripts e imagens.
-
-**Versionamento**
-
-Preparação das atualizações para registro no histórico do Git e publicação no GitHub.
+A integração não exige mudanças na identidade visual dos geladinhos.
 
 ---
 
-## 11. Como executar o projeto
+## 9. Desenvolvimento do carrinho geral
 
-Para executar o site localmente:
+O carrinho geral foi desenvolvido para centralizar os produtos selecionados nas diferentes categorias.
 
-1. Acesse o repositório do projeto no GitHub.
-2. Baixe os arquivos ou clone o repositório.
-3. Abra a pasta do projeto no Visual Studio Code.
-4. Localize o arquivo `index.html`.
-5. Abra o arquivo em um navegador.
-6. Aguarde a animação de abertura ou utilize o botão para avançar.
-7. Navegue pelas categorias disponíveis.
+### 9.1. Arquivo carrinho.js
 
-O projeto utiliza tecnologias web executadas pelo navegador, sem necessidade de instalação de dependências para sua visualização básica.
+O arquivo `carrinho.js` contém o sistema compartilhado de gerenciamento dos produtos.
 
-### Clonagem pelo Git
+Ele disponibiliza o objeto:
 
-```bash
-git clone https://github.com/AlexandreCorreaVentris/Projeto-Web-Doce-Rosita.git
+```javascript
+window.RositaCarrinho
 ```
 
+Esse objeto permite que diferentes páginas utilizem as mesmas informações.
+
+### 9.2. Armazenamento dos produtos
+
+Os dados são armazenados utilizando a chave:
+
+```javascript
+rosita_carrinho_v1
+```
+
+Cada produto contém informações semelhantes a:
+
+```javascript
+{
+    id: "Salgados:Pão de queijo",
+    categoria: "Salgados",
+    nome: "Pão de queijo",
+    preco: 4.00,
+    quantidade: 2
+}
+```
+
+### 9.3. Funções do sistema
+
+O sistema compartilhado disponibiliza funções para:
+
+- Carregar produtos.
+- Salvar produtos.
+- Adicionar produtos.
+- Alterar quantidades.
+- Remover produtos.
+- Esvaziar o carrinho.
+- Calcular totais.
+- Formatar valores monetários.
+- Gerar resumo da encomenda.
+
+Entre os métodos utilizados estão:
+
+```javascript
+RositaCarrinho.carregar();
+
+RositaCarrinho.salvar(produtos);
+
+RositaCarrinho.alterarQuantidade(id, quantidade);
+
+RositaCarrinho.remover(id);
+
+RositaCarrinho.limpar();
+
+RositaCarrinho.calcularTotais();
+
+RositaCarrinho.formatarMoeda(valor);
+
+RositaCarrinho.gerarResumo();
+```
+
+### 9.4. Arquivo carrinho-pagina.js
+
+O arquivo `carrinho-pagina.js` é responsável pela apresentação e interação com os produtos no carrinho geral.
+
+Suas principais funcionalidades são:
+
+- Listar os produtos selecionados.
+- Exibir a categoria de cada produto.
+- Apresentar os preços unitários.
+- Permitir aumentar e diminuir quantidades.
+- Remover produtos individualmente.
+- Calcular o subtotal de cada produto.
+- Calcular a quantidade total de unidades.
+- Apresentar o subtotal estimado da encomenda.
+- Copiar o resumo do pedido.
+- Esvaziar o carrinho mediante confirmação.
+
+### 9.5. Atualização entre páginas
+
+O carrinho utiliza os dados armazenados no navegador para recuperar as informações.
+
+Também possui mecanismos para atualizar sua apresentação quando a página é reaberta ou quando ocorrem alterações no armazenamento.
+
+### 9.6. Correção do botão Continuar escolhendo sabores
+
+Foi identificado um problema no botão **Continuar escolhendo sabores**.
+
+Inicialmente, o botão direcionava o visitante sempre para a página de geladinhos, independentemente da categoria acessada anteriormente.
+
+A navegação foi ajustada para utilizar a página de origem informada pelo navegador.
+
+Quando essa informação não está disponível, o botão possui um destino alternativo para a página inicial.
+
+Também foi corrigida a estrutura HTML do botão, eliminando uma marcação duplicada e preservando seu estilo original.
+
+### 9.7. Resumo da encomenda
+
+O carrinho apresenta:
+
+- Quantidade total de unidades.
+- Subtotal estimado.
+- Identificação dos produtos.
+- Valores individuais.
+- Quantidades selecionadas.
+
+O sistema permite copiar um resumo textual da encomenda.
+
+Os valores são estimativos, não incluem frete e estão sujeitos a confirmação.
+
 ---
 
-## 12. Versionamento e controle de alterações
+## 10. Correção do bug na página inicial
 
-O projeto utiliza Git para registrar as modificações realizadas durante o desenvolvimento.
+Durante os testes da página principal, foi identificado um problema relacionado ao comportamento do emblema da Rosita.
 
-Os commits permitem acompanhar a evolução das funcionalidades, identificar versões anteriores e documentar as alterações.
+### 10.1. Problema identificado
 
-O GitHub funciona como repositório remoto do código-fonte.
+Ao realizar uma rolagem lenta, o logotipo apresentava pequenas oscilações, produzindo um efeito visual de tremor.
 
-A utilização dessas ferramentas contribui para a organização do projeto e para a prática de procedimentos utilizados no desenvolvimento de software.
+Esse comportamento prejudicava a suavidade da animação.
+
+### 10.2. Análise do problema
+
+O cabeçalho possui dois estados visuais:
+
+- Expandido.
+- Compacto.
+
+A transição entre esses estados altera o tamanho e a posição dos elementos do cabeçalho.
+
+A alternância próxima ao limite de rolagem podia provocar oscilações.
+
+### 10.3. Correção implementada
+
+A lógica JavaScript responsável pelo cabeçalho foi ajustada.
+
+Foram utilizados limites diferentes para a mudança de estado:
+
+- Acima de 100 pixels: cabeçalho compacto.
+- Abaixo de 40 pixels: cabeçalho expandido.
+
+Essa diferença evita alternâncias rápidas próximas de um único limite.
+
+Também foi utilizado o recurso:
+
+```javascript
+requestAnimationFrame()
+```
+
+Esse mecanismo organiza as atualizações visuais durante a rolagem.
+
+### 10.4. Resultado da correção
+
+Após as alterações, o comportamento do emblema foi estabilizado nos testes realizados.
+
+Foram preservados:
+
+- Logotipo original.
+- Animação de redução.
+- Cores da identidade visual.
+- Menus suspensos.
+- Carrossel automático.
+- Estrutura do cabeçalho.
 
 ---
 
-## 13. Repositório
+## 11. Correções e melhorias da versão 3.2.0
 
-**GitHub:**
+Esta atualização reúne as principais melhorias realizadas no projeto.
 
-https://github.com/AlexandreCorreaVentris/Projeto-Web-Doce-Rosita
+### 11.1. Salgados
+
+- Integração com o carrinho compartilhado.
+- Armazenamento dos produtos.
+- Recuperação das quantidades.
+- Correção do contador flutuante.
+- Remoção de elementos HTML duplicados.
+- Preservação dos produtos das outras categorias.
+
+### 11.2. Geladinhos
+
+- Sincronização com o carrinho geral.
+- Persistência das quantidades.
+- Integração dos produtos ao resumo da encomenda.
+- Preservação das funcionalidades anteriores.
+
+### 11.3. Carrinho geral
+
+- Consolidação dos produtos de diferentes categorias.
+- Atualização dos subtotais.
+- Controles para aumentar e diminuir quantidades.
+- Remoção individual de produtos.
+- Esvaziamento do carrinho.
+- Cópia do resumo da encomenda.
+- Correção da navegação de retorno.
+
+### 11.4. Página inicial
+
+- Correção do tremor do logotipo.
+- Ajuste da transição do cabeçalho.
+- Melhoria na atualização visual durante a rolagem.
+- Preservação do layout e das animações.
 
 ---
 
-## 14. Site publicado
+## 12. Testes realizados e verificações
 
-**GitHub Pages:**
+Durante o desenvolvimento, foram identificados e corrigidos problemas relacionados ao funcionamento do carrinho e à animação da página inicial.
 
-https://alexandrecorreaventris.github.io/Projeto-Web-Doce-Rosita/
+Os testes manuais incluíram:
+
+- Inclusão de produtos no carrinho.
+- Visualização de salgados e geladinhos na mesma encomenda.
+- Conferência das quantidades.
+- Verificação dos subtotais.
+- Atualização do contador flutuante.
+- Navegação entre categorias.
+- Verificação do botão de retorno.
+- Teste de rolagem lenta na página inicial.
+
+### Testes recomendados antes da publicação
+
+- [ ] Verificar o funcionamento do carrossel.
+- [ ] Testar todos os menus suspensos.
+- [ ] Conferir os links entre páginas.
+- [ ] Adicionar salgados ao carrinho.
+- [ ] Adicionar geladinhos ao carrinho.
+- [ ] Verificar a soma das quantidades.
+- [ ] Aumentar e diminuir produtos no carrinho geral.
+- [ ] Remover produtos.
+- [ ] Esvaziar o carrinho.
+- [ ] Copiar o resumo do pedido.
+- [ ] Atualizar o navegador e verificar a persistência.
+- [ ] Testar o retorno para a categoria anterior.
+- [ ] Verificar a animação do logotipo.
+- [ ] Conferir o comportamento em dispositivos móveis.
+- [ ] Verificar possíveis erros no console do navegador.
 
 ---
 
-## 15. Possibilidades de melhorias futuras
+## 13. Como executar o projeto
 
-O projeto poderá receber novas funcionalidades e aprimoramentos, como:
+### 13.1. Abrir no Visual Studio Code
 
-- Melhorias na adaptação para dispositivos móveis.
-- Ampliação das categorias e dos produtos.
-- Aprimoramento da navegação entre páginas.
-- Melhorias de acessibilidade.
-- Otimização de imagens e desempenho.
-- Aperfeiçoamento do sistema de pedidos.
-- Novas animações e recursos visuais.
+1. Abra o Visual Studio Code.
+2. Selecione a pasta principal do projeto.
+3. Localize o arquivo `index.html` ou `inicio.html`.
+4. Execute o projeto utilizando um servidor local, como o Live Server.
+5. Navegue entre as categorias.
 
-Essas possibilidades representam oportunidades de continuidade do aprendizado e evolução do site.
+### 13.2. Utilizar o carrinho
+
+1. Acesse a página de salgados ou geladinhos.
+2. Escolha um produto.
+3. Defina a quantidade.
+4. Adicione ao carrinho.
+5. Acesse a página do carrinho geral.
+6. Confira os produtos e valores.
+7. Continue escolhendo sabores ou copie o resumo da encomenda.
+
+### 13.3. Persistência
+
+Os produtos são armazenados no navegador.
+
+O carrinho permanece disponível enquanto os dados locais do site forem preservados.
+
+O sistema não sincroniza automaticamente os pedidos entre dispositivos diferentes.
 
 ---
 
-## 16. Considerações finais
+## 14. Histórico de versões
 
-O desenvolvimento do projeto **Rosita Doces Artesanais** possibilitou aplicar conhecimentos de HTML, CSS e JavaScript em uma aplicação web organizada em diferentes páginas.
+### Versão 3.1.0
 
-A construção do site envolveu estruturação de conteúdo, estilização, criação de animações, manipulação de elementos HTML e implementação de funcionalidades interativas.
+- Estruturação inicial do projeto.
+- Desenvolvimento da página principal.
+- Criação do carrossel.
+- Implementação dos menus.
+- Desenvolvimento da identidade visual.
+- Criação das páginas de produtos.
+- Desenvolvimento da interface inicial do carrinho.
+- Organização dos arquivos e imagens.
 
-O carrossel, os menus, a página de geladinhos gourmet, os cálculos de valores e a interface do carrinho demonstram a aplicação prática de conceitos de programação voltados à interação com o usuário.
+### Versão 3.2.0 — Atualização atual
 
-A animação de abertura também contribuiu para o desenvolvimento da identidade visual, permitindo explorar efeitos gráficos e comportamentos dinâmicos.
+- Integração dos salgados ao carrinho compartilhado.
+- Integração dos geladinhos ao carrinho compartilhado.
+- Armazenamento dos pedidos com localStorage.
+- Correção do contador flutuante.
+- Correção de elementos HTML duplicados.
+- Consolidação dos produtos no carrinho geral.
+- Correção do botão Continuar escolhendo sabores.
+- Correção do tremor do logotipo na página inicial.
+- Atualização da documentação do projeto.
 
-Além disso, o projeto proporcionou experiência com controle de versões utilizando Git e GitHub, destacando a importância de registrar alterações e organizar os arquivos durante o desenvolvimento.
+**Observação:** a versão 3.2.0 corresponde à atualização preparada para o próximo commit.
 
-A documentação apresentada neste README reúne as principais características e funcionalidades do projeto, servindo como referência para sua manutenção e futuras melhorias.
+---
 
-**Rosita Doces Artesanais — Onde o amor ganha sabor.**
+## 15. Próximas etapas do desenvolvimento
+
+As próximas melhorias previstas incluem:
+
+- Integrar a página de bolos ao carrinho compartilhado.
+- Integrar a página de doces ao carrinho compartilhado.
+- Revisar os caminhos de navegação.
+- Ampliar os testes de responsividade.
+- Melhorar a acessibilidade.
+- Revisar o funcionamento em diferentes navegadores.
+- Avaliar futuras formas de encaminhamento da encomenda.
+- Publicar as atualizações no GitHub Pages.
+
+---
+
+## 16. Controle de versões
+
+Após verificar o funcionamento do projeto, as alterações poderão ser registradas utilizando Git.
+
+### Verificar alterações
+
+```bash
+git status
+```
+
+### Adicionar arquivos
+
+```bash
+git add .
+```
+
+### Criar commit
+
+```bash
+git commit -m "Integra carrinho compartilhado e corrige navegacao e logo"
+```
+
+### Enviar ao GitHub
+
+```bash
+git push
+```
+
+Antes de adicionar os arquivos, recomenda-se conferir se existem arquivos temporários ou cópias desnecessárias.
+
+---
+
+## 17. Repositório
+
+O projeto é mantido no GitHub.
+
+[Projeto-Web-Doce-Rosita](https://github.com/AlexandreCorreaVentris/Projeto-Web-Doce-Rosita)
+
+---
+
+## 18. Considerações finais
+
+O desenvolvimento do site Rosita Doces Artesanais permitiu aplicar conhecimentos de HTML, CSS e JavaScript em uma aplicação web voltada à apresentação de produtos e à interação com visitantes.
+
+A implementação de um carrinho compartilhado representou uma evolução importante do projeto, permitindo reunir produtos de diferentes categorias em uma única encomenda.
+
+As correções realizadas no contador flutuante, na navegação e na animação do logotipo contribuíram para melhorar a experiência do usuário e a consistência visual do site.
+
+O projeto permanece em desenvolvimento, com novas funcionalidades previstas para as páginas de bolos e doces, além de melhorias relacionadas à navegação, responsividade e organização dos pedidos.

@@ -26,7 +26,8 @@
     <!-- Estilo exclusivo da página -->
     <link rel="stylesheet" href="salgado.css">
 
-    <!-- Funcionalidades -->
+   <script src="../carrinho/carrinho.js" defer></script>
+
     <script src="salgado.js" defer></script>
 </head>
 
@@ -136,66 +137,46 @@
              BANNER
         ====================================== -->
 
-        <section class="sal-abertura">
+       
+    <section class="sal-abertura">
 
-            <!-- Espaço da fotografia esquerda -->
-            <div class="sal-hero-lado">
+    <!-- Lateral esquerda: fotografia do banner -->
+    <div class="sal-hero-lado"></div>
 
-                <div class="sal-foto-pendente">
-                    <span>📷 ESPAÇO PARA FOTO</span>
-                    <small>Salgados artesanais</small>
-                </div>
+    <!-- Centro: logotipo e textos -->
+    <div class="sal-abertura-interior">
 
-            </div>
+        <div class="sal-marca-nome" id="origem-logo">
+            <img
+                src="../imagens/Emblema Rosita Doces Artesanais copy.png"
+                alt="Rosita Doces Artesanais"
+                class="sal-logo-banner"
+                id="logo-animada">
+        </div>
 
-
-            <!-- Centro do banner -->
-            <div class="sal-abertura-interior">
-
-                <!-- Apenas um emblema -->
-                <div class="sal-marca-nome"
-                     id="origem-logo">
-
-                    <img
-                        src="../imagens/Emblema Rosita Doces Artesanais copy.png"
-                        alt="Rosita Doces Artesanais"
-                        class="sal-logo-banner"
-                        id="logo-animada">
-
-                </div>
-
-                <div class="sal-ornamento">
-                    ✦ ───── ❦ ───── ✦
-                </div>
+            <div class="sal-ornamento">
+                ✦ ───── ❦ ───── ✦
+         </div>
 
                 <h1>Salgados Artesanais</h1>
 
                 <p class="sal-frase">
-                    Sabor e carinho em cada
-                    mordida.
+                    Sabor e carinho em cada mordida.
                 </p>
 
                 <p class="sal-orientacao">
-                    Passe o mouse para visualizar
-                    a fotografia; clique ou toque
-                    para escolher a quantidade
+                    Passe o mouse para visualizar a fotografia;
+                    clique ou toque para escolher a quantidade
                     e simular seu pedido.
                 </p>
 
             </div>
 
+            <!-- Lateral direita: fotografia do banner -->
+        <div class="sal-hero-lado"></div>
 
-            <!-- Espaço da fotografia direita -->
-            <div class="sal-hero-lado">
+</section>
 
-                <div class="sal-foto-pendente">
-                    <span>📷 ESPAÇO PARA FOTO</span>
-                    <small>Salgados fresquinhos</small>
-                </div>
-
-            </div>
-
-        </section>
 
 
         <!-- =====================================
@@ -229,7 +210,7 @@
                             class="sal-sabor"
                             data-nome="Coxinha de frango"
                             data-preco="7.00"
-                            data-foto="../imagens/salgado-coxinha.jpg">
+                            data-foto="../imagens/Salgado Coxinhas Crocantes com Frango Desfiado.png">
                             <span>✦</span>
                             Coxinha de frango
                             <span class="sal-seta">›</span>
@@ -241,7 +222,7 @@
                             class="sal-sabor"
                             data-nome="Coxinha com catupiry"
                             data-preco="8.00"
-                            data-foto="../imagens/salgado-coxinha-catupiry.jpg">
+                            data-foto="../imagens/Salgado Coxinhas Douradas com Queijo Derretido.png">
                             <span>✦</span>
                             Coxinha com catupiry
                             <span class="sal-seta">›</span>
@@ -253,7 +234,7 @@
                             class="sal-sabor"
                             data-nome="Bolinha de queijo"
                             data-preco="6.00"
-                            data-foto="../imagens/salgado-bolinha-queijo.jpg">
+                            data-foto="../imagens/Salgado Bolinhas de Queijo Crocantes com Molho.png">
                             <span>✦</span>
                             Bolinha de queijo
                             <span class="sal-seta">›</span>
@@ -263,11 +244,11 @@
                         <button
                             type="button"
                             class="sal-sabor"
-                            data-nome="Kibe"
+                            data-nome="Quibe"
                             data-preco="6.00"
-                            data-foto="../imagens/salgado-kibe.jpg">
+                            data-foto="../imagens/Salgado Kibe Crocante com Ervas e Molho Cremoso.png">
                             <span>✦</span>
-                            Kibe
+                            Quibe
                             <span class="sal-seta">›</span>
                         </button>
 
@@ -277,7 +258,7 @@
                             class="sal-sabor"
                             data-nome="Enroladinho de salsicha"
                             data-preco="6.00"
-                            data-foto="../imagens/salgado-enroladinho.jpg">
+                            data-foto="../imagens/Salgado Enroladinhos Dourados com Ketchup.png">
                             <span>✦</span>
                             Enroladinho de salsicha
                             <span class="sal-seta">›</span>
@@ -289,7 +270,7 @@
                             class="sal-sabor"
                             data-nome="Risole de presunto e queijo"
                             data-preco="6.00"
-                            data-foto="../imagens/salgado-risole.jpg">
+                            data-foto="../imagens/Salgado Risoles Crocantes com Queijo e Presunto.png">
                             <span>✦</span>
                             Risole de presunto e queijo
                             <span class="sal-seta">›</span>
@@ -301,7 +282,7 @@
                             class="sal-sabor"
                             data-nome="Empada de frango"
                             data-preco="7.00"
-                            data-foto="../imagens/salgado-empada.jpg">
+                            data-foto="../imagens/Salgado Empadas Douradas de Frango Cremoso.png">
                             <span>✦</span>
                             Empada de frango
                             <span class="sal-seta">›</span>
@@ -313,7 +294,7 @@
                             class="sal-sabor"
                             data-nome="Esfiha de carne"
                             data-preco="7.00"
-                            data-foto="../imagens/salgado-esfiha.jpg">
+                            data-foto="../imagens/Salgado Esfihas Douradas com Carne e Ervas.png">
                             <span>✦</span>
                             Esfiha de carne
                             <span class="sal-seta">›</span>
@@ -325,7 +306,7 @@
                             class="sal-sabor"
                             data-nome="Pastel assado de frango"
                             data-preco="7.00"
-                            data-foto="../imagens/salgado-pastel-assado.jpg">
+                            data-foto="../imagens/Salgado Pastéis de frango dourados com ervas.png">
                             <span>✦</span>
                             Pastel assado de frango
                             <span class="sal-seta">›</span>
@@ -337,7 +318,7 @@
                             class="sal-sabor"
                             data-nome="Pão de queijo"
                             data-preco="4.00"
-                            data-foto="../imagens/salgado-pao-de-queijo.jpg">
+                            data-foto="../imagens/Salgado Pão de Queijo com Queijo Derretido.png">
                             <span>✦</span>
                             Pão de queijo
                             <span class="sal-seta">›</span>
@@ -349,7 +330,7 @@
                             class="sal-sabor"
                             data-nome="Mini pizza"
                             data-preco="7.00"
-                            data-foto="../imagens/salgado-mini-pizza.jpg">
+                            data-foto="../imagens/Salgado Mini Pizzas Artesanais com Queijo e Ervas.png">
                             <span>✦</span>
                             Mini pizza
                             <span class="sal-seta">›</span>
@@ -361,7 +342,7 @@
                             class="sal-sabor"
                             data-nome="Quibe recheado"
                             data-preco="7.00"
-                            data-foto="../imagens/salgado-quibe-recheado.jpg">
+                            data-foto="../imagens/Salgado Kibe Crocante com Queijo Derretido.png">
                             <span>✦</span>
                             Quibe recheado
                             <span class="sal-seta">›</span>
@@ -669,6 +650,20 @@
         </div>
 
     </dialog>
+    
+
+    </dialog>
+
+    <!-- CARRINHO FLUTUANTE: APENAS UM -->
+    <a href="../carrinho/carrinho.html"
+       class="sal-carrinho-flutuante"
+       aria-label="Ver carrinho de compras"
+       title="Ver carrinho de compras">
+
+        <span class="sal-icone-carrinho">🛒</span>
+
+        <span id="sal-contador-flutuante">0</span>
+    </a>
 
 </body>
 </html>
