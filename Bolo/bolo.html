@@ -1,0 +1,521 @@
+
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <meta name="description"
+          content="Conheça os bolos artesanais da Rosita Doces Artesanais.">
+
+    <title>Bolos Artesanais | Rosita Doces Artesanais</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+    <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Cormorant+Garamond:wght@400;500;600;700&display=swap"
+          rel="stylesheet">
+
+    <link rel="stylesheet" href="bolo.css">
+
+    <!-- Primeiro carrega o carrinho compartilhado -->
+    <script src="../carrinho/carrinho.js" defer></script>
+
+    <!-- Depois carrega a programação dos bolos -->
+    <script src="bolo.js" defer></script>
+</head>
+
+<body class="pagina-bolo">
+
+    <!-- =====================================
+         1. CABEÇALHO
+    ====================================== -->
+
+    <header class="cabecalho">
+
+        <nav class="navegacao" aria-label="Navegação principal">
+
+            <a href="../inicio.html" class="nav-botao">
+                INÍCIO
+            </a>
+
+            <div class="dropdown">
+                <button type="button"
+                        class="nav-botao dropdown-botao"
+                        aria-expanded="false">
+                    MENU ▾
+                </button>
+
+                <div class="dropdown-conteudo">
+                    <a href="bolo.html">Bolos</a>
+                    <a href="../geladinho/geladinho.html">Geladinhos</a>
+                    <a href="../doce/doce.html">Doces</a>
+                    <a href="../salgado/salgado.html">Salgados</a>
+                </div>
+            </div>
+
+            <div class="marca"
+                 id="espaco-logo"
+                 aria-hidden="true">
+            </div>
+
+            <div class="dropdown">
+                <button type="button"
+                        class="nav-botao dropdown-botao"
+                        aria-expanded="false">
+                    ENCOMENDAS ▾
+                </button>
+
+                <div class="dropdown-conteudo">
+                    <a href="#bolo-carrinho">Meu Pedido de Bolos</a>
+                    <a href="../carrinho/carrinho.html">Carrinho Geral</a>
+                </div>
+            </div>
+
+            <div class="dropdown">
+                <button type="button"
+                        class="nav-botao dropdown-botao"
+                        aria-expanded="false">
+                    QUEM SOMOS ▾
+                </button>
+
+                <div class="dropdown-conteudo">
+                    <a href="../inicio.html">Nossa História</a>
+                    <a href="../inicio.html">Contato</a>
+                </div>
+            </div>
+
+        </nav>
+
+    </header>
+
+    <main>
+
+        <!-- =====================================
+             2. BANNER PRINCIPAL
+        ====================================== -->
+
+        <section class="bolo-abertura">
+
+            <div class="bolo-abertura-interior">
+
+                <div class="bolo-marca-nome" id="origem-logo">
+
+                    <img
+                        src="../imagens/Emblema Rosita Doces Artesanais copy.png"
+                        alt="Rosita Doces Artesanais"
+                        class="bolo-logo-banner"
+                        id="logo-animada">
+
+                </div>
+
+               <h1>
+                    Bolos
+                    <strong>Artesanais</strong>
+                </h1>
+
+                <div class="bolo-ornamento">
+                    ✦ ───── ❦ ───── ✦
+                </div>
+
+                <p class="bolo-frase">
+                    Feitos com carinho para adoçar seus momentos especiais.
+                </p>
+
+                <p class="bolo-orientacao">
+                    Passe o mouse sobre um bolo para visualizar sua fotografia.
+                    Clique ou toque para escolher o peso em quilogramas
+                    e calcular o valor estimado.
+                </p>
+
+            </div>
+
+        </section>
+
+        <!-- =====================================
+             3. CARDÁPIO — SETE BOLOS
+        ====================================== -->
+
+        <section class="bolo-cardapio" aria-labelledby="bolo-sabores">
+
+            <div class="bolo-container">
+
+                <p class="bolo-chamada">
+                    Preparados com carinho
+                </p>
+
+                <h2 id="bolo-sabores">Nossos Bolos</h2>
+
+                <div class="bolo-ornamento">
+                    ✦ ───── ❦ ───── ✦
+                </div>
+
+                <div class="bolo-vitrine">
+
+                    <div class="bolo-lista">
+
+                        <button type="button"
+                                class="bolo-sabor"
+                                data-nome="Bolo de chocolate com morango"
+                                data-preco="40"
+                                data-foto="../imagens/Bolo de Chocolate com Morangos Frescos.png">
+                            <span>✦</span>
+                            Bolo de chocolate com morango
+                            <span class="bolo-seta">›</span>
+                        </button>
+
+                        <button type="button"
+                                class="bolo-sabor"
+                                data-nome="Bolo de frutas"
+                                data-preco="35"
+                                data-foto="../imagens/Bolo Tropical com Frutas Glaceadas.png">
+                            <span>✦</span>
+                            Bolo de frutas
+                            <span class="bolo-seta">›</span>
+                        </button>
+
+                        <button type="button"
+                                class="bolo-sabor"
+                                data-nome="Bolo ouro branco"
+                                data-preco="45"
+                                data-foto="../imagens/Bolo ouro branco Cremoso com Trufas de Chocolate.png">
+                            <span>✦</span>
+                            Bolo ouro branco
+                            <span class="bolo-seta">›</span>
+                        </button>
+
+                        <button type="button"
+                                class="bolo-sabor"
+                                data-nome="Bolo floresta negra"
+                                data-preco="40"
+                                data-foto="../imagens/Bolo floresta negra com cerejas e chocolate.png">
+                            <span>✦</span>
+                            Bolo floresta negra
+                            <span class="bolo-seta">›</span>
+                        </button>
+
+                        <button type="button"
+                                class="bolo-sabor"
+                                data-nome="Bolo olho de sogra"
+                                data-preco="40"
+                                data-foto="../imagens/Bolo Olho de Sogra Festivo em Camadas.png">
+                            <span>✦</span>
+                            Bolo olho de sogra
+                            <span class="bolo-seta">›</span>
+                        </button>
+
+                        <button type="button"
+                                class="bolo-sabor"
+                                data-nome="Bolo de abacaxi"
+                                data-preco="35"
+                                data-foto="../imagens/Bolo de abacaxi dourado com cerejas.png">
+                            <span>✦</span>
+                            Bolo de abacaxi
+                            <span class="bolo-seta">›</span>
+                        </button>
+
+                        <button type="button"
+                                class="bolo-sabor"
+                                data-nome="Bolo red velvet"
+                                data-preco="40"
+                                data-foto="../imagens/Bolo Red Velvet com Cobertura Cremosa.png">
+                            <span>✦</span>
+                            Bolo red velvet
+                            <span class="bolo-seta">›</span>
+                        </button>
+
+                    </div>
+
+                    <!-- PRÉVIA DA FOTOGRAFIA -->
+
+                    <aside class="bolo-preview">
+
+                        <div class="bolo-preview-foto">
+
+                            <img id="bolo-preview-img"
+                                 alt=""
+                                 hidden>
+
+                            <div class="bolo-preview-vazio"
+                                 id="bolo-preview-vazio">
+                                <span>❦</span>
+                                <p>FOTO DO BOLO EM BREVE</p>
+                            </div>
+
+                        </div>
+
+                        <div class="bolo-preview-texto">
+
+                            <p class="bolo-selo">
+                                UMA DELÍCIA ESPECIAL
+                            </p>
+
+                            <h3 id="bolo-preview-nome">
+                                Escolha um bolo
+                            </h3>
+
+                            <p id="bolo-preview-preco">
+                                Preço por quilograma
+                            </p>
+
+                            <p>
+                                Clique no bolo para escolher o peso.
+                            </p>
+
+                        </div>
+
+                    </aside>
+
+                </div>
+
+                <p class="bolo-observacao">
+                    Valores calculados por quilograma (kg).
+                    Frete não incluído.
+                </p>
+
+            </div>
+
+        </section>
+
+        <!-- =====================================
+             4. PEDIDO DE BOLOS
+        ====================================== -->
+
+        <section class="bolo-carrinho" id="bolo-carrinho">
+
+            <div class="bolo-container">
+
+                <h2>Meu Pedido de Bolos</h2>
+
+                <p id="bolo-carrinho-vazio">
+                    Seu pedido de bolos está vazio.
+                </p>
+
+                <div id="bolo-carrinho-itens"
+                     aria-live="polite">
+                </div>
+
+                <div class="bolo-carrinho-resumo">
+
+                    <span id="bolo-carrinho-qtd">
+                        0 kg
+                    </span>
+
+                    <strong id="bolo-carrinho-total">
+                        R$ 0,00
+                    </strong>
+
+                </div>
+
+                <p class="bolo-observacao">
+                    Subtotal estimado, sem frete.
+                </p>
+
+                <div class="bolo-carrinho-acoes">
+
+                    <a href="#bolo-sabores"
+                       class="bolo-botao">
+                        + Escolher mais bolos
+                    </a>
+
+                    <button type="button"
+                            id="bolo-limpar"
+                            class="bolo-botao">
+                        Limpar bolos
+                    </button>
+
+                    <button type="button"
+                            id="bolo-copiar"
+                            class="bolo-botao">
+                        Copiar resumo
+                    </button>
+
+                    <a href="../carrinho/carrinho.html"
+                       class="bolo-botao">
+                        Ver carrinho geral
+                    </a>
+
+                </div>
+
+                <p id="bolo-copiar-status" role="status"></p>
+
+            </div>
+
+        </section>
+
+        <!-- =====================================
+             5. ENCERRAMENTO
+        ====================================== -->
+
+        <section class="bolo-final">
+
+            <p>Uma experiência em cada fatia</p>
+
+            <h2>Feitos para adoçar seus momentos</h2>
+
+            <a href="../carrinho/carrinho.html"
+               class="bolo-botao">
+                Faça sua encomenda
+            </a>
+
+        </section>
+
+    </main>
+
+    <!-- =====================================
+         6. RODAPÉ
+    ====================================== -->
+
+    <footer class="bolo-rodape">
+
+        <h2>Rosita Doces Artesanais</h2>
+
+        <p>Uma experiência em cada garfada.</p>
+
+        <nav>
+            <a href="../inicio.html">Início</a>
+            <a href="bolo.html">Bolos</a>
+            <a href="../carrinho/carrinho.html">Meu Pedido</a>
+        </nav>
+
+        <small>© 2026 Rosita Doces Artesanais.</small>
+
+    </footer>
+
+    <!-- =====================================
+         7. JANELA DE SELEÇÃO DO PESO
+    ====================================== -->
+
+    <dialog class="bolo-modal" id="bolo-modal">
+
+        <div class="bolo-modal-corpo">
+
+            <button type="button"
+                    class="bolo-fechar"
+                    aria-label="Fechar janela">
+                ×
+            </button>
+
+            <div class="bolo-foto">
+
+                <img id="bolo-modal-foto"
+                     alt=""
+                     hidden>
+
+                <div class="bolo-sem-foto"
+                     id="bolo-sem-foto">
+                    <span>❦</span>
+                    <p>FOTO DO BOLO EM BREVE</p>
+                </div>
+
+            </div>
+
+            <div class="bolo-modal-info">
+
+                <p class="bolo-selo">
+                    ROSITA DOCES ARTESANAIS
+                </p>
+
+                <h2 id="bolo-modal-titulo">
+                    Bolo selecionado
+                </h2>
+
+                <div class="bolo-ornamento">
+                    ✦ ─── ❦ ─── ✦
+                </div>
+
+                <p>
+                    Preço por kg:
+                    <strong id="bolo-unitario">
+                        R$ 0,00
+                    </strong>
+                </p>
+
+                <label for="bolo-peso">
+                    Peso do bolo (kg)
+                </label>
+
+                <div class="bolo-quant-controles">
+
+                    <button type="button" id="bolo-menos">
+                        −
+                    </button>
+
+                    <input type="number"
+                           id="bolo-peso"
+                           min="0.5"
+                           max="50"
+                           step="0.5"
+                           value="1">
+
+                    <button type="button" id="bolo-mais">
+                        +
+                    </button>
+
+                </div>
+
+                <div class="bolo-total">
+
+                    <span>Subtotal estimado</span>
+
+                    <strong id="bolo-subtotal">
+                        R$ 0,00
+                    </strong>
+
+                </div>
+
+                <p class="bolo-nota">
+                    Valor calculado pelo peso.
+                    Frete não incluído.
+                </p>
+
+                <button type="button"
+                        id="bolo-adicionar"
+                        class="bolo-botao">
+                    + Adicionar ao pedido
+                </button>
+
+                <button type="button"
+                        id="bolo-outro-sabor"
+                        class="bolo-botao">
+                    ← Escolher outro bolo
+                </button>
+
+            </div>
+
+        </div>
+
+    </dialog>
+
+    <!-- =====================================
+         8. CARRINHO FLUTUANTE
+    ====================================== -->
+
+    <a href="../carrinho/carrinho.html"
+       class="carrinho-flutuante"
+       aria-label="Abrir carrinho geral"
+       title="Meu Carrinho">
+
+        <svg width="29"
+             height="29"
+             viewBox="0 0 24 24"
+             fill="none"
+             stroke="currentColor"
+             stroke-width="2"
+             stroke-linecap="round"
+             stroke-linejoin="round"
+             aria-hidden="true">
+
+            <circle cx="8" cy="21" r="1"></circle>
+            <circle cx="19" cy="21" r="1"></circle>
+            <path d="M2 2h2l2.4 12.4a2 2 0 0 0 2 1.6h9.8a2 2 0 0 0 2-1.6L22 6H5"></path>
+
+        </svg>
+
+        <span id="bolo-contador-flutuante">0</span>
+
+    </a>
+
+</body>
+</html>

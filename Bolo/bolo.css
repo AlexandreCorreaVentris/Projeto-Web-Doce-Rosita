@@ -1,0 +1,911 @@
+
+/* ==========================================
+   ROSITA DOCES ARTESANAIS
+   PÁGINA DE BOLOS
+========================================== */
+
+:root {
+    --vinho: #570b16;
+    --vinho-escuro: #35050e;
+    --dourado: #d4af37;
+    --dourado-claro: #f3ca70;
+    --creme: #fff7e9;
+}
+
+* {
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body.pagina-bolo {
+    margin: 0;
+    background: var(--creme);
+    color: var(--vinho);
+    font-family: "Cormorant Garamond", Georgia, serif;
+    font-size: 19px;
+}
+
+.pagina-bolo [hidden] {
+    display: none !important;
+}
+
+button,
+input {
+    font: inherit;
+}
+
+button {
+    cursor: pointer;
+}
+
+a {
+    text-decoration: none;
+}
+
+/* ==========================================
+   1. CABEÇALHO
+========================================== */
+
+.pagina-bolo .cabecalho {
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    height: 85px;
+    background: linear-gradient(
+        180deg,
+        #650e1b,
+        #400810
+    );
+    border-bottom: 2px solid var(--dourado);
+}
+
+.pagina-bolo .navegacao {
+    display: grid;
+    grid-template-columns: 1fr 1fr 175px 1fr 1fr;
+    align-items: center;
+    justify-items: center;
+    gap: 15px;
+    max-width: 1100px;
+    height: 100%;
+    padding: 0 20px;
+    margin: 0 auto;
+}
+
+.pagina-bolo .nav-botao {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 10px 17px;
+    background: transparent;
+    color: var(--dourado-claro);
+    border: 1px solid var(--dourado);
+    border-radius: 5px;
+    font-size: 15px;
+    font-weight: 700;
+    white-space: nowrap;
+}
+
+.pagina-bolo .nav-botao:hover {
+    background: #832033;
+}
+
+.pagina-bolo .marca {
+    position: relative;
+    width: 145px;
+    height: 85px;
+}
+
+/* ==========================================
+   2. MENUS SUSPENSOS
+========================================== */
+
+.pagina-bolo .dropdown {
+    position: relative;
+}
+
+.pagina-bolo .dropdown-conteudo {
+    display: none;
+    position: absolute;
+    top: 100%;
+    left: 50%;
+    transform: translateX(-50%);
+    min-width: 190px;
+    padding: 8px;
+    background: var(--vinho);
+    border: 1px solid var(--dourado);
+    border-radius: 7px;
+    z-index: 1100;
+    box-shadow: 0 12px 25px #0005;
+}
+
+.pagina-bolo .dropdown:hover .dropdown-conteudo,
+.pagina-bolo .dropdown:focus-within .dropdown-conteudo,
+.pagina-bolo .dropdown.aberto .dropdown-conteudo {
+    display: block;
+}
+
+.pagina-bolo .dropdown-conteudo a {
+    display: block;
+    padding: 10px 12px;
+    color: #f5dca6;
+    border-radius: 4px;
+}
+
+.pagina-bolo .dropdown-conteudo a:hover {
+    background: #842234;
+}
+
+/* ==========================================
+   3. BANNER
+========================================== */
+
+.pagina-bolo .bolo-abertura {
+    display: flex;
+    justify-content: center;
+    min-height: 490px;
+    background: linear-gradient(
+        110deg,
+        #410810,
+        #751524,
+        #410810
+    );
+    color: var(--dourado-claro);
+}
+
+.pagina-bolo .bolo-abertura-interior {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 35px 25px 45px;
+    text-align: center;
+}
+
+/* ==========================================
+   4. EMBLEMA ANIMADO
+========================================== */
+
+.pagina-bolo .bolo-marca-nome {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 205px;
+    margin: 0 auto 15px;
+}
+
+.pagina-bolo .bolo-logo-banner {
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 1200;
+    display: block;
+    width: 260px;
+    height: auto;
+    object-fit: contain;
+    pointer-events: none;
+    backface-visibility: hidden;
+    will-change: top, left, width;
+    filter: drop-shadow(
+        0 5px 8px rgba(0, 0, 0, 0.3)
+    );
+}
+
+
+/* ==========================================
+   BANNER DE BOLOS — ESTILO GELADINHOS
+========================================== */
+
+.pagina-bolo .bolo-abertura {
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    width: 100%;
+    min-height: 620px;
+
+    background-color: #570b16;
+    background-image: url("../imagens/Bolo Banner Festivo de Bolos Gourmet.png");
+    background-repeat: no-repeat;
+    background-position: center center;
+    background-size: 100% 100%;
+background-attachment: scroll;
+
+    color: #f3ca70;
+    overflow: hidden;
+}
+/* Espaço reservado para o emblema animado */
+
+.pagina-bolo .bolo-marca-nome {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    width: 100%;
+    height: 190px;
+
+    margin: 0 auto 5px;
+}
+
+/* Título Bolos Artesanais */
+
+.pagina-bolo .bolo-abertura h1 {
+    margin: 5px 0 8px;
+
+    font-family: "Great Vibes", cursive;
+    font-size: clamp(54px, 5vw, 76px);
+    font-weight: 400;
+    line-height: 1.05;
+
+    color: #f8d88b;
+}
+
+.pagina-bolo .bolo-abertura h1 strong {
+    display: block;
+
+    margin-top: 4px;
+
+    font-family: "Cormorant Garamond", Georgia, serif;
+    font-size: 0.76em;
+    font-weight: 600;
+
+    color: #f8d88b;
+}
+
+/* Ornamento dourado */
+
+.pagina-bolo .bolo-abertura .bolo-ornamento {
+    margin: 12px auto 8px;
+    color: #d4af37;
+}
+
+/* Frase principal */
+
+.pagina-bolo .bolo-frase {
+    max-width: 500px;
+    margin: 8px auto;
+
+    font-size: 24px;
+    line-height: 1.3;
+
+    color: #fff0d7;
+}
+
+/* Orientação ao cliente */
+
+.pagina-bolo .bolo-orientacao {
+    max-width: 490px;
+    margin: 8px auto 0;
+
+    font-size: 16px;
+    line-height: 1.45;
+
+    color: #eed9b9;
+}
+/* BANNER DE BOLOS — IMAGEM PANORÂMICA */
+
+.pagina-bolo .bolo-abertura {
+    position: relative;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    width: 100%;
+    min-height: 620px;
+
+    background-color: #570b16;
+    background-image: url("../imagens/Bolo Banner Festivo de Bolos Gourmet.png");
+    background-repeat: no-repeat;
+    background-position: center center;
+
+    /* Mostra toda a largura da fotografia */
+    background-size: 100% 100%;
+
+    /* Evita o zoom causado pelo fundo fixo */
+    background-attachment: scroll;
+
+    color: #f3ca70;
+    overflow: hidden;
+}
+
+/* ==========================================
+   AJUSTES PARA CELULAR
+========================================== */
+
+@media (max-width: 800px) {
+
+    .pagina-bolo .bolo-abertura {
+        min-height: 600px;
+        background-attachment: scroll;
+        background-position: center;
+    }
+
+    .pagina-bolo .bolo-abertura-interior {
+        min-height: 600px;
+        width: 100%;
+        max-width: 500px;
+        padding: 20px;
+    }
+
+    .pagina-bolo .bolo-marca-nome {
+        height: 175px;
+    }
+
+    .pagina-bolo .bolo-abertura h1 {
+        font-size: 56px;
+    }
+
+    .pagina-bolo .bolo-frase {
+        font-size: 21px;
+    }
+
+    .pagina-bolo .bolo-orientacao {
+        font-size: 15px;
+    }
+}
+
+/* ==========================================
+   6. CARDÁPIO
+========================================== */
+
+.pagina-bolo .bolo-cardapio {
+    padding: 65px 20px 75px;
+    background: linear-gradient(
+        #fff8ed,
+        #f5e5cc
+    );
+}
+
+.pagina-bolo .bolo-container {
+    max-width: 1050px;
+    margin: 0 auto;
+}
+
+.pagina-bolo .bolo-chamada {
+    margin: 0;
+    font-family: "Great Vibes", cursive;
+    font-size: 31px;
+    color: #a8752a;
+    text-align: center;
+}
+
+.pagina-bolo .bolo-cardapio h2,
+.pagina-bolo .bolo-carrinho h2 {
+    margin: 12px 0;
+    font-family: "Great Vibes", cursive;
+    font-size: 62px;
+    font-weight: 400;
+    color: #711020;
+    text-align: center;
+}
+
+/* ==========================================
+   7. LISTA DE BOLOS
+========================================== */
+
+.pagina-bolo .bolo-vitrine {
+    display: grid;
+    grid-template-columns:
+        minmax(0, 1.15fr)
+        minmax(0, 0.85fr);
+    align-items: start;
+    gap: 24px;
+    margin-top: 30px;
+}
+
+.pagina-bolo .bolo-lista {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.pagina-bolo .bolo-sabor {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    width: 100%;
+    min-height: 62px;
+    padding: 12px 17px;
+    background: #fffaf1;
+    color: #681324;
+    border: 1px solid var(--dourado);
+    border-radius: 8px;
+    text-align: left;
+    font-size: 21px;
+    font-weight: 600;
+    box-shadow: 0 5px 12px #460a1412;
+    transition: background 0.2s, transform 0.2s;
+}
+
+.pagina-bolo .bolo-sabor:hover,
+.pagina-bolo .bolo-sabor:focus-visible,
+.pagina-bolo .bolo-sabor.bolo-selecionado {
+    background: #f1dfbf;
+    transform: translateX(3px);
+}
+
+.pagina-bolo .bolo-sabor > span:first-child {
+    color: #b88c36;
+}
+
+.pagina-bolo .bolo-seta {
+    margin-left: auto;
+    color: #b88c36;
+    font-size: 25px;
+}
+
+/* ==========================================
+   8. PRÉVIA DA FOTOGRAFIA
+========================================== */
+
+.pagina-bolo .bolo-preview {
+    position: sticky;
+    top: 110px;
+    align-self: start;
+    border: 2px solid var(--dourado);
+    border-radius: 14px;
+    overflow: hidden;
+    background: var(--creme);
+    box-shadow: 0 12px 30px #41081228;
+}
+
+.pagina-bolo .bolo-preview-foto {
+    position: relative;
+    height: 280px;
+    background: linear-gradient(
+        135deg,
+        #35050e,
+        #75202d,
+        #400812
+    );
+}
+
+.pagina-bolo .bolo-preview-foto img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.pagina-bolo .bolo-preview-vazio {
+    position: absolute;
+    inset: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 25px;
+    color: #f0cc82;
+    text-align: center;
+}
+
+.pagina-bolo .bolo-preview-vazio span {
+    font-size: 50px;
+}
+
+.pagina-bolo .bolo-preview-texto {
+    padding: 28px 22px;
+    background: linear-gradient(
+        145deg,
+        #fffaf0,
+        #eed8b5
+    );
+    text-align: center;
+}
+
+.pagina-bolo .bolo-selo {
+    color: #800f25;
+    font-size: 17px;
+    font-weight: 700;
+    letter-spacing: 1px;
+}
+
+.pagina-bolo #bolo-preview-nome {
+    margin: 15px 0;
+    color: #800f25;
+    font-family: "Great Vibes", cursive;
+    font-size: 44px;
+    font-weight: 400;
+}
+
+.pagina-bolo #bolo-preview-preco {
+    font-size: 22px;
+    font-weight: 700;
+}
+
+.pagina-bolo .bolo-observacao {
+    margin-top: 30px;
+    text-align: center;
+    font-size: 16px;
+}
+
+/* ==========================================
+   9. CARRINHO
+========================================== */
+
+.pagina-bolo .bolo-carrinho {
+    padding: 65px 20px;
+    background: var(--creme);
+}
+
+.pagina-bolo #bolo-carrinho-vazio {
+    text-align: center;
+}
+
+.pagina-bolo #bolo-carrinho-itens {
+    max-width: 900px;
+    margin: 25px auto;
+}
+
+.pagina-bolo .bolo-carrinho-linha {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 15px;
+    padding: 14px;
+    margin-bottom: 10px;
+    background: #fffaf1;
+    border: 1px solid var(--dourado);
+    border-radius: 8px;
+}
+
+.pagina-bolo .bolo-carrinho-controles {
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 9px;
+}
+
+.pagina-bolo .bolo-carrinho-controles button {
+    padding: 6px 10px;
+    border: 1px solid var(--dourado);
+    border-radius: 5px;
+    background: #f6e6ca;
+    color: var(--vinho);
+}
+
+.pagina-bolo .bolo-carrinho-resumo {
+    display: flex;
+    justify-content: space-between;
+    gap: 15px;
+    max-width: 900px;
+    padding: 18px 10px;
+    margin: 20px auto;
+    border-top: 2px solid var(--dourado);
+    font-size: 24px;
+    font-weight: 700;
+}
+
+.pagina-bolo .bolo-carrinho-acoes {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 12px;
+}
+
+.pagina-bolo .bolo-botao {
+    display: inline-block;
+    padding: 12px 18px;
+    background: #650e1b;
+    border: 1px solid var(--dourado);
+    border-radius: 6px;
+    color: #fff1d8;
+    text-align: center;
+    font-size: 17px;
+    font-weight: 700;
+    cursor: pointer;
+}
+
+.pagina-bolo .bolo-botao:hover {
+    background: #872134;
+}
+
+.pagina-bolo #bolo-copiar-status {
+    text-align: center;
+}
+
+/* ==========================================
+   10. ENCERRAMENTO E RODAPÉ
+========================================== */
+
+.pagina-bolo .bolo-final {
+    padding: 65px 20px;
+    background: linear-gradient(
+        135deg,
+        #35050e,
+        #650e1b
+    );
+    color: #f3ca70;
+    text-align: center;
+}
+
+.pagina-bolo .bolo-final h2 {
+    font-family: "Great Vibes", cursive;
+    font-size: 52px;
+    font-weight: 400;
+}
+
+.pagina-bolo .bolo-rodape {
+    padding: 35px 20px;
+    background: #400810;
+    color: #f3ca70;
+    text-align: center;
+}
+
+.pagina-bolo .bolo-rodape h2 {
+    margin: 0;
+    font-family: "Great Vibes", cursive;
+    font-size: 38px;
+    font-weight: 400;
+}
+
+.pagina-bolo .bolo-rodape nav {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 20px;
+    margin: 20px 0;
+}
+
+.pagina-bolo .bolo-rodape a {
+    color: #f3ca70;
+}
+
+/* ==========================================
+   11. JANELA DE SELEÇÃO DO PESO
+========================================== */
+
+.pagina-bolo .bolo-modal {
+    width: min(780px, 94vw);
+    max-height: 90vh;
+    padding: 0;
+    border: 2px solid var(--dourado);
+    border-radius: 14px;
+    background: var(--creme);
+    color: #650e1b;
+}
+
+.pagina-bolo .bolo-modal::backdrop {
+    background: #140005bf;
+}
+
+.pagina-bolo .bolo-modal-corpo {
+    position: relative;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+}
+
+.pagina-bolo .bolo-fechar {
+    position: absolute;
+    top: 10px;
+    right: 12px;
+    z-index: 5;
+    border: none;
+    background: transparent;
+    color: #650e1b;
+    font-size: 35px;
+}
+
+.pagina-bolo .bolo-foto {
+    min-height: 380px;
+    background: linear-gradient(
+        135deg,
+        #35050e,
+        #751d2c
+    );
+}
+
+.pagina-bolo .bolo-foto img {
+    width: 100%;
+    height: 100%;
+    min-height: 380px;
+    object-fit: cover;
+}
+
+.pagina-bolo .bolo-sem-foto {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    min-height: 380px;
+    color: #f3ca70;
+    text-align: center;
+}
+
+.pagina-bolo .bolo-sem-foto span {
+    font-size: 50px;
+}
+
+.pagina-bolo .bolo-modal-info {
+    padding: 35px 25px;
+    text-align: center;
+}
+
+.pagina-bolo .bolo-modal-info h2 {
+    font-family: "Great Vibes", cursive;
+    font-size: 40px;
+    font-weight: 400;
+}
+
+.pagina-bolo .bolo-quant-controles {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 12px;
+    margin: 15px 0;
+}
+
+.pagina-bolo .bolo-quant-controles button {
+    width: 42px;
+    height: 42px;
+    border: 1px solid var(--dourado);
+    border-radius: 5px;
+    background: #f6e6ca;
+}
+
+.pagina-bolo #bolo-peso {
+    width: 90px;
+    padding: 8px;
+    text-align: center;
+    border: 1px solid var(--dourado);
+    border-radius: 5px;
+}
+
+.pagina-bolo .bolo-total {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    margin: 25px 0;
+    padding: 15px;
+    border-top: 1px solid var(--dourado);
+    border-bottom: 1px solid var(--dourado);
+}
+
+.pagina-bolo #bolo-subtotal {
+    font-size: 28px;
+}
+
+.pagina-bolo .bolo-modal-info .bolo-botao {
+    width: 100%;
+    margin-top: 10px;
+}
+
+.pagina-bolo .bolo-nota {
+    font-size: 15px;
+}
+
+/* ==========================================
+   12. CARRINHO FLUTUANTE
+========================================== */
+
+.pagina-bolo .carrinho-flutuante {
+    position: fixed;
+    right: 25px;
+    bottom: 25px;
+    z-index: 1300;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 65px;
+    height: 65px;
+    background: var(--vinho);
+    color: var(--dourado-claro);
+    border: 2px solid var(--dourado);
+    border-radius: 50%;
+    box-shadow: 0 5px 20px #0005;
+}
+
+.pagina-bolo #bolo-contador-flutuante {
+    position: absolute;
+    top: -7px;
+    right: -7px;
+    min-width: 25px;
+    padding: 3px 6px;
+    border-radius: 20px;
+    background: var(--dourado);
+    color: var(--vinho-escuro);
+    font-family: Arial, sans-serif;
+    font-size: 13px;
+    font-weight: bold;
+    text-align: center;
+}
+
+/* ORNAMENTO CENTRALIZADO — NOSSOS BOLOS */
+
+.pagina-bolo .bolo-cardapio .bolo-ornamento {
+    display: block;
+    width: fit-content;
+    max-width: 100%;
+    margin: 15px auto 30px;
+    text-align: center;
+    color: #800f25;
+}
+
+/* ==========================================
+   13. CELULAR E TABLET
+========================================== */
+
+@media (max-width: 800px) {
+
+    .pagina-bolo .cabecalho {
+        height: auto;
+        min-height: 85px;
+    }
+
+    .pagina-bolo .navegacao {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 8px;
+        padding: 10px;
+    }
+
+    .pagina-bolo .nav-botao {
+        padding: 8px 10px;
+        font-size: 12px;
+    }
+
+    .pagina-bolo .marca {
+        width: 90px;
+        height: 65px;
+    }
+
+    .pagina-bolo .bolo-vitrine {
+        grid-template-columns: 1fr;
+    }
+
+    .pagina-bolo .bolo-preview {
+        position: relative;
+        top: auto;
+    }
+
+    .pagina-bolo .bolo-modal-corpo {
+        grid-template-columns: 1fr;
+    }
+
+    .pagina-bolo .bolo-foto,
+    .pagina-bolo .bolo-foto img,
+    .pagina-bolo .bolo-sem-foto {
+        min-height: 210px;
+        max-height: 250px;
+    }
+
+    .pagina-bolo .bolo-modal-info {
+        padding: 20px;
+    }
+
+    .pagina-bolo .bolo-cardapio h2,
+    .pagina-bolo .bolo-carrinho h2 {
+        font-size: 48px;
+    }
+
+    .pagina-bolo .bolo-carrinho-resumo {
+        font-size: 20px;
+    }
+
+    .pagina-bolo .carrinho-flutuante {
+        right: 15px;
+        bottom: 15px;
+    }
+}
+/* FOTOGRAFIAS DOS BOLOS */
+
+.pagina-bolo .bolo-preview-foto img {
+    display: block;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center;
+}
+
+.pagina-bolo .bolo-foto img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center;
+}
