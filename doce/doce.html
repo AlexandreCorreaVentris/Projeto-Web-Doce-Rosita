@@ -1,0 +1,551 @@
+
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <meta name="description"
+          content="Doces Gourmet da Rosita Doces Artesanais">
+
+    <title>Doces Gourmet | Rosita Doces Artesanais</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+    <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Cormorant+Garamond:wght@400;500;600;700&display=swap"
+          rel="stylesheet">
+
+    <link rel="stylesheet" href="doce.css">
+
+    <script src="../carrinho/carrinho.js" defer></script>
+    <script src="doce.js" defer></script>
+</head>
+
+<body class="pagina-doce">
+
+    <!-- =========================================
+         CABEÇALHO
+    ========================================== -->
+
+    <header class="cabecalho">
+
+        <nav class="navegacao" aria-label="Navegação principal">
+
+            <a href="../inicio.html" class="nav-botao">
+                INÍCIO
+            </a>
+
+            <div class="dropdown">
+                <button type="button"
+                        class="nav-botao dropdown-botao"
+                        aria-expanded="false">
+                    MENU ▾
+                </button>
+
+                <div class="dropdown-conteudo">
+                    <a href="../Bolo/bolo.html">Bolos</a>
+                    <a href="doce.html">Doces</a>
+                    <a href="../geladinho/geladinho.html">Geladinhos</a>
+                    <a href="../salgado/salgado.html">Salgados</a>
+                </div>
+            </div>
+
+            <!-- DESTINO DO LOGOTIPO ANIMADO -->
+            <div class="marca"
+                 id="espaco-logo"
+                 aria-hidden="true"></div>
+
+            <div class="dropdown">
+                <button type="button"
+                        class="nav-botao dropdown-botao"
+                        aria-expanded="false">
+                    ENCOMENDAS ▾
+                </button>
+
+                <div class="dropdown-conteudo">
+                    <a href="#doce-carrinho">Meu Pedido</a>
+                    <a href="../carrinho/carrinho.html">Carrinho Geral</a>
+                    <a href="../inicio.html">Contato</a>
+                </div>
+            </div>
+
+            <div class="dropdown">
+                <button type="button"
+                        class="nav-botao dropdown-botao"
+                        aria-expanded="false">
+                    QUEM SOMOS ▾
+                </button>
+
+                <div class="dropdown-conteudo">
+                    <a href="../inicio.html">Nossa História</a>
+                    <a href="../inicio.html">Contato</a>
+                </div>
+            </div>
+
+        </nav>
+
+    </header>
+
+    <main>
+
+        <!-- =========================================
+             BANNER DOS DOCES
+        ========================================== -->
+
+        <section class="doce-abertura">
+
+            <div class="doce-abertura-interior">
+
+                <!-- ORIGEM DO LOGOTIPO ANIMADO -->
+                <div class="doce-marca-nome" id="origem-logo">
+
+                    <img
+                        src="../imagens/Emblema Rosita Doces Artesanais copy.png"
+                        alt="Rosita Doces Artesanais"
+                        class="doce-logo-banner"
+                        id="logo-animada">
+
+                </div>
+
+                <p class="doce-subtitulo">
+                    DOCES ESPECIAIS
+                </p>
+
+                <h1 class="doce-titulo">
+                    Doces
+                </h1>
+
+                <p class="doce-frase">
+                    Pequenas delícias preparadas artesanalmente
+                    para proporcionar momentos de prazer e alegria.
+                </p>
+
+                <div class="doce-ornamento" aria-hidden="true">
+                    ✦ ───── ❦ ───── ✦
+                </div>
+
+                <p class="doce-orientacao">
+                    Passe o mouse para visualizar a fotografia;
+                    clique ou toque para escolher a quantidade
+                    e simular o valor.
+                </p>
+
+            </div>
+
+        </section>
+
+        <!-- =========================================
+             CARDÁPIO
+        ========================================== -->
+
+        <section class="doce-cardapio"
+                 aria-labelledby="doce-sabores">
+
+            <div class="doce-container">
+
+                <p class="doce-chamada">
+                    Pequenas delícias feitas com carinho
+                </p>
+
+                <h2 id="doce-sabores">
+                    Nossos Doces
+                </h2>
+
+                <div class="doce-ornamento" aria-hidden="true">
+                    ✦ ───── ❦ ───── ✦
+                </div>
+
+                <div class="doce-vitrine">
+
+                    <div class="doce-lista">
+
+                        <button type="button" class="doce-sabor"
+                            data-nome="Brigadeiro"
+                            data-preco="10"
+                            data-detalhe="5 unidades · 100 g"
+                            data-foto="../imagens/Doce Brigadeiros de Chocolate em Prato Dourado.png">
+                            <span>✦</span>
+                            <span>Brigadeiro
+                                <small>5 unidades · 100 g</small>
+                            </span>
+                            <span>›</span>
+                        </button>
+
+                        <button type="button" class="doce-sabor"
+                            data-nome="Beijinho"
+                            data-preco="10"
+                            data-detalhe="5 unidades · 100 g"
+                            data-foto="../imagens/Doce Beijinhos de coco em prato dourado.png">
+                            <span>✦</span>
+                            <span>Beijinho
+                                <small>5 unidades · 100 g</small>
+                            </span>
+                            <span>›</span>
+                        </button>
+
+                        <button type="button" class="doce-sabor"
+                            data-nome="Brigadeiro amargo"
+                            data-preco="12"
+                            data-detalhe="5 unidades · 100 g"
+                            data-foto="../imagens/Doce Brigadeiros de Chocolate Amargo Luxuosos.png">
+                            <span>✦</span>
+                            <span>Brigadeiro amargo
+                                <small>5 unidades · 100 g</small>
+                            </span>
+                            <span>›</span>
+                        </button>
+
+                        <button type="button" class="doce-sabor"
+                            data-nome="Morango do Amor"
+                            data-preco="20"
+                            data-detalhe="1 unidade · 100 g"
+                            data-foto="../imagens/Doce Morangos do Amor com Recheio Cremoso.png">
+                            <span>✦</span>
+                            <span>Morango do Amor
+                                <small>1 unidade · 100 g</small>
+                            </span>
+                            <span>›</span>
+                        </button>
+
+                        <button type="button" class="doce-sabor"
+                            data-nome="Delícia de Natal"
+                            data-preco="15"
+                            data-detalhe="1 unidade · 125 g"
+                            data-foto="../imagens/Doce Trufa Árvore de Natal Dourada.png">
+                            <span>✦</span>
+                            <span>Delícia de Natal
+                                <small>1 unidade · 125 g</small>
+                            </span>
+                            <span>›</span>
+                        </button>
+
+                        <button type="button" class="doce-sabor"
+                            data-nome="Cajuzinho"
+                            data-preco="12"
+                            data-detalhe="5 unidades · 100 g"
+                            data-foto="../imagens/Doce Cajuzinhos de Amendoim em Destaque.png">
+                            <span>✦</span>
+                            <span>Cajuzinho
+                                <small>5 unidades · 100 g</small>
+                            </span>
+                            <span>›</span>
+                        </button>
+
+                        <button type="button" class="doce-sabor"
+                            data-nome="Brigadeiro de Amendoim"
+                            data-preco="10"
+                            data-detalhe="5 unidades · 100 g"
+                            data-foto="../imagens/Doce Brigadeiros de amendoim com chocolate.png">
+                            <span>✦</span>
+                            <span>Brigadeiro de Amendoim
+                                <small>5 unidades · 100 g</small>
+                            </span>
+                            <span>›</span>
+                        </button>
+
+                        <button type="button" class="doce-sabor"
+                            data-nome="Bolo de Pote de Chocolate com Morango"
+                            data-preco="20"
+                            data-detalhe="1 unidade · 150 g"
+                            data-foto="../imagens/Doce Bolo de Pote de Chocolate e Morango.png">
+                            <span>✦</span>
+                            <span>Bolo de Pote de Chocolate com Morango
+                                <small>1 unidade · 150 g</small>
+                            </span>
+                            <span>›</span>
+                        </button>
+
+                        <button type="button" class="doce-sabor"
+                            data-nome="Bolo de Pote de Abacaxi"
+                            data-preco="20"
+                            data-detalhe="1 unidade · 150 g"
+                            data-foto="../imagens/Doce Bolo de Pote Trifle tropical de abacaxi com coco.png">
+                            <span>✦</span>
+                            <span>Bolo de Pote de Abacaxi
+                                <small>1 unidade · 150 g</small>
+                            </span>
+                            <span>›</span>
+                        </button>
+
+                        <button type="button" class="doce-sabor"
+                            data-nome="Bolo de Pote de Ninho com Nutella"
+                            data-preco="20"
+                            data-detalhe="1 unidade · 150 g"
+                            data-foto="../imagens/Doce Taças de Sobremesa em Camadas Cremosas.png">
+                            <span>✦</span>
+                            <span>Bolo de Pote de Ninho com Nutella
+                                <small>1 unidade · 150 g</small>
+                            </span>
+                            <span>›</span>
+                        </button>
+
+                        <button type="button" class="doce-sabor"
+                            data-nome="Bolo de Pote de Maracujá"
+                            data-preco="20"
+                            data-detalhe="1 unidade · 150 g"
+                            data-foto="../imagens/Doce Sobremesa de maracujá em camadas.png">
+                            <span>✦</span>
+                            <span>Bolo de Pote de Maracujá
+                                <small>1 unidade · 150 g</small>
+                            </span>
+                            <span>›</span>
+                        </button>
+
+                    </div>
+
+                    <!-- PRÉVIA DAS FOTOGRAFIAS -->
+                    <aside class="doce-preview">
+
+                        <div class="doce-preview-foto">
+                            <img id="doce-preview-img"
+                                 alt=""
+                                 hidden>
+
+                            <div id="doce-preview-vazio"
+                                 class="doce-preview-vazio">
+                                ❦
+                                <p>Fotografia do doce</p>
+                            </div>
+                        </div>
+
+                        <div class="doce-preview-texto">
+                            <p class="doce-selo">
+                                UM DOCE ESPECIAL
+                            </p>
+
+                            <h3 id="doce-preview-nome">
+                                Escolha um doce
+                            </h3>
+
+                            <p id="doce-preview-preco">
+                                Selecione uma opção
+                            </p>
+
+                            <p class="doce-preview-ajuda">
+                                Clique para escolher a quantidade.
+                            </p>
+                        </div>
+
+                    </aside>
+
+                </div>
+
+                <p class="doce-observacao">
+                    Valores por embalagem. Frete não incluído.
+                </p>
+
+            </div>
+
+        </section>
+
+        <!-- =========================================
+             CARRINHO DE DOCES
+        ========================================== -->
+
+        <section class="doce-carrinho" id="doce-carrinho">
+
+            <div class="doce-container">
+
+                <h2>Meu Pedido</h2>
+
+                <p id="doce-carrinho-vazio">
+                    Seu pedido está vazio.
+                    Escolha um doce para começar.
+                </p>
+
+                <div id="doce-carrinho-itens"
+                     aria-live="polite"></div>
+
+                <div class="doce-carrinho-resumo">
+                    <span id="doce-carrinho-qtd">
+                        0 embalagens
+                    </span>
+
+                    <strong id="doce-carrinho-total">
+                        R$ 0,00
+                    </strong>
+                </div>
+
+                <p class="doce-carrinho-aviso">
+                    Simulação de valores, sem frete.
+                </p>
+
+                <div class="doce-carrinho-acoes">
+
+                    <a href="#doce-sabores"
+                       class="doce-carrinho-botao">
+                        + Escolher mais doces
+                    </a>
+
+                    <button type="button"
+                            id="doce-limpar"
+                            class="doce-carrinho-limpar">
+                        Limpar doces
+                    </button>
+
+                    <button type="button"
+                            id="doce-copiar"
+                            class="doce-carrinho-botao">
+                        Copiar resumo
+                    </button>
+
+                    <a href="../carrinho/carrinho.html"
+                       class="doce-carrinho-botao">
+                        Ver carrinho geral
+                    </a>
+
+                </div>
+
+                <p id="doce-copiar-status"
+                   role="status"></p>
+
+            </div>
+
+        </section>
+
+        <!-- =========================================
+             ENCERRAMENTO
+        ========================================== -->
+
+        <section class="doce-final">
+            <p>Uma experiência em cada doce</p>
+
+            <h2>
+                Pequenos prazeres, grandes emoções
+            </h2>
+
+            <a href="../inicio.html"
+               class="doce-encomendar">
+                Faça sua encomenda
+            </a>
+        </section>
+
+    </main>
+
+    <!-- =========================================
+         RODAPÉ
+    ========================================== -->
+
+    <footer class="doce-rodape">
+
+        <h2>Rosita Doces Artesanais</h2>
+
+        <p>Uma experiência em cada doce.</p>
+
+        <nav aria-label="Links do rodapé">
+            <a href="../inicio.html">Início</a>
+            <a href="doce.html">Doces</a>
+            <a href="#doce-carrinho">Meu Pedido</a>
+        </nav>
+
+        <small>© 2026 Rosita Doces Artesanais.</small>
+
+    </footer>
+
+    <!-- =========================================
+         JANELA DE ESCOLHA
+    ========================================== -->
+
+    <dialog class="doce-modal" id="doce-modal">
+
+        <div class="doce-modal-corpo">
+
+            <button type="button"
+                    class="doce-fechar"
+                    aria-label="Fechar">
+                ×
+            </button>
+
+            <div class="doce-foto">
+
+                <img id="doce-modal-foto"
+                     alt=""
+                     hidden>
+
+                <div class="doce-sem-foto"
+                     id="doce-sem-foto">
+                    ❦
+                    <p>Fotografia do doce</p>
+                </div>
+
+            </div>
+
+            <div class="doce-modal-info">
+
+                <p class="doce-selo">
+                    ROSITA DOCES ARTESANAIS
+                </p>
+
+                <h2 id="doce-modal-titulo">
+                    Doce selecionado
+                </h2>
+
+                <div class="doce-ornamento">
+                    ✦ ─── ❦ ─── ✦
+                </div>
+
+                <p id="doce-modal-detalhe"></p>
+
+                <p class="doce-preco">
+                    Preço por embalagem:
+                    <strong id="doce-unitario">
+                        R$ 0,00
+                    </strong>
+                </p>
+
+                <label for="doce-quantidade">
+                    Quantidade de embalagens
+                </label>
+
+                <div class="doce-controle-quantidade">
+
+                    <button type="button"
+                            id="doce-menos"
+                            aria-label="Diminuir quantidade">
+                        −
+                    </button>
+
+                    <input type="number"
+                           id="doce-quantidade"
+                           min="1"
+                           max="999"
+                           step="1"
+                           value="1">
+
+                    <button type="button"
+                            id="doce-mais"
+                            aria-label="Aumentar quantidade">
+                        +
+                    </button>
+
+                </div>
+
+                <p class="doce-subtotal">
+                    Subtotal:
+                    <strong id="doce-subtotal">
+                        R$ 0,00
+                    </strong>
+                </p>
+
+                <button type="button"
+                        id="doce-adicionar"
+                        class="doce-adicionar">
+                    Adicionar ao pedido
+                </button>
+
+                <button type="button"
+                        id="doce-outro-sabor"
+                        class="doce-outro-sabor">
+                    Escolher outro doce
+                </button>
+
+            </div>
+
+        </div>
+
+    </dialog>
+
+</body>
+</html>
