@@ -332,53 +332,50 @@ document.addEventListener("DOMContentLoaded", function () {
     });
 
 
-    /* ======================================================
-       5. MINIATURAS — NAVEGAR ATÉ OS PRODUTOS
+   /* ======================================================
+   5. MINIATURAS — NAVEGAÇÃO
     ====================================================== */
 
     const destinos = [
-
-        "inicio",             // 1. Abertura
-        "secao-bolos",       // 2. Bolos
-        "secao-geladinhos",  // 3. Geladinhos
-        "secao-doces",       // 4. Doces
-        "secao-salgados",    // 5. Salgados
-        "secao-historia",    // 6. Nossa História
-        "secao-encomendas"   // 7. Encomendas
+        "#produtos",                   // 1. Abertura
+        "#secao-bolos",               // 2. Bolos
+        "#secao-geladinhos",          // 3. Geladinhos
+        "#secao-doces",               // 4. Doces
+        "#secao-salgados",            // 5. Salgados
+        "#secao-historia",            // 6. Nossa História
+        "carrinho/carrinho.html"      // 7. Encomendas
     ];
 
     miniaturasRosita.forEach(function (miniatura, indice) {
 
         miniatura.addEventListener("click", function (evento) {
 
-            // Impede que outro evento de clique
-            // interfira na navegação da miniatura.
             evento.stopImmediatePropagation();
 
-            // A última miniatura abre a página de contato.
-            if (indice === 6) {
+            const destino = destinos[indice];
 
-                window.location.href = "contato.html";
+            if (!destino) return;
 
-                return;
+            if (destino.startsWith("#")) {
+
+                const secao = document.querySelector(destino);
+
+                if (secao) {
+                    secao.scrollIntoView({
+                        behavior: "smooth",
+                        block: "start"
+                    });
             }
 
-            const destino = document.getElementById(
-                destinos[indice]
-            );
+        } else {
 
-            if (destino) {
+            window.location.href = destino;
 
-                destino.scrollIntoView({
+        }
 
-                    behavior: "smooth",
-                    block: "start"
+    }, true);
 
-                });
-            }
-        }, true);
-    });
-
+});
     /* ======================================================
        6. CABEÇALHO E LOGO — SEM TREMOR
     ====================================================== */

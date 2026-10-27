@@ -679,6 +679,27 @@ document.addEventListener("DOMContentLoaded", function () {
         carrinhoTotal.textContent =
             moeda.format(valorTotal);
 
+            // Atualiza o contador do carrinho flutuante
+        const contadorFlutuante =
+        document.getElementById("doce-contador-flutuante");
+
+        if (contadorFlutuante) {
+            const produtosGerais = sistemaCompartilhado
+            ? sistemaCompartilhado.carregar()
+            : [];
+
+            const quantidadeOutrasCategorias = produtosGerais
+            .filter(produto => produto.categoria !== "Doces")
+            .reduce(
+            (total, produto) =>
+                total + (Number(produto.quantidade) || 0),
+            0
+        );
+
+    contadorFlutuante.textContent =
+        quantidadeTotal + quantidadeOutrasCategorias;
+}
+
         if (salvar) {
             salvarCarrinhoCompartilhado();
         }

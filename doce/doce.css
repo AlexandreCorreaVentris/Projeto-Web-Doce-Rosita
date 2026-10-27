@@ -833,3 +833,55 @@ button {
         align-items: flex-start;
     }
 }
+/* CARRINHO FLUTUANTE — DOCES */
+
+.doce-carrinho-flutuante {
+    position: fixed;
+    right: 22px;
+    bottom: 22px;
+    width: 65px;
+    height: 65px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    background: #500714;
+    color: #f5d58a;
+    border: 2px solid #d9ad48;
+    border-radius: 50%;
+
+    text-decoration: none;
+    box-shadow: 0 5px 18px #0005;
+    z-index: 2000;
+}
+
+.doce-carrinho-icone {
+    font-size: 29px;
+}
+
+.doce-carrinho-contador {
+    position: absolute;
+    top: -8px;
+    right: -8px;
+
+    min-width: 25px;
+    height: 25px;
+    padding: 0 5px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    background: #d9ad48;
+    color: #31030c;
+    border-radius: 50%;
+
+    font-size: 13px;
+    font-weight: bold;
+}
+
+.doce-carrinho-flutuante:hover {
+    background: #82162a;
+    transform: scale(1.06);
+}
